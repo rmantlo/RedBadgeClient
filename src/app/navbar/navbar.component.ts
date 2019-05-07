@@ -11,5 +11,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   }
+  loginToggle() {
+
+  }
+  signupToggle() {
+
+  }
 
 }
