@@ -3,6 +3,7 @@
     <button (click)='loginToggle()'>X</button>
   </div>
   <form [formGroup]='login' (ngSubmit)='onSubmit()'>
+    <h2>Login</h2>
     <label>Username: </label>
     <input formControlName='username' type='text' required><br>
     <label>Password: </label>
