@@ -11,3 +11,9 @@
     <button (click)='signupToggle()'>Sign up</button>
   </div>
 </mat-toolbar>
+<div *ngIf='login'>
+  <app-login></app-login>
+</div>
+<div *ngIf='signup'>
+  <app-signup></app-signup>
+</div>

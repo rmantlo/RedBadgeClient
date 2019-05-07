@@ -1,3 +1,12 @@
-<p>
-  login works!
-</p>
+<div>
+  <div>
+    <button (click)='loginToggle()'>X</button>
+  </div>
+  <form [formGroup]='login' (ngSubmit)='onSubmit()'>
+    <label>Username: </label>
+    <input formControlName='username' type='text' required><br>
+    <label>Password: </label>
+    <input formControlName='password' type='password' required>
+    <button type='submit'>Login</button>
+  </form>
+</div>
