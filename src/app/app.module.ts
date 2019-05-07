@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule} from './material'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +16,7 @@ import { LoginComponent } from './navbar/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { EventpageComponent } from './eventpage/eventpage.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +26,18 @@ import { ProfilepageComponent } from './profilepage/profilepage.component';
     LoginComponent,
     HomeComponent,
     EventpageComponent,
-    ProfilepageComponent
+    ProfilepageComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MaterialModule
+    // MatJumbotronModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
