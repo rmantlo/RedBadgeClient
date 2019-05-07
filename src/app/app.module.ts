@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { MaterialModule} from './material'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,6 +34,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatToolbarModule,
     BrowserAnimationsModule,
