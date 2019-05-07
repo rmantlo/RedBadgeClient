@@ -1,11 +1,20 @@
 <mat-toolbar>
-  <span><h1>Logo</h1></span>
+  <span>
+    <h1>Logo</h1>
+  </span>
   <span class="example-fill-remaining-space"></span>
   <div>
     <a routerLink='/'>Home</a>
     <a routerLink='/events'>Events</a>
     <a routerLink='/profile'>Profile</a>
-    <button>Login</button>
-    <button>Sign up</button>
+    <button (click)='loginToggle()'>Login</button>
+    <button (click)='signupToggle()'>Sign up</button>
+    <button (click)='logout()'>Logout</button>
   </div>
 </mat-toolbar>
+<div *ngIf='login'>
+  <app-login></app-login>
+</div>
+<div *ngIf='signup'>
+  <app-signup></app-signup>
+</div>
