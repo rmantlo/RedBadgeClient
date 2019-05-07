@@ -26,5 +26,9 @@ export class NavbarComponent implements OnInit {
   logout(){
     localStorage.clear();
   }
+  toggle(){
+    this.signup = false;
+    this.login = false;
+  }
 
 }
