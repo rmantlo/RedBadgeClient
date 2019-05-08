@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MatToolbarModule, MatTabsModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
@@ -38,8 +37,6 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatToolbarModule,
-    MatTabsModule,
     BrowserAnimationsModule,
     MaterialModule,
     JwtModule.forRoot({
@@ -50,7 +47,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
         whitelistedDomains: ['http://localhost:3000', 'http://localhost:3000/events','http://localhost:3000/profile'],
         blacklistedRoutes: ['http://localhost:3000/home']
       }
-    })
+    }),
     // MatJumbotronModule.forRoot()
   ],
   providers: [],

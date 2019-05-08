@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -11,14 +11,26 @@ export class SignupComponent implements OnInit {
   signup: FormGroup;
   token: any;
 
-  constructor(private formBuild: FormBuilder, private userService: UserService) { }
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+
+  constructor(private formBuild: FormBuilder, private userService: UserService, private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.signup = this.formBuild.group({
       username: new FormControl(),
       email: new FormControl(),
       password: new FormControl()
-    })
+    });
+    this.firstFormGroup = this._formBuilder.group({
+      username: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      image: '',
+    });
   }
   @Output() onSignupToggle = new EventEmitter<any>();
 
@@ -33,7 +45,7 @@ export class SignupComponent implements OnInit {
       }
     )
   }
-  signupToggle(){
+  signupToggle() {
     this.onSignupToggle.emit();
   }
 
