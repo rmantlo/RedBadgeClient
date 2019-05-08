@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MatToolbarModule, MatTabsModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
@@ -21,8 +20,13 @@ import { HomeComponent } from './home/home.component';
 import { EventpageComponent } from './eventpage/eventpage.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+
+import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.component';
+import { CalendarComponent } from './profilepage/calendar/calendar.component';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +39,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     ProfilepageComponent,
     PagenotfoundComponent,
     MainNavComponent
+
+    DeleteAlertComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +49,6 @@ import { LayoutModule } from '@angular/cdk/layout';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatToolbarModule,
-    MatTabsModule,
     BrowserAnimationsModule,
     MaterialModule,
     FontAwesomeModule,
@@ -56,11 +61,12 @@ import { LayoutModule } from '@angular/cdk/layout';
         blacklistedRoutes: ['http://localhost:3000/home']
       }
     }),
+
     LayoutModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
     // MatJumbotronModule.forRoot()
   ],
   providers: [],

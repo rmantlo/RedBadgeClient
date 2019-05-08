@@ -1,4 +1,6 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '../node_modules/angular-calendar/css/angular-calendar.css';
+
 
 
 html, body {
@@ -10,5 +12,4 @@ html, body {
 /* margin must be 0 for collapsable sidebar to work correctly */
 body {
     margin: 0
-    
 }
