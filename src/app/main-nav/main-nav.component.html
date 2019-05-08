@@ -24,24 +24,24 @@
       <span class="spacer"></span>
 
       <!-- Add icons here <a href="#">Another link?</a>-->
-<div>
-      <a href="#">
-        <fa-icon class="fas fa-home" ></fa-icon>
-        <span class="label">Home</span>
-      </a>
-      <a href="#">
-        <fa-icon class="fas fa-sign-in-alt" (click)='loginToggle()'></fa-icon>
-        <span class="label">LogIn</span>
-      </a>
-      <a href="#">
-        <fa-icon class="fas fa-sign-out-alt" (click)='logout()'></fa-icon>
-        <span class="label">LogOut</span>
-      </a>
-      <a href="#">
-        <fa-icon class="fas fa-user-plus" (click)='signupToggle()'></fa-icon>
-        <span class="label"> SignUp</span>
-      </a>
-    </div>
+      <div>
+        <a routerLink='/home'>
+          <fa-icon class="fas fa-home"></fa-icon>
+          <span class="label">Home</span>
+        </a>
+        <a (click)='loginToggle()'>
+          <fa-icon class="fas fa-sign-in-alt"></fa-icon>
+          <span class="label">LogIn</span>
+        </a>
+        <a (click)='signupToggle()'>
+          <fa-icon class="fas fa-user-plus"></fa-icon>
+          <span class="label"> SignUp</span>
+        </a>
+        <a (click)='logout()'>
+          <fa-icon class="fas fa-sign-out-alt"></fa-icon>
+          <span class="label">LogOut</span>
+        </a>
+      </div>
 
       <!-- <button (click)='loginToggle()'>Login</button>
     <button (click)='signupToggle()'>Sign up</button> -->

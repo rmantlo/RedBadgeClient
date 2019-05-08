@@ -9,12 +9,32 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
+  login: boolean = false;
+  signup: boolean = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) { }
+
+  loginToggle() {
+    this.login = true;
+    this.signup = false;
+  }
+  signupToggle() {
+    this.signup = true;
+    this.login = false;
+  }
+  logout() {
+    localStorage.clear();
+    window.location.reload();
+  }
+  toggle() {
+    this.signup = false;
+    this.login = false;
+  }
+
 
 }
