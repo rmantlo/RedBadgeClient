@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
         this.token = data1.sessionToken;
       }
     )
+    this.loginToggle();
   }
   loginToggle(){
     this.onLoginToggle.emit()

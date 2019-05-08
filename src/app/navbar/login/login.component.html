@@ -1,13 +1,23 @@
-<div>
-  <div>
+<div class='login'>
+  <div class='xBtn'>
+    <h4>Login</h4>
     <button (click)='loginToggle()'>X</button>
   </div>
-  <form [formGroup]='login' (ngSubmit)='onSubmit()'>
+  <form [formGroup]='login' (ngSubmit)='onSubmit()' class="example-container">
+    <mat-form-field>
+      <input matInput formControlName='username' placeholder="Username" required>
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput formControlName='password' placeholder="Password" type='password' required>
+    </mat-form-field><br>
+    <button mat-button>Login</button>
+  </form>
+  <!-- <form [formGroup]='login' (ngSubmit)='onSubmit()'>
     <h2>Login</h2>
     <label>Username: </label>
     <input formControlName='username' type='text' required><br>
     <label>Password: </label>
     <input formControlName='password' type='password' required>
     <button type='submit'>Login</button>
-  </form>
+  </form> -->
 </div>

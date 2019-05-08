@@ -12,12 +12,12 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     let token = localStorage.getItem('token');
-    console.log(token);
+    //console.log(token);
     if (token == null) {
       return false;
     } else {
       const isExpired = !this.helper.isTokenExpired(token);
-      console.log(isExpired);
+      console.log('expired: '+ !isExpired);
       return isExpired;
     }
   }

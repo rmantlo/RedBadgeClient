@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    //'Authorization': localStorage.getItem('token')
   })
 }
 
@@ -21,5 +22,14 @@ export class UserService {
   signup(userInfo) {
     console.log(userInfo)
     return this.http.post('http://localhost:3000/user/signup', userInfo, httpOptions)
+  }
+  getUser(){
+    const httpOptionA = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    return this.http.get('http://localhost:3000/userinfo/get', httpOptionA)
   }
 }
