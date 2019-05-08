@@ -1,7 +1,7 @@
+//this file takes token from local storage and checks to see if it is expired or not
+//returns a true or false statement
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-
-
 
 @Injectable({
   providedIn: 'root'
