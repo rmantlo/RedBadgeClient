@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './navbar/signup/signup.component';
 import { LoginComponent } from './navbar/login/login.component';
@@ -19,8 +20,13 @@ import { HomeComponent } from './home/home.component';
 import { EventpageComponent } from './eventpage/eventpage.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+
 import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.component';
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +38,8 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
     EventpageComponent,
     ProfilepageComponent,
     PagenotfoundComponent,
+    MainNavComponent
+
     DeleteAlertComponent,
     CalendarComponent
   ],
@@ -43,6 +51,7 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FontAwesomeModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter(){
@@ -52,6 +61,12 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
         blacklistedRoutes: ['http://localhost:3000/home']
       }
     }),
+
+    LayoutModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
     // MatJumbotronModule.forRoot()
   ],
   providers: [],
