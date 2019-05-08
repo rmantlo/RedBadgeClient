@@ -14,7 +14,6 @@ import { MatIconModule, MatSidenavModule, MatButtonModule, MatListModule } from 
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './main-nav/signup/signup.component';
 import { LoginComponent } from './main-nav/login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -31,7 +30,6 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     SignupComponent,
     LoginComponent,
     HomeComponent,
@@ -39,7 +37,6 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
     ProfilepageComponent,
     PagenotfoundComponent,
     MainNavComponent,
-
     DeleteAlertComponent,
     CalendarComponent
   ],
