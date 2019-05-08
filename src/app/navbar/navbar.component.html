@@ -1,10 +1,17 @@
 <mat-toolbar>
   <span>
     <h1>Logo</h1>
+    <i src=
   </span>
   <span class="example-fill-remaining-space"></span>
   <div>
     <a routerLink='/'><i class="material-icons"> menu</i></a>
+      <a >
+          <mat-icon class="icon">home</mat-icon>
+          <span class="label">Home</span>
+      </a>
+
+
     <a routerLink='/events'>Events</a>
     <a routerLink='/profile'>Profile</a>
     <a routerLink='/pagenotfound'>404</a>
@@ -13,6 +20,9 @@
     <button (click)='signupToggle()'>Sign up</button>
     <button (click)='logout()'>Logout</button>
 
+
+
+    
   </div>
 </mat-toolbar>
 <div *ngIf='login'>
