@@ -10,17 +10,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
 
 import { AppRoutingModule } from './app-routing.module';
+import { MatIconModule, MatSidenavModule, MatButtonModule, MatListModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SignupComponent } from './navbar/signup/signup.component';
-import { LoginComponent } from './navbar/login/login.component';
+import { SignupComponent } from './main-nav/signup/signup.component';
+import { LoginComponent } from './main-nav/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { EventpageComponent } from './eventpage/eventpage.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -38,7 +38,7 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
     EventpageComponent,
     ProfilepageComponent,
     PagenotfoundComponent,
-    MainNavComponent
+    MainNavComponent,
 
     DeleteAlertComponent,
     CalendarComponent

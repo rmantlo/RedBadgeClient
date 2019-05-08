@@ -14,12 +14,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
   loginToggle() {
-    console.log('login')
     this.login = true;
     this.signup = false;
   }
   signupToggle() {
-    console.log('signup')
     this.signup = true;
     this.login = false;
   }
