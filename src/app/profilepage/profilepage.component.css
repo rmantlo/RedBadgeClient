@@ -55,4 +55,18 @@
 
 .mat-tab-group {
     margin-bottom: 48px;
-  }
+}
+
+.settings{
+  background: white;
+  text-align: center;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left:auto;
+  margin-right:auto;
+  width:300px;
+  border: 1px solid black;
+}
