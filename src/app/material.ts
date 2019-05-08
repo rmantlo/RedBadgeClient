@@ -4,10 +4,11 @@ import { MatToolbarModule} from '@angular/material';
 import { MatIconModule} from '@angular/material';
 import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 @NgModule({
-    imports: [MatButtonModule, MatCheckboxModule, MatIconModule, MatToolbarModule, MatJumbotronModule, FlexLayoutModule],
-    exports:  [MatButtonModule, MatCheckboxModule, MatIconModule, MatToolbarModule, MatJumbotronModule, FlexLayoutModule]
+    imports: [MatButtonModule, MatCheckboxModule, MatIconModule, MatToolbarModule, MatJumbotronModule, FlexLayoutModule, MatGoogleMapsAutocompleteModule],
+    exports:  [MatButtonModule, MatCheckboxModule, MatIconModule, MatToolbarModule, MatJumbotronModule, FlexLayoutModule, MatGoogleMapsAutocompleteModule]
 })
 
 export class MaterialModule{}

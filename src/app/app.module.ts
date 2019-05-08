@@ -20,6 +20,8 @@ import { HomeComponent } from './home/home.component';
 import { EventpageComponent } from './eventpage/eventpage.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
         whitelistedDomains: ['http://localhost:3000', 'http://localhost:3000/events','http://localhost:3000/profile'],
         blacklistedRoutes: ['http://localhost:3000/home']
       }
-    })
+    }),
+    MatGoogleMapsAutocompleteModule,
+    AgmCoreModule.forRoot()
     // MatJumbotronModule.forRoot()
   ],
   providers: [],
