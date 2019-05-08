@@ -16,8 +16,8 @@
   </div>
 </mat-toolbar>
 <div *ngIf='login'>
-  <app-login></app-login>
+  <app-login (onLoginToggle)='toggle()'></app-login>
 </div>
 <div *ngIf='signup'>
-  <app-signup></app-signup>
+  <app-signup (onSignupToggle)='toggle()'></app-signup>
 </div>

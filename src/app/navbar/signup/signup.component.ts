@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 
@@ -20,6 +20,8 @@ export class SignupComponent implements OnInit {
       password: new FormControl()
     })
   }
+  @Output() onSignupToggle = new EventEmitter<any>();
+
   onSubmit(): void {
     console.log(this.signup.value);
     this.userService.signup(this.signup.value).subscribe(
@@ -30,6 +32,9 @@ export class SignupComponent implements OnInit {
         this.token = data1.sessionToken;
       }
     )
+  }
+  signupToggle(){
+    this.onSignupToggle.emit();
   }
 
 }
