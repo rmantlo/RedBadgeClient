@@ -1,16 +1,59 @@
-<div>
-  <div class='userInfo'>
-    <img src='/' alt='' />
-    <h3>Username</h3>
-  </div>
-  <div class='eventLists'>
-    <mat-tab-group animationDuration="0ms">
-      <mat-tab label="Events by Month">Content 1</mat-tab>
-      <mat-tab label="All Events">Content 2</mat-tab>
-      <mat-tab label="My Events">Content 3</mat-tab>
-    </mat-tab-group>
+<div class='profile'>
+  <div class='left'>
+    <div class='userInfo' *ngIf='userInfo'>
+      <div class='image'>
+        <img src='{{ userInfo.image }}' alt='' />
+      </div>
+      <div class='userStuff'>
+        <h3>{{userInfo.username | uppercase}}</h3>
+        <button (click)='toggleSettingPopup()'>Settings</button>
+      </div>
+    </div>
+    <hr />
+    <div class='eventLists'>
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Events by Month">Content 1</mat-tab>
+        <mat-tab label="My Events">
+          <div *ngIf='myEventInfo'>
+            <div *ngFor='let e of myEventInfo'>
+              <h2>{{ e.title }}</h2>
+              <p>{{ e.keyword }}</p>
+              <p>{{ e.time }}</p>
+              <p>{{ e.location }}</p>
+              <p>{{ e.description }}</p>
+              
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="All Events">Content 3</mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
   <div class='calendar'>
-
+    <app-calendar></app-calendar>
   </div>
 </div>
+
+<div class='settings' *ngIf='settingPopup'>
+  <div class='xBtn'>
+    <h4>Settings</h4>
+    <button (click)='toggleSettingPopup()'>X</button>
+  </div>
+  <form name='standalone' (ngSubmit)='onSubmit()' class="example-container">
+    <mat-form-field>
+      <input matInput [(ngModel)]='updateInfo.username' placeholder="New Username" name='username'>
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput [(ngModel)]='updateInfo.email' placeholder="New Email" name='email'>
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput [(ngModel)]='updateInfo.image' placeholder="Profile Image" name='image'>
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput [(ngModel)]='updateInfo.password' placeholder="New Password" type='password' name='password'>
+    </mat-form-field><br>
+    <button mat-button type='submit'>Update</button>
+  </form>
+  <button mat-button (click)='deleteAlert()'>Delete Profile</button>
+</div>
+<app-delete-alert *ngIf='deletePopup' (deleteToggle)='deleteAlert()'></app-delete-alert>

@@ -19,6 +19,8 @@ import { HomeComponent } from './home/home.component';
 import { EventpageComponent } from './eventpage/eventpage.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.component';
+import { CalendarComponent } from './profilepage/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     HomeComponent,
     EventpageComponent,
     ProfilepageComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    DeleteAlertComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
