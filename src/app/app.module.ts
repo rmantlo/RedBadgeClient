@@ -18,6 +18,9 @@ import { HomeComponent } from './home/home.component';
 import { EventpageComponent } from './eventpage/eventpage.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { AgmCoreModule } from '@agm/core';
+import { CarouselComponent} from './carousel/carousel.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 // import { MediaQueryClassBaseComponent } from './services/media-query.service';
@@ -40,6 +43,7 @@ import { CarouselComponent} from './carousel/carousel.component';
     EventpageComponent,
     ProfilepageComponent,
     PagenotfoundComponent,
+    CarouselComponent,
     MainNavComponent,
     DeleteAlertComponent,
     CalendarComponent,
@@ -64,6 +68,9 @@ import { CarouselComponent} from './carousel/carousel.component';
         blacklistedRoutes: ['http://localhost:3000/home']
       }
     }),
+    MatGoogleMapsAutocompleteModule,
+    AgmCoreModule.forRoot(),
+    // MatJumbotronModule.forRoot()
     LayoutModule,
     MatButtonModule,
     MatSidenavModule,

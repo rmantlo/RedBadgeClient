@@ -1,4 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
+// goes with Google maps extension
+// import {Title} from '@angular/platform-browser';
+// import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
+// import {} from '@types/googlemaps';
+// import PlaceResult = google.maps.places.PlaceResult;
+
+
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { EventsService } from '../services/events.service';
@@ -22,8 +30,23 @@ export class ProfilepageComponent implements OnInit {
   deletePopup: boolean = false;
 
   updateInfo: any={};
-
   myEventInfo: any;
+
+  // public appearance = Appearance;
+  // public zoom: number;
+  // public latitude: number;
+  // public longitude: number;
+  // public selectedAddress: PlaceResult;
+
+  // constructor() { }
+  // private titleService:Title
+  // ngOnInit() {
+  //   this.titleService.setTitle('Home | @angular-material-extensions/google-maps-autocomplete');
+
+  //   this.zoom = 10;
+  //   this.latitude = 52.520008;
+  //   this.longitude = 13.404954;
+  
 
   constructor(private userService: UserService, private eventService: EventsService, private formBuild: FormBuilder) { }
   getUser() {
@@ -59,6 +82,7 @@ export class ProfilepageComponent implements OnInit {
   deleteAlert() {
     this.deletePopup = !this.deletePopup;
   }
+
 }
   // public appearance = Appearance;
   // public zoom: number;
@@ -96,4 +120,5 @@ export class ProfilepageComponent implements OnInit {
   //   this.latitude = location.latitude;
   //   this.longitude = location.longitude;
   // }
+
 
