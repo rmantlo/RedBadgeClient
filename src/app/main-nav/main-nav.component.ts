@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HostBinding, OnDestroy, OnInit } from '@angular/core';
-import { MediaObserver } from '@angular/flex-layout';
-import { Subscription } from 'rxjs';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @Component({
   selector: 'app-main-nav',
@@ -20,8 +19,8 @@ export class MainNavComponent {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
-
+  constructor(private breakpointObserver: BreakpointObserver) { 
+  }
 
   loginToggle() {
     this.login = true;

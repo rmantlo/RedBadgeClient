@@ -1,7 +1,7 @@
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import "./assets/materialize-css/dist/css/materialize.css";
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 
 html, body {

@@ -3,10 +3,16 @@
  mat-toolbar {
   background-color: rgb(43, 77, 116);
   color: green; 
-  display: flex;
-  flex-direction: inherit; }
+  display: fixed;
+  /* flex-shrink: initial; */
+  /* flex-direction: inherit; */
+  /* white-space:normal;  */
+}
+/* 
+  .shrink-toolbar {
+    height: 22px;
+  } */
 
- 
 /* @media (max-width: 768px){
   .sidenav-container{
       display: none;
@@ -45,26 +51,23 @@ mat-sidenav-content {
 .spacer {
   flex: 1 1 auto !important;
 }
-
+/* 
 .mat-drawer {
   transform: translate3d(100%, 0, 0) !important;
   right: 0 !important;
-}
+} */
 
 /* words next to icons ("home/Login/logout/signup") */
-.nav-links a,i{
+.nav-links {
   font-size: 2vw;
   cursor: pointer;
   padding: 2pt;
 }
-@media only screen and (max-width: 400px){
-  .nav-links a,i{
-    font-size: 10pt !important;
+/* @media screen and (min-width: 60px) and (max-width: 1279px) {
+  .nav-links {
+     place-content: flex-end;
   }
-}
-
-
-
+} */
 
 
 /* mat-toolbar a {
@@ -90,12 +93,12 @@ mat-sidenav-content {
   z-index: 1;
 } */
 
- @media screen and (min-width: 768px) {
+ /* @media screen and (min-width: 768px) {
   mat-sidenav {
     display: none;
-    visibility: hidden;
+  visibility: hidden;
   }
-}
+} */
 
 /* our icon top left */
 .ourIcon {
