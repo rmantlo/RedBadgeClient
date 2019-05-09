@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MatToolbarModule, MatTabsModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
@@ -22,6 +21,8 @@ import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { AgmCoreModule } from '@agm/core';
+import { CarouselComponent} from './carousel/carousel.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AgmCoreModule } from '@agm/core';
     HomeComponent,
     EventpageComponent,
     ProfilepageComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +42,6 @@ import { AgmCoreModule } from '@agm/core';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatToolbarModule,
-    MatTabsModule,
     BrowserAnimationsModule,
     MaterialModule,
     JwtModule.forRoot({
