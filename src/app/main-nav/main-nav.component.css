@@ -1,38 +1,47 @@
 
 /* font color & hamburger icon color are controlled by "color" here */
-/* mat-toolbar {
+ mat-toolbar {
   background-color: rgb(43, 77, 116);
-  color: green; */
-  /* overflow: scroll; */
-  /* display: flex;
-  flex-direction: inherit; }*/
+  color: green; 
+  display: flex;
+  flex-direction: inherit; }
 
-/* 
-@media (max-width: 800px){
+ 
+/* @media (max-width: 768px){
   .sidenav-container{
       display: none;
-  }
+  } */
 
-} */
 
-/* 
-#logoFont, .label {
-
+/* "FitnessTogether" words */
+#logoFont {
   font-family: 'Ubuntu', sans-serif;
   font-size: 17pt;
+  color: yellow;
+  padding-top: 8pt; /*necessary b/c when the words get smaller, it gets offline w/ icons. */
+}
+ @media only screen and (max-width: 400px){
+  #logoFont {
+    font-size: 10pt;
+  } }
 
-} */
 
 /* the following (7) came from video: */
-/* .sidenav-container {
+.sidenav-container {
   height: 100%;
 }
 
 .sidenav {
   width: 200px;
   box-shadow: 3px 0 6px black;
-} */
+}
 
+mat-sidenav-content {
+  margin-left: 0 !important;
+  margin: 0;
+}
+
+/* spacer basically divides the 2 containers & pushes them left & right */
 .spacer {
   flex: 1 1 auto;
 }
@@ -42,14 +51,21 @@
   right: 0;
 }
 
+/* words next to icons ("home/Login/logout/signup") */
 .nav-links a,i{
   font-size: 2vw;
+  cursor: pointer;
+  padding: 2pt;
 }
 @media only screen and (max-width: 400px){
   .nav-links a,i{
     font-size: 10pt;
   }
 }
+
+
+
+
 
 /* mat-toolbar a {
   display: inline-block;
@@ -68,45 +84,49 @@
 } */
 
 
-
-
 /* .mat-toolbar.mat-primary {
  position: sticky;
   top: 0;
   z-index: 1;
-}
+} */
 
-@media (min-width: 768px) {
-  .sidenav {
+ @media screen and (min-width: 768px) {
+  mat-sidenav {
     display: none;
+    visibility: hidden;
   }
-}  */
+}
 
 /* our icon top left */
 .ourIcon {
   height: 4em;
   width: 4em;
+
 }
+/* @media only screen and (max-width: 400px){
+  .ourIcon {
+    height: 4em;
+    width: 4em;
+  }
+} */
+
 
 /* icons on Navbar. icon sizes are controlled by "font-size"*/
-/* fa-icon {
+fa-icon {
   max-height: 1em;
   max-width: 1em;
   font-size: 10pt;
   cursor: pointer;
-} */
+  padding: 2pt;
+}
 
 
-/* words next to icons ("home/Login/logout/signup") */
-/* .label {
-  font-size: 10pt;
-} */
 
 
 /* hamburger-icon. icon sizes are controlled by "font-size" */
-/* mat-icon {
-  font-size:30pt;
+mat-icon {
+  font-size:20pt;
   cursor: pointer;
   padding: 5pt;
-} */
+}
 
