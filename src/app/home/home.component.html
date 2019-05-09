@@ -1,13 +1,44 @@
 <!-- Jumbotron -->
 
-<mat-jumbotron  imgURL="../../assets/runners3.jpeg">
+<mat-jumbotron  style="background:transparent !important" class="logo" imgURL="../../assets/ourIcon.png">
   <mat-jumbotron-content class="jumbotron">
-    <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">jumbotron</h1>
-    <p class="headline" ngClass.xs="text-center">Angular UI open source library built
-      with material design in order to illustrate a highlighted/important information for the user
+    <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">FITNESS TOGETHER</h1>
+    <p class="headline" ngClass.xs="text-center">Fitness Together is your way to connect to other fitness fanatics across your city. Stop netflixing and get off the couch today!
     </p>
 
-    <p class="text-center"> Scroll down to see it in action!</p>
+    <p class="text-center"> Sign up to view local events, and add your own to our database.</p>
+
+    <div fxLayout="row" fxLayout.xs="column"
+         fxLayoutGap.xs="2rem"
+         fxLayoutAlign="center">
+      <!-- <a mat-stroked-button
+         color="primary"
+         target="_blank"
+         src="../../assets/runners3.jpeg">
+        <mat-icon>code</mat-icon>
+        Signup now -->
+      <!-- </a> --> 
+      <a mat-stroked-button
+         color="primary"
+         target="_blank"
+         href="doc/index.html">
+        <mat-icon>launch</mat-icon>
+        Get Started
+      </a>
+    </div>
+
+  </mat-jumbotron-content>
+</mat-jumbotron>
+
+<app-parallax></app-parallax>
+
+<mat-jumbotron  imgURL="../../assets/ourIcon.png">
+  <mat-jumbotron-content class="jumbotron">
+    <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">FITNESS TOGETHER</h1>
+    <p class="headline" ngClass.xs="text-center">Fitness Together is your way to connect to other fitness fanatics across your city. Stop netflixing and get off the couch today!
+    </p>
+
+    <p class="text-center"> Sign up to view local events, and add your own to our database.</p>
 
     <div fxLayout="row" fxLayout.xs="column"
          fxLayoutGap.xs="1rem"
@@ -17,14 +48,14 @@
          target="_blank"
          src="../../assets/runners3.jpeg">
         <mat-icon>code</mat-icon>
-        Code on Github
+        Signup now
       </a>
       <a mat-stroked-button
          color="primary"
          target="_blank"
          href="doc/index.html">
         <mat-icon>note</mat-icon>
-        Documentation
+        Login Now
       </a>
     </div>
 

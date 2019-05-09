@@ -8,6 +8,8 @@ import * as M from '../../assets/materialize-css/dist/js/materialize.min.js'
 export class CarouselComponent implements OnInit {
   options: {}
 
+
+
   ngOnInit() {
 
     // This is for the Carousel itself

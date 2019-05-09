@@ -1,0 +1,43 @@
+.custom-container {
+    /* max-width: 960px; */
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+    /* padding: 25px; */
+}
+.parallax-container1 {
+   /* max-width: 960px; */
+   margin: 0 auto;
+   background: #f9f9f9;
+   font-size: 24px;
+   /* padding: 25px; */
+   background: url('../../assets/architecture-buildings-city-1209978.jpg') no-repeat center;
+   background-size: cover;
+   background-attachment: fixed;
+   height: 500px;
+  }
+
+  .parallax-container2 {
+    /* max-width: 960px; */
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+    /* padding: 25px; */
+    background: url('../../assets/adventure-architecture-bay-196667.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+   }
+
+   .parallax-container3 {
+    /* max-width: 960px; */
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+    /* padding: 25px; */
+    background: url('../../assets/architectural-design-architecture-buildings-1829189.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+   }
+      
