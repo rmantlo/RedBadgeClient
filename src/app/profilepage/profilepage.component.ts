@@ -1,21 +1,15 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
-// goes with Google maps extension
-// import {Title} from '@angular/platform-browser';
-// import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
-// import {} from '@types/googlemaps';
-// import PlaceResult = google.maps.places.PlaceResult;
-
-
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { EventsService } from '../services/events.service';
+import { AttendingService } from '../services/attending.service';
 
 // goes with Google maps extension
 // import {Title} from '@angular/platform-browser';
 // import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
 // import {} from '@types/googlemaps';
 // import PlaceResult = google.maps.places.PlaceResult;
+
 
 @Component({
   selector: 'app-profilepage',
@@ -29,32 +23,18 @@ export class ProfilepageComponent implements OnInit {
   settingPopup: boolean = false;
   deletePopup: boolean = false;
 
-  updateInfo: any={};
+  updateInfo: any = {};
   myEventInfo: any;
+  myAttendEvents: any = [];
+  allAttendEvents: any = [];
 
-  // public appearance = Appearance;
-  // public zoom: number;
-  // public latitude: number;
-  // public longitude: number;
-  // public selectedAddress: PlaceResult;
-
-  // constructor() { }
-  // private titleService:Title
-  // ngOnInit() {
-  //   this.titleService.setTitle('Home | @angular-material-extensions/google-maps-autocomplete');
-
-  //   this.zoom = 10;
-  //   this.latitude = 52.520008;
-  //   this.longitude = 13.404954;
-  
-
-  constructor(private userService: UserService, private eventService: EventsService, private formBuild: FormBuilder) { }
+  constructor(private userService: UserService, private eventService: EventsService, private attendService: AttendingService, private formBuild: FormBuilder) { }
   getUser() {
     this.userService.getUser().subscribe(data => {
       this.userInfo = data;
     })
   }
-  myEvents(){
+  myEvents() {
     this.eventService.myEvents().subscribe(
       data => {
         console.log(data);
@@ -62,9 +42,30 @@ export class ProfilepageComponent implements OnInit {
       }
     )
   }
+  myAttending() {
+    this.attendService.getMyAttending().subscribe(
+      data => {
+        console.log(data);
+        this.myAttendEvents = data;
+        for (let e of this.myAttendEvents) {
+          console.log(e.eventId);
+          let eventId = e.eventId;
+          this.eventService.eventById(eventId).subscribe(
+            data => {
+              console.log(data);
+              let attendData = data;
+              this.allAttendEvents = this.allAttendEvents.concat(attendData)
+              console.log(this.allAttendEvents);
+            }
+          )
+        }
+      }
+    )
+  }
   ngOnInit() {
     this.getUser();
     this.myEvents();
+    this.myAttending();
   }
 
   toggleSettingPopup() {
@@ -84,6 +85,8 @@ export class ProfilepageComponent implements OnInit {
   }
 
 }
+
+
   // public appearance = Appearance;
   // public zoom: number;
   // public latitude: number;
@@ -93,11 +96,11 @@ export class ProfilepageComponent implements OnInit {
   //constructor() { }
   // private titleService:Title
   //ngOnInit() {
-  //   this.titleService.setTitle('Home | @angular-material-extensions/google-maps-autocomplete');
+    //   this.titleService.setTitle('Home | @angular-material-extensions/google-maps-autocomplete');
 
-  //   this.zoom = 10;
-  //   this.latitude = 52.520008;
-  //   this.longitude = 13.404954;
+    //   this.zoom = 10;
+    //   this.latitude = 52.520008;
+    //   this.longitude = 13.404954;
 
   //   this.setCurrentPosition();
   // }

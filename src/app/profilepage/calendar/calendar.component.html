@@ -1,3 +1,9 @@
 <div>
-        <full-calendar defaultView="dayGridMonth" [plugins]="calendarPlugins"></full-calendar>
+        <full-calendar 
+        defaultView="dayGridMonth" 
+        [plugins]="calendarPlugins"
+        (dateClick)='handleDateClick($event)'
+        >
+
+        </full-calendar>
 </div>
