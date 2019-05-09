@@ -1,0 +1,15 @@
+<div class='login'>
+  <div class='xBtn'>
+    <h4>Login</h4>
+    <button (click)='loginToggle()'>X</button>
+  </div>
+  <form [formGroup]='login' (ngSubmit)='onSubmit()' class="example-container">
+    <mat-form-field>
+      <input matInput formControlName='username' placeholder="Username" required>
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput formControlName='password' placeholder="Password" type='password' required>
+    </mat-form-field><br>
+    <button mat-button>Login</button>
+  </form>
+</div>

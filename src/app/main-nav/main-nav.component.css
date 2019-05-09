@@ -1,0 +1,108 @@
+
+/* font color & hamburger icon color are controlled by "color" here */
+/* mat-toolbar {
+  background-color: rgb(43, 77, 116);
+  color: green; */
+  /* overflow: scroll; */
+  /* display: flex;
+  flex-direction: inherit; */
+
+/* 
+@media (max-width: 800px){
+  .sidenav-container{
+      display: none;
+  }
+
+} */
+
+/* #logoFont, .label {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 17pt;
+
+} */
+
+/* the following (7) came from video: */
+/* .sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px black;
+} */
+
+.spacer {
+  flex: 1 1 auto;
+}
+.mat-drawer {
+  transform: translate3d(100%, 0, 0);
+  right: 0;
+}
+
+.nav-links a,i{
+  font-size: 2vw;
+}
+@media only screen and (max-width: 400px){
+  .nav-links a,i{
+    font-size: 10pt;
+  }
+}
+
+
+/* mat-toolbar a {
+  display: inline-block;
+  margin: 0 10px;
+  color: pink;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sidenav .mat-toolbar {
+  background: white;
+}
+
+.sidenav {
+  background-color: blue;
+} */
+
+
+/* position: sticky; */
+/* .mat-toolbar.mat-primary {
+  top: 0;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .sidenav {
+    display: none;
+  }
+}  */
+
+/* our icon top left */
+.ourIcon {
+  height: 4em;
+  width: 4em;
+}
+
+/* icons on Navbar. icon sizes are controlled by "font-size"*/
+/* fa-icon {
+  max-height: 1em;
+  max-width: 1em;
+  font-size: 10pt;
+  cursor: pointer;
+} */
+
+
+/* words next to icons ("home/Login/logout/signup") */
+/* .label {
+  font-size: 10pt;
+} */
+
+
+/* hamburger-icon. icon sizes are controlled by "font-size" */
+/* mat-icon {
+  font-size:30pt;
+  cursor: pointer;
+  padding: 5pt;
+} */
+

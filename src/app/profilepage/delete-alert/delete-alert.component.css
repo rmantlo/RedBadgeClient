@@ -1,0 +1,11 @@
+.delete{
+    position: absolute;
+    z-index: 21;
+    width:100vw;
+    background: red;
+    top: 20vh;
+    text-align: center;
+}
+.delete h1{
+    color: white;
+}
