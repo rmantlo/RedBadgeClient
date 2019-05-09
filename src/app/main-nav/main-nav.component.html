@@ -12,9 +12,6 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar>
-      <i type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </i>
       <img class="ourIcon" src="../../assets/ourIcon.png" alt="logo">
       <span id="logoFont">FitnessTogether</span>
 
@@ -23,11 +20,7 @@
       <span class="spacer"></span>
 
       <!-- Add icons here <a href="#">Another link?</a>-->
-      <div>
-        <a routerLink='/home'>
-          <fa-icon class="fas fa-home"></fa-icon>
-          <span class="label">Home</span>
-        </a>
+      <div class='nav-links'>
         <a (click)='loginToggle()'>
           <fa-icon class="fas fa-sign-in-alt"></fa-icon>
           <span class="label">LogIn</span>
@@ -40,11 +33,11 @@
           <fa-icon class="fas fa-sign-out-alt"></fa-icon>
           <span class="label">LogOut</span>
         </a>
+        <i type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </i>
       </div>
-
-      <!-- <button (click)='loginToggle()'>Login</button>
-    <button (click)='signupToggle()'>Sign up</button> -->
-      <!-- <button (click)='logout()'>Logout</button> -->
 
     </mat-toolbar>
     <div *ngIf='login'>
