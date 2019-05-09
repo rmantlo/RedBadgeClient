@@ -20,12 +20,10 @@ import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+// import { MediaQueryClassBaseComponent } from './services/media-query.service';
 
 import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.component';
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
-
-
-
 
 
 
@@ -41,7 +39,9 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
     PagenotfoundComponent,
     MainNavComponent,
     DeleteAlertComponent,
-    CalendarComponent
+    CalendarComponent,
+    // MediaQueryClassBaseComponent
+  
   ],
   imports: [
     BrowserModule,

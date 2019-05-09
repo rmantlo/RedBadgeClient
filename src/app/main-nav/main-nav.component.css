@@ -18,6 +18,7 @@ mat-toolbar {
 
 #logoFont, .label {
   font-family: 'Ubuntu', sans-serif;
+  font-size: 17pt;
 
 }
 
@@ -31,9 +32,9 @@ mat-toolbar {
   box-shadow: 3px 0 6px black;
 }
 
-.spacer {
+/* .spacer {
   flex: 1 1 auto;
-}
+} */
 
 mat-toolbar a {
   display: inline-block;
@@ -44,25 +45,29 @@ mat-toolbar a {
 }
 
 .sidenav .mat-toolbar {
-  background: inherit;
+  background: white;
+}
+
+.sidenav {
+  background-color: blue;
 }
 
 .mat-toolbar.mat-primary {
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   z-index: 1;
 }
 
-/* @media (min-width: 8px) {
+@media (min-width: 768px) {
   .sidenav {
     display: none;
   }
-}  */
+} 
 
 /* our icon top left */
 .ourIcon {
-  height: 3.5em;
-  width: 3.5em;
+  height: 4em;
+  width: 4em;
 }
 
 /* icons on Navbar. icon sizes are controlled by "font-size"*/
@@ -82,7 +87,8 @@ fa-icon {
 
 /* hamburger-icon. icon sizes are controlled by "font-size" */
 mat-icon {
-  font-size:25pt;
+  font-size:30pt;
   cursor: pointer;
+  padding: 5pt;
 }
 

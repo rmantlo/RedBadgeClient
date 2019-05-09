@@ -5,8 +5,9 @@
 html, body {
     height: 100%;
     overflow: auto;
+
 }
 /* margin must be 0 for collapsable sidebar to work correctly */
 body {
-    margin: 0
+    margin: 0;
 }
