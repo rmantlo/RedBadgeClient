@@ -57,3 +57,15 @@
   <button mat-button (click)='deleteAlert()'>Delete Profile</button>
 </div>
 <app-delete-alert *ngIf='deletePopup' (deleteToggle)='deleteAlert()'></app-delete-alert>
+
+  <!-- Search for events using Google Maps. Come back to this later. We need an API key from Google maps -->
+
+  <!-- <mat-form-field>
+    <mat-label>Address << using the directive >></mat-label>
+    <input matInput
+         matGoogleMapsAutocomplete
+         [country]="de"
+         (onAutocompleteSelected)="onAutocompleteSelected($event)"
+         (onLocationSelected)="onLocationSelected($event)">
+  </mat-form-field> -->
+

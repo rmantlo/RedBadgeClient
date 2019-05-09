@@ -26,6 +26,9 @@ import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.co
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
 
 
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { AgmCoreModule } from '@agm/core';
+import { CarouselComponent} from './carousel/carousel.component';
 
 
 @NgModule({
@@ -41,7 +44,7 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
     DeleteAlertComponent,
     CalendarComponent,
     // MediaQueryClassBaseComponent
-  
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,8 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatGoogleMapsAutocompleteModule,
+    AgmCoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
