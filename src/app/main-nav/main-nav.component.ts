@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 export class MainNavComponent {
   login: boolean = false;
   signup: boolean = false;
-  public showContainer: boolean;
+  // public showContainer: boolean;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -24,15 +24,15 @@ export class MainNavComponent {
   constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
-    this.breakpointObserver
-      .observe(['(min-width: 400px)'])
-      .subscribe((state: BreakpointState) => {
-        if (state.matches) {
-          this.showContainer = true;
-        } else {
-          this.showContainer = false;
-        }
-      });
+    // this.breakpointObserver
+    //   .observe(['(min-width: 400px)'])
+    //   .subscribe((state: BreakpointState) => {
+    //     if (state.matches) {
+    //       this.showContainer = true;
+    //     } else {
+    //       this.showContainer = false;
+    //     }
+    //   });
   }
 
   loginToggle() {

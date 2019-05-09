@@ -2,7 +2,7 @@
   display: flex;
   flex-basis: row;
 }
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 1030px){
   .profile{
     display:initial;
   }
