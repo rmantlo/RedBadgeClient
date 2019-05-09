@@ -1,5 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { Calendar } from '@fullcalendar/core';
+import { EventsService } from '../../services/events.service';
+
+
+// let calendar = new Calendar(calendarEl, {
+//   events: [
+//     {
+//       title: 'event title',
+//       start: '2019-5-9',
+//       end: '2019-5-9'
+//     }
+//   ]
+// })
 
 
 @Component({
@@ -11,7 +24,11 @@ export class CalendarComponent implements OnInit {
 
   calendarPlugins = [dayGridPlugin];
 
-  constructor() { }
+  constructor(private eventService: EventsService) { }
+
+  getEvents(){
+
+  }
 
   ngOnInit() {
   }

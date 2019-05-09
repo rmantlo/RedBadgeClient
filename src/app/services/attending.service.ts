@@ -11,15 +11,15 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class EventsService {
+export class AttendingService {
 
   constructor(private http: HttpClient) { }
 
-  myEvents(){
-    return this.http.get('http://localhost:3000/event/getmine', httpOptions)
+  getMyAttending() {
+    return this.http.get('http://localhost:3000/attending/myattending', httpOptions)
   }
-  eventById(id){
-    return this.http.get(`http://localhost:3000/event/get/${id}`, httpOptions)
+  getEventAttending() {
+
   }
-  
+
 }
