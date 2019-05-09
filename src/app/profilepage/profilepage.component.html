@@ -47,7 +47,7 @@
       <input matInput [(ngModel)]='updateInfo.email' placeholder="New Email" name='email'>
     </mat-form-field><br>
     <mat-form-field>
-      <input matInput [(ngModel)]='updateInfo.image' placeholder="Profile Image" name='image'>
+      <input matInput [(ngModel)]='updateInfo.image' placeholder="Profile Image Url" name='image'>
     </mat-form-field><br>
     <mat-form-field>
       <input matInput [(ngModel)]='updateInfo.password' placeholder="New Password" type='password' name='password'>
@@ -57,3 +57,4 @@
   <button mat-button (click)='deleteAlert()'>Delete Profile</button>
 </div>
 <app-delete-alert *ngIf='deletePopup' (deleteToggle)='deleteAlert()'></app-delete-alert>
+

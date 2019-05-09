@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 import { A11yModule } from '@angular/cdk/a11y';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -44,7 +45,8 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule,
+    MatTreeModule
+   
 
 } from '@angular/material';
 
@@ -100,6 +102,7 @@ import {
         MatTreeModule,
         PortalModule,
         ScrollingModule,
+        MatGoogleMapsAutocompleteModule    
     ],
     exports: [
         MatButtonModule,
@@ -152,6 +155,7 @@ import {
         MatTreeModule,
         PortalModule,
         ScrollingModule,
+        MatGoogleMapsAutocompleteModule
     ]
 })
 
