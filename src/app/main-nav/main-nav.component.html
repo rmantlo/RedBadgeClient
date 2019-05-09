@@ -3,7 +3,7 @@
     [attr.role]="dialog"
     [mode]="over"
     [opened]="false"> 
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#" routerLink='/'>Home</a>
       <a mat-list-item href="#" routerLink='/events'>Events</a>
@@ -19,7 +19,7 @@
       <i type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </i>
-      <img class="ourIcon" src="../../assets/ourIcon.png" alt="logo">
+      <a href="#" routerLink='/'><img class="ourIcon" src="../../assets/ourIcon.png" alt="logo"></a>
       <span id="logoFont">FitnessTogether</span>
 
       <!-- This spacer class added w/ css divides & pushes everything above to the right and everything below to the left. -->
