@@ -1,0 +1,60 @@
+<div class='signup'>
+  <div class='xBtn'>
+    <h4>Sign up</h4>
+    <button (click)='signupToggle()'>X</button>
+  </div>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>User</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Username" formControlName="username" required>
+        </mat-form-field><br>
+        <mat-form-field>
+          <input matInput placeholder="Email" type='email' formControlName="email" required>
+        </mat-form-field><br>
+        <mat-form-field>
+          <input matInput placeholder="Password" formControlName="password" type='password' required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Optional</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Profile Image Url" formControlName="image">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <div>
+        <button mat-button (click)='signupClick()'>Click here to complete sign up</button>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+
+
+
+<!-- <form [formGroup]='signup' (ngSubmit)='onSubmit()'>
+    <h2>Sign up</h2>
+    <label>Username: </label>
+    <input formControlName='username' type='text'><br>
+    <label>Email: </label>
+    <input formControlName='email' type='text'><br>
+    <label>Password: </label>
+    <input formControlName='password' type='password'>
+    <button type='submit'>Sign Up</button>
+  </form> -->

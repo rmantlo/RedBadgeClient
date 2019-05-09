@@ -1,0 +1,38 @@
+.signup{
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    width: 35vw;
+    min-width: 300px;
+    background: white;
+    border-radius: 10px;
+    padding: 5px;
+    height: 380px;
+    text-align: center;
+}
+.xBtn{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+h4 {
+    margin: 0;
+}
+.xBtn button{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.xBtn button:hover{
+    background: whitesmoke;
+}
+.mat-horizontal-stepper{
+    padding: 0 !important;
+}
+.mat-horizontal-content-container{
+    padding: 10px !important;
+}
