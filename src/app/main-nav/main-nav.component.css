@@ -5,7 +5,7 @@
   color: green; */
   /* overflow: scroll; */
   /* display: flex;
-  flex-direction: inherit; */
+  flex-direction: inherit; }*/
 
 /* 
 @media (max-width: 800px){
@@ -15,7 +15,9 @@
 
 } */
 
-/* #logoFont, .label {
+/* 
+#logoFont, .label {
+
   font-family: 'Ubuntu', sans-serif;
   font-size: 17pt;
 
@@ -34,6 +36,7 @@
 .spacer {
   flex: 1 1 auto !important;
 }
+
 .mat-drawer {
   transform: translate3d(100%, 0, 0) !important;
   right: 0 !important;
@@ -48,8 +51,7 @@
   }
 }
 
-
-mat-toolbar a {
+/* mat-toolbar a {
   display: inline-block;
   margin: 0 10px;
   color: pink;
@@ -66,8 +68,10 @@ mat-toolbar a {
 }
 
 
-/* position: sticky; */
+
+
 /* .mat-toolbar.mat-primary {
+ position: sticky;
   top: 0;
   z-index: 1;
 }
