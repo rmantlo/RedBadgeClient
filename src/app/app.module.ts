@@ -1,16 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material'
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
-
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-// import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
-
-import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule, MatSidenavModule, MatButtonModule, MatListModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { CalendarModule, DateAdapter } from 'angular-calendar';
+// import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -26,6 +24,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 
 import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.component';
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
+
 
 
 
@@ -62,13 +61,11 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
         blacklistedRoutes: ['http://localhost:3000/home']
       }
     }),
-
     LayoutModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    // MatJumbotronModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
