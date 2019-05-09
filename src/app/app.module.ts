@@ -26,6 +26,7 @@ import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.co
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
