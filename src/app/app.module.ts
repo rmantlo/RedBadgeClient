@@ -29,10 +29,6 @@ import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.co
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
 
 
-import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
-import { AgmCoreModule } from '@agm/core';
-import { CarouselComponent} from './carousel/carousel.component';
-
 
 @NgModule({
   declarations: [
