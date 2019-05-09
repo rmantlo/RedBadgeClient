@@ -39,20 +39,6 @@
     <h4>Settings</h4>
     <button (click)='toggleSettingPopup()'>X</button>
   </div>
-
-  <!-- Search for events using Google Maps. Come back to this later. We need an API key from Google maps -->
-
-  <!-- <mat-form-field>
-    <mat-label>Address << using the directive >></mat-label>
-    <input matInput
-         matGoogleMapsAutocomplete
-         [country]="de"
-         (onAutocompleteSelected)="onAutocompleteSelected($event)"
-         (onLocationSelected)="onLocationSelected($event)">
-  </mat-form-field> -->
-
-
-
   <form name='standalone' (ngSubmit)='onSubmit()' class="example-container">
     <mat-form-field>
       <input matInput [(ngModel)]='updateInfo.username' placeholder="New Username" name='username'>
@@ -61,7 +47,7 @@
       <input matInput [(ngModel)]='updateInfo.email' placeholder="New Email" name='email'>
     </mat-form-field><br>
     <mat-form-field>
-      <input matInput [(ngModel)]='updateInfo.image' placeholder="Profile Image" name='image'>
+      <input matInput [(ngModel)]='updateInfo.image' placeholder="Profile Image Url" name='image'>
     </mat-form-field><br>
     <mat-form-field>
       <input matInput [(ngModel)]='updateInfo.password' placeholder="New Password" type='password' name='password'>
@@ -71,17 +57,4 @@
   <button mat-button (click)='deleteAlert()'>Delete Profile</button>
 </div>
 <app-delete-alert *ngIf='deletePopup' (deleteToggle)='deleteAlert()'></app-delete-alert>
-
-
-  <!-- Search for events using Google Maps. Come back to this later. We need an API key from Google maps -->
-
-  <!-- <mat-form-field>
-    <mat-label>Address << using the directive >></mat-label>
-    <input matInput
-         matGoogleMapsAutocomplete
-         [country]="de"
-         (onAutocompleteSelected)="onAutocompleteSelected($event)"
-         (onLocationSelected)="onLocationSelected($event)">
-  </mat-form-field> -->
-
 
