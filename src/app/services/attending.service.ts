@@ -18,8 +18,8 @@ export class AttendingService {
   getMyAttending() {
     return this.http.get('http://localhost:3000/attending/myattending', httpOptions)
   }
-  getEventAttending() {
+  // getEventAttending() {
 
-  }
+  // }
 
 }

@@ -22,6 +22,7 @@ export class ProfilepageComponent implements OnInit {
   userInfo: any;
   settingPopup: boolean = false;
   deletePopup: boolean = false;
+  createToggle: boolean = true;
 
   updateInfo: any = {};
   myEventInfo: any;
@@ -37,7 +38,7 @@ export class ProfilepageComponent implements OnInit {
   myEvents() {
     this.eventService.myEvents().subscribe(
       data => {
-        console.log(data);
+        //console.log(data);
         this.myEventInfo = data;
       }
     )
@@ -45,20 +46,23 @@ export class ProfilepageComponent implements OnInit {
   myAttending() {
     this.attendService.getMyAttending().subscribe(
       data => {
-        console.log(data);
+        //console.log(data);
         this.myAttendEvents = data;
+        //console.log(this.myAttendEvents)
         for (let e of this.myAttendEvents) {
-          console.log(e.eventId);
+          //console.log(e.eventId);
           let eventId = e.eventId;
           this.eventService.eventById(eventId).subscribe(
             data => {
-              console.log(data);
+              //console.log(data);
               let attendData = data;
               this.allAttendEvents = this.allAttendEvents.concat(attendData)
-              console.log(this.allAttendEvents);
+              //console.log(this.allAttendEvents);
             }
           )
         }
+
+
       }
     )
   }
@@ -72,16 +76,19 @@ export class ProfilepageComponent implements OnInit {
     this.settingPopup = !this.settingPopup;
   }
   onSubmit() {
-    console.log(this.updateInfo);
+    //console.log(this.updateInfo);
     this.userService.updateUser(this.updateInfo).subscribe(
       data => {
-        console.log(data);
+        //console.log(data);
         this.getUser();
       }
     )
   }
   deleteAlert() {
     this.deletePopup = !this.deletePopup;
+  }
+  toggleCreate(){
+    this.createToggle = !this.createToggle;
   }
 
 }

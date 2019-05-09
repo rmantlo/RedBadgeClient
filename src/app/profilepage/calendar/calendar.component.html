@@ -1,9 +1,4 @@
-<div>
-        <full-calendar 
-        defaultView="dayGridMonth" 
-        [plugins]="calendarPlugins"
-        (dateClick)='handleDateClick($event)'
-        >
-
+<div *ngIf='attendingEventData'>
+        <full-calendar defaultView="dayGridMonth" [plugins]="calendarPlugins" [events]='attendingArray'>
         </full-calendar>
 </div>
