@@ -11,6 +11,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { AgmCoreModule } from '@agm/core';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -51,6 +52,7 @@ import { CalendarComponent } from './profilepage/calendar/calendar.component';
     BrowserAnimationsModule,
     MaterialModule,
     FontAwesomeModule,
+    FlexLayoutModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter(){
