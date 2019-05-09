@@ -1,18 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { Calendar } from '@fullcalendar/core';
-import { EventsService } from '../../services/events.service';
+import { AttendingService } from '../../services/attending.service';
 
-
-// let calendar = new Calendar(calendarEl, {
-//   events: [
-//     {
-//       title: 'event title',
-//       start: '2019-5-9',
-//       end: '2019-5-9'
-//     }
-//   ]
-// })
 
 
 @Component({
@@ -21,16 +10,31 @@ import { EventsService } from '../../services/events.service';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-
+  @Input() attendingEventData: any;
+  attendingArray: any = [];
   calendarPlugins = [dayGridPlugin];
+  example: any = [
+    {title:"hello", date: "2019-05-11"},
+    {title:"super", date:"2019-05-20"}
+  ]
 
-  constructor(private eventService: EventsService) { }
-
-  getEvents(){
-
-  }
+  constructor() { }
 
   ngOnInit() {
+  }
+  createArray() {
+    //console.log(this.attendingEventData)
+    for (let e of this.attendingEventData) {
+      //console.log(e)
+      let something = { title: e.eventTitle, date: e.date }
+      this.attendingArray = this.attendingArray.concat(something);
+      //console.log(this.attendingArray);
+    }
+  }
+
+  ngOnChanges() {
+    this.createArray();
+    // console.log(this.attendingArray);
   }
 
 }

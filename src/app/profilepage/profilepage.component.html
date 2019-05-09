@@ -6,7 +6,8 @@
       </div>
       <div class='userStuff'>
         <h3>{{userInfo.username | uppercase}}</h3>
-        <button (click)='toggleSettingPopup()'>Settings</button>
+        <button (click)='toggleSettingPopup()'>Settings</button><br>
+        <button (click)='toggleCreate()'>Create Event</button>
       </div>
     </div>
     <hr />
@@ -40,8 +41,9 @@
       </mat-tab-group>
     </div>
   </div>
-  <div class='calendar'>
-    <app-calendar></app-calendar>
+
+  <div class='calendar' >
+    <app-calendar [attendingEventData]='myAttendEvents'></app-calendar>
   </div>
 </div>
 
@@ -68,3 +70,7 @@
   <button mat-button (click)='deleteAlert()'>Delete Profile</button>
 </div>
 <app-delete-alert *ngIf='deletePopup' (deleteToggle)='deleteAlert()'></app-delete-alert>
+
+<div class='settings' *ngIf='createToggle'>
+
+</div>
