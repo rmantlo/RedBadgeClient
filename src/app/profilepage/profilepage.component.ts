@@ -66,9 +66,9 @@ export class ProfilepageComponent implements OnInit {
   // public longitude: number;
   // public selectedAddress: PlaceResult;
 
-  constructor() { }
+  //constructor() { }
   // private titleService:Title
-  ngOnInit() {
+  //ngOnInit() {
   //   this.titleService.setTitle('Home | @angular-material-extensions/google-maps-autocomplete');
 
   //   this.zoom = 10;

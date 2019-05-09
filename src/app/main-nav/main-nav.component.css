@@ -32,24 +32,24 @@
 } */
 
 .spacer {
-  flex: 1 1 auto;
+  flex: 1 1 auto !important;
 }
 .mat-drawer {
-  transform: translate3d(100%, 0, 0);
-  right: 0;
+  transform: translate3d(100%, 0, 0) !important;
+  right: 0 !important;
 }
 
 .nav-links a,i{
-  font-size: 2vw;
+  font-size: 2vw !important;
 }
 @media only screen and (max-width: 400px){
   .nav-links a,i{
-    font-size: 10pt;
+    font-size: 10pt !important;
   }
 }
 
 
-/* mat-toolbar a {
+mat-toolbar a {
   display: inline-block;
   margin: 0 10px;
   color: pink;
@@ -63,7 +63,7 @@
 
 .sidenav {
   background-color: blue;
-} */
+}
 
 
 /* position: sticky; */
