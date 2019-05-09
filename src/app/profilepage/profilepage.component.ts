@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UserService } from '../services/user.service';
+import { EventsService } from '../services/events.service';
+
 // goes with Google maps extension
 // import {Title} from '@angular/platform-browser';
 // import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
@@ -13,7 +17,49 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   // encapsulation: ViewEncapsulation.None,
 })
 export class ProfilepageComponent implements OnInit {
+  userInfo: any;
+  settingPopup: boolean = false;
+  deletePopup: boolean = false;
 
+  updateInfo: any={};
+
+  myEventInfo: any;
+
+  constructor(private userService: UserService, private eventService: EventsService, private formBuild: FormBuilder) { }
+  getUser() {
+    this.userService.getUser().subscribe(data => {
+      this.userInfo = data;
+    })
+  }
+  myEvents(){
+    this.eventService.myEvents().subscribe(
+      data => {
+        console.log(data);
+        this.myEventInfo = data;
+      }
+    )
+  }
+  ngOnInit() {
+    this.getUser();
+    this.myEvents();
+  }
+
+  toggleSettingPopup() {
+    this.settingPopup = !this.settingPopup;
+  }
+  onSubmit() {
+    console.log(this.updateInfo);
+    this.userService.updateUser(this.updateInfo).subscribe(
+      data => {
+        console.log(data);
+        this.getUser();
+      }
+    )
+  }
+  deleteAlert() {
+    this.deletePopup = !this.deletePopup;
+  }
+}
   // public appearance = Appearance;
   // public zoom: number;
   // public latitude: number;
@@ -50,5 +96,4 @@ export class ProfilepageComponent implements OnInit {
   //   this.latitude = location.latitude;
   //   this.longitude = location.longitude;
   // }
-}
-}
+

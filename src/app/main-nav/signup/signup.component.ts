@@ -8,35 +8,37 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  signup: FormGroup;
   token: any;
 
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
+  signupGroup: any;
+
   constructor(private formBuild: FormBuilder, private userService: UserService, private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.signup = this.formBuild.group({
+    this.firstFormGroup = this._formBuilder.group({
       username: new FormControl(),
       email: new FormControl(),
-      password: new FormControl()
-    });
-    this.firstFormGroup = this._formBuilder.group({
-      username: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      password: new FormControl(),
     });
     this.secondFormGroup = this._formBuilder.group({
-      image: '',
+      image: new FormControl(),
     });
+  }
+  signupClick() {
+    this.signupGroup = { ...this.firstFormGroup.value, ...this.secondFormGroup.value };
+    console.log(this.signupGroup);
+    this.onSubmit();
+    this.signupToggle();
   }
   @Output() onSignupToggle = new EventEmitter<any>();
 
   onSubmit(): void {
-    console.log(this.signup.value);
-    this.userService.signup(this.signup.value).subscribe(
+    console.log(this.signupGroup);
+    this.userService.signup(this.signupGroup).subscribe(
       data => {
         console.log(data);
         let data1: any = data;
