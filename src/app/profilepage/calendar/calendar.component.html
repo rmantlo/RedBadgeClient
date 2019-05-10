@@ -1,3 +1,4 @@
-<div>
-
+<div *ngIf='attendingEventData'>
+        <full-calendar defaultView="dayGridMonth" [plugins]="calendarPlugins" [events]='attendingArray'>
+        </full-calendar>
 </div>

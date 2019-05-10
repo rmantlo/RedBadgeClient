@@ -1,63 +1,93 @@
 
 /* font color & hamburger icon color are controlled by "color" here */
-/* mat-toolbar {
+ mat-toolbar {
   background-color: rgb(43, 77, 116);
-  color: green; */
-  /* overflow: scroll; */
-  /* display: flex;
-  flex-direction: inherit; */
+  color: rgb(136, 156, 196);
+  display: fixed;
+  font-family: 'Special Elite', cursive;
+  font-size: 14pt;
+  /* flex-shrink: initial; */
+  /* flex-direction: inherit; */
+  /* white-space:normal;  */
+}
 
+mat-nav-list a {
+  font-family: 'Special Elite', cursive;
+  font-size: 16pt;
+}
 /* 
-@media (max-width: 800px){
+  .shrink-toolbar {
+    height: 22px;
+  } */
+
+/* @media (max-width: 768px){
   .sidenav-container{
       display: none;
-  }
+  } */
 
-} */
 
-/* #logoFont, .label {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 17pt;
+/* "FitnessTogether" words */
+#logoFont {
+  /* font-family: 'Karla', sans-serif; */
+  font-family: 'Special Elite', cursive;
+  /* font-family: 'Merienda', cursive; */
+  font-size: 25pt;
+  color: rgb(136, 156, 196);
+  padding-top: 2pt; /*necessary b/c when the words get smaller, it gets offline w/ icons. */
+}
+ @media only screen and (max-width: 400px){
+  #logoFont {
+    font-size: 15pt;
+  } }
 
-} */
 
 /* the following (7) came from video: */
-/* .sidenav-container {
+.sidenav-container {
   height: 100%;
 }
 
 .sidenav {
   width: 200px;
   box-shadow: 3px 0 6px black;
+}
+
+mat-sidenav-content {
+  margin-left: 0 !important;
+  margin: 0;
+}
+
+/* spacer basically divides the 2 containers & pushes them left & right */
+.spacer {
+  flex: 1 1 auto !important;
+}
+/* 
+.mat-drawer {
+  transform: translate3d(100%, 0, 0) !important;
+  right: 0 !important;
 } */
 
-.spacer {
-  flex: 1 1 auto;
-}
-.mat-drawer {
-  transform: translate3d(100%, 0, 0);
-  right: 0;
-}
-
-.nav-links a,i{
+/* words next to icons ("home/Login/logout/signup") */
+.nav-links {
   font-size: 2vw;
+  cursor: pointer;
+  padding: 3pt;
 }
-@media only screen and (max-width: 400px){
-  .nav-links a,i{
-    font-size: 10pt;
+/* @media screen and (min-width: 60px) and (max-width: 1279px) {
+  .nav-links {
+     place-content: flex-end;
   }
-}
+} */
 
 
-/* mat-toolbar a {
+mat-toolbar a {
   display: inline-block;
-  margin: 0 10px;
-  color: pink;
+  margin: 0 5px;
+  color: rgb(136, 156, 196);
   text-decoration: none;
   cursor: pointer;
 }
 
-.sidenav .mat-toolbar {
+/* .sidenav .mat-toolbar {
   background: white;
 }
 
@@ -66,43 +96,50 @@
 } */
 
 
-/* position: sticky; */
 /* .mat-toolbar.mat-primary {
+ position: sticky;
   top: 0;
   z-index: 1;
-}
+} */
 
-@media (min-width: 768px) {
-  .sidenav {
+ /* @media screen and (min-width: 768px) {
+  mat-sidenav {
     display: none;
+  visibility: hidden;
   }
-}  */
+} */
 
 /* our icon top left */
 .ourIcon {
   height: 4em;
   width: 4em;
+  padding-top:10px;
 }
+/* @media only screen and (max-width: 400px){
+  .ourIcon {
+    height: 4em;
+    width: 4em;
+  }
+} */
+
 
 /* icons on Navbar. icon sizes are controlled by "font-size"*/
-/* fa-icon {
+fa-icon {
   max-height: 1em;
   max-width: 1em;
   font-size: 10pt;
   cursor: pointer;
-} */
+  padding: 2pt;
+  color: rgb(136, 156, 196);
+}
 
 
-/* words next to icons ("home/Login/logout/signup") */
-/* .label {
-  font-size: 10pt;
-} */
 
 
 /* hamburger-icon. icon sizes are controlled by "font-size" */
-/* mat-icon {
+mat-icon {
   font-size:30pt;
   cursor: pointer;
-  padding: 5pt;
-} */
+  padding-right: 15pt;
+}
 

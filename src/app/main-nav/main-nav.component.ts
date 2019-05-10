@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HostBinding, OnDestroy, OnInit } from '@angular/core';
-import { MediaObserver } from '@angular/flex-layout';
-import { Subscription } from 'rxjs';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @Component({
   selector: 'app-main-nav',
@@ -14,25 +13,13 @@ import { Subscription } from 'rxjs';
 export class MainNavComponent {
   login: boolean = false;
   signup: boolean = false;
-  // public showContainer: boolean;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
-
-  ngOnInit() {
-    // this.breakpointObserver
-    //   .observe(['(min-width: 400px)'])
-    //   .subscribe((state: BreakpointState) => {
-    //     if (state.matches) {
-    //       this.showContainer = true;
-    //     } else {
-    //       this.showContainer = false;
-    //     }
-    //   });
+  constructor(private breakpointObserver: BreakpointObserver) { 
   }
 
   loginToggle() {

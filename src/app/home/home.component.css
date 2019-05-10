@@ -1,11 +1,88 @@
 .jumbotron {
-    height: 400px;
-    width: 100%;
-    max-height: 50%;
-    max-width: 100%;
-    min-height: 20%;
-    min-width: 30%;
-    background-image: url("../../assets/workoutfail.jpg");
-    background-size: cover;
-    border: 5px solid blue
-  }
+  position: relative;
+  background: rgb(216, 228, 243);
+  padding: 20px;
+  box-shadow: 0px 1px 5px black;
+}
+.jumboImage{
+  border-radius: 50%;
+  background: rgb(43, 77, 116);
+  margin-right: 15px;
+}
+.jumbotron img {
+  width:20vw;
+}
+.jumbotronContent {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  text-align: center;
+}
+h1{
+  margin-top: 0;
+}
+.container{
+  text-align: center;
+  padding-bottom: 20px;
+}
+.container h2{
+  margin-top: 0;
+}
+
+.custom-container {
+  margin: 0 auto;
+  background: #f9f9f9;
+  font-size: 24px;
+}
+.parallax-container1 {
+ margin: 0 auto;
+ background: #f9f9f9;
+ font-size: 24px;
+ background: url('../../assets/cyclingpair.jpeg') no-repeat center;
+ background-size: cover;
+ background-attachment: fixed;
+ height: 280px;
+}
+
+.parallax-container2 {
+  margin: 0 auto;
+  background: #f9f9f9;
+  font-size: 24px;
+  background: url('../../assets/cyclingpair.jpeg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px;
+ }
+
+ .parallax-container3 {
+  margin: 0 auto;
+  background: #f9f9f9;
+  font-size: 24px;
+  background: url('../../assets/victor-freitas-570027-unsplash.jpg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 300px;
+ }
+    
+ .parallax-container4 {
+  margin: 0 auto;
+  background: #f9f9f9;
+  font-size: 24px;
+  background: url('../../assets/architecture-buildings-city-1209978.jpg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 200px;
+ }
+ 
+ textarea{
+   border-color: darkslategray;
+ }
+ ::ng-deep input {
+   border-bottom: 1px solid darkslategray !important;
+ }
+ ::placeholder {
+   color: darkgray;
+ }
