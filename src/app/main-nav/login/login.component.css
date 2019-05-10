@@ -34,12 +34,25 @@ h4 {
     background: transparent;
     cursor: pointer;
 }
-::ng-deep 
-    input:focus {
+/* ::ng-deep 
+    input {
         border-bottom: 1px solid grey;
-    }
+    } */
 
-    ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
-        height: 0px !important;
-    }
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0px !important;
+    box-shadow: none !important;
+    border-bottom: 0!important;
+}
+/* ::ng-deep .mat-form-field-appearance-legacy:focus .mat-form-field-underline:focus .mat-focused {
+    height: 0px !important;
+    box-shadow: none !important;
+    border-bottom: 0 !important;
+}
+::ng-deep .mat-form-field-appearance-legacy.mat-form-field-invalid:not(.mat-focused) .mat-form-field-ripple {
+    height: 0px !important;
+    box-shadow: none !important;
+    border-bottom: 0 !important;
+} */
+
 
