@@ -5,29 +5,41 @@
     right:0;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid black;
-    width: 35vw;
+    top:100px;
+    box-shadow: 1px 3px 3px rgb(39, 39, 39);
+    width: 25vw;
+    height: 300px;
     min-width: 300px;
     background: white;
-    border-radius: 10px;
+    border-radius: 2px;
     padding: 5px;
-    height: 270px;
     text-align: center;
 }
 .xBtn{
     display: flex;
     justify-content: space-between;
     margin: 5px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+    padding-left: 5px;
 }
 .xBtn button:hover{
     background: whitesmoke;
 }
 h4 {
     margin: 0;
+    font-size: 8pt;
 }
 .xBtn button{
     border: none;
     background: transparent;
     cursor: pointer;
 }
+::ng-deep 
+    input:focus {
+        border-bottom: 1px solid grey;
+    }
+
+    ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+        height: 0px !important;
+    }
+
