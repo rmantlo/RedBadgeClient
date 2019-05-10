@@ -26,6 +26,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.component';
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ContactComponent } from './home/contact/contact.component';
 
 
 
@@ -44,6 +45,7 @@ import { FooterComponent } from './footer/footer.component';
     CalendarComponent,
     CarouselComponent,
     FooterComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

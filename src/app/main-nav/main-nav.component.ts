@@ -11,7 +11,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
-  login: boolean = true;
+  login: boolean = false;
   signup: boolean = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
