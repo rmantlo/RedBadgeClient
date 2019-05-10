@@ -25,7 +25,6 @@ import { CarouselComponent} from './carousel/carousel.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.component';
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
-import { ParallaxComponent } from './parallax/parallax.component';
 import { FooterComponent } from './footer/footer.component';
 
 
@@ -44,7 +43,6 @@ import { FooterComponent } from './footer/footer.component';
     DeleteAlertComponent,
     CalendarComponent,
     CarouselComponent,
-    ParallaxComponent,
     FooterComponent,
   ],
   imports: [
