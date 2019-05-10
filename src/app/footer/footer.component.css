@@ -1,0 +1,75 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  mat-toolbar {
+    background-color: rgb(43, 77, 116);
+    color: rgb(136, 156, 196);
+    display: fixed;
+    font-family: 'Special Elite', cursive;
+    font-size: 25pt;
+    /* flex-shrink: initial; */
+    /* flex-direction: inherit; */
+    /* white-space:normal;  */
+  }
+
+  /* "FitnessTogether" words */
+#logoFont {
+    /* font-family: 'Karla', sans-serif; */
+    font-family: 'Special Elite', cursive;
+    /* font-family: 'Merienda', cursive; */
+    font-size: 25pt;
+    color: rgb(136, 156, 196);
+    padding-top: 2pt; /*necessary b/c when the words get smaller, it gets offline w/ icons. */
+  }
+   @media only screen and (max-width: 400px){
+    #logoFont {
+      font-size: 15pt;
+    } }
+
+  .ourIcon {
+    height: 3em;
+    width: 3em;
+    padding: 3pt;
+  }
+
+  /* spacer basically divides the 2 containers & pushes them left & right */
+.spacer {
+    flex: 1 1 auto !important;
+  }
+
+  mat-toolbar a {
+    display: inline-block;
+    margin: 0 5px;
+    color: rgb(136, 156, 196);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* mat-nav-list a {
+    font-family: 'Special Elite', cursive;
+    font-size: 16pt;
+  } */
+
+  mat-toolbar i {
+    display: inline-block;
+    margin: 0 5px;
+    color: rgb(136, 156, 196);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  fa-icon {
+    max-height: 1em;
+    max-width: 1em;
+    font-size: 10pt;
+    cursor: pointer;
+    padding: 2pt;
+    color: rgb(136, 156, 196);
+  }
