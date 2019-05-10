@@ -1,14 +1,83 @@
 .jumbotron {
-    height: 400px;
-    width: 100%;
-    max-height: 50%;
-    max-width: 100%;
-    min-height: 20%;
-    min-width: 30%;
-    background-image: url("../../assets/workoutfail.jpg");
-    background-size: cover;
-    border: 5px solid blue;
-    background-color: black !important;
-  }
+  position: relative;
+  background: rgb(43, 77, 116);
+  padding: 20px;
+  box-shadow: 0px 1px 5px black;
+}
+.jumbotron img {
+  width:20vw;
+}
+.jumbotronContent {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+h1{
+  margin-top: 0;
+}
+.container{
+  text-align: center;
+  padding-bottom: 20px;
+}
+.container h2{
+  margin-top: 0;
+}
 
+.custom-container {
+  /* max-width: 960px; */
+  margin: 0 auto;
+  background: #f9f9f9;
+  font-size: 24px;
+  /* padding: 25px; */
+}
+.parallax-container1 {
+ /* max-width: 960px; */
+ margin: 0 auto;
+ background: #f9f9f9;
+ font-size: 24px;
+ /* padding: 25px; */
+ background: url('../../assets/architecture-buildings-city-1209978.jpg') no-repeat center;
+ background-size: cover;
+ background-attachment: fixed;
+ height: 300px;
+}
+
+.parallax-container2 {
+  /* max-width: 960px; */
+  margin: 0 auto;
+  background: #f9f9f9;
+  font-size: 24px;
+  /* padding: 25px; */
+  background: url('../../assets/adventure-architecture-bay-196667.jpg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px;
+ }
+
+ .parallax-container3 {
+  /* max-width: 960px; */
+  margin: 0 auto;
+  background: #f9f9f9;
+  font-size: 24px;
+  /* padding: 25px; */
+  background: url('../../assets/architectural-design-architecture-buildings-1829189.jpg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px;
+ }
+    
+ .parallax-container4 {
+  /* max-width: 960px; */
+  margin: 0 auto;
+  background: #f9f9f9;
+  font-size: 24px;
+  /* padding: 25px; */
+  background: url('../../assets/architecture-buildings-city-1209978.jpg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px;
+ }
  
