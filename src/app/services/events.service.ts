@@ -15,6 +15,10 @@ export class EventsService {
 
   constructor(private http: HttpClient) { }
 
+  allEvents(){
+    return this.http.get('http://localhost:3000/event/', httpOptions)
+  }
+
   myEvents(){
     return this.http.get('http://localhost:3000/event/getmine', httpOptions)
   }
