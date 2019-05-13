@@ -1,0 +1,18 @@
+
+ 
+ <div *ngIf='event' class='carousel-item' >
+     <div *ngFor='let e of event' class='deck'>
+       <div class='card'>
+         <div class='cardContainer'>
+           <h3>{{ e.title }}</h3>
+           <img src='{{ e.image }}' alt=''>
+           <p>{{ e.itle }}</p>
+           <!-- <p>Cost: ${{ p.product_price }}</p> -->
+           <div *ngIf='token'>
+             <!-- <button #button value='{{ p.id }}' (click)='deletePlant(button.value)' >Delete</button> -->
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ 

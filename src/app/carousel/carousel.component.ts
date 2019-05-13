@@ -1,12 +1,14 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { EventsService } from '../services/events.service';
 import * as M from '../../assets/materialize-css/dist/js/materialize.min.js'
+
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
+
   options: {}
   events: any;
 
@@ -16,12 +18,10 @@ export class CarouselComponent implements OnInit {
 
   constructor(private eventService: EventsService) { }
 
+
   ngOnInit() {
     this.fetchEvents();
 
-    document.addEventListener('DOMContentLoaded', () => {
-
-    })
     let timer = setInterval(function () {
       var elems: NodeListOf<Element> = document.querySelectorAll('.carousel');
       var instances = M.Carousel.init(elems, this.options, { fullWidth: true });
@@ -56,4 +56,9 @@ export class CarouselComponent implements OnInit {
   }
 
 }
+
+
+  
+
+
 
