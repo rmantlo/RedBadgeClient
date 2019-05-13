@@ -1,3 +1,7 @@
+.carousel {
+    height: 500px;
+}
+
 .input-field {
     max-width: 25%;
 }
@@ -5,4 +9,48 @@
 .seperator {
     margin-top: 24px;
     margin-bottom: 16px;
+}
+
+
+/***CARDS***/
+
+.card {
+    display: flex;
+    width: 20vw;
+    min-width: 50px;
+    border: solid grey 1px;
+    margin: 3pt;
+    justify-content: center;
+}
+
+.card:hover {
+    box-shadow: .5em .5em 1em .2em rgba( 0, 0, 0, 0.6);
+}
+
+.card-map {
+    cursor: pointer;
+}
+
+.contents {
+    background: rgb(255, 255, 255, 0.4);
+    margin: 5px;
+    color: black;
+}
+
+/***PARALAX***/
+
+.custom-container {
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+}
+
+.parallax-container1 {
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+    background: url('../../assets/cyclingpair.jpeg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 280px;
 }
