@@ -113,7 +113,7 @@ mat-toolbar a {
 .ourIcon {
   height: 4em;
   width: 4em;
-  padding: 4pt;
+  padding-top:10px;
 }
 /* @media only screen and (max-width: 400px){
   .ourIcon {

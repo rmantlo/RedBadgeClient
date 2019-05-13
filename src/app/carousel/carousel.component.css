@@ -1,3 +1,7 @@
+.carousel {
+    height: 500px;
+}
+
 .input-field {
     max-width: 25%;
 }
@@ -7,47 +11,47 @@
     margin-bottom: 16px;
 }
 
-.carousel .carousel-item .card-image {
-    width: 440px !important;
-    padding: 20px;
-}
 
-.card{ 
-    border-radius: 8px; 
-    position: relative !important;
-    right: 20px !important;
-}
+/***CARDS***/
 
-/* .card {
-    height: 24vw;
-    width: 14vw;
-  } */
-
-.card-image {
-    cursor: pointer;
-
-}
-
-.carousel-slider {
+.card {
     display: flex;
-    flex-direction: row;
-    height: 100%;
-    margin-top: 10%;
-    max-width: 10000px;
-    overflow: hidden;
+    width: 20vw;
+    min-width: 50px;
+    border: solid grey 1px;
+    margin: 3pt;
+    justify-content: center;
 }
 
-.row-container {
-    width: 100vw; }
-
-
-.card-wrapper {
-  flex-shrink: 0;
-  display: inline-block;
+.card:hover {
+    box-shadow: .5em .5em 1em .2em rgba( 0, 0, 0, 0.6);
 }
 
-    img {
-            width: 100%;
-            height: auto;
-            max-height: 360px;
-        }
+.card-map {
+    cursor: pointer;
+}
+
+.contents {
+    background: rgb(255, 255, 255, 0.4);
+    margin: 5px;
+    color: black;
+}
+
+/***PARALAX***/
+
+.custom-container {
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+}
+
+.parallax-container1 {
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+    background: url('../../assets/cyclingpair.jpeg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 280px;
+}
+

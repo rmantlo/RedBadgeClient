@@ -1,73 +1,81 @@
 <!-- Jumbotron -->
+<div class="custom-container">
+  <div class="parallax-container1">
+  </div>
+</div>
 
-<mat-jumbotron  style="background:transparent !important" class="logo" imgURL="../../assets/ourIcon.png">
-  <mat-jumbotron-content class="jumbotron">
-    <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">FITNESS TOGETHER</h1>
-    <p class="headline" ngClass.xs="text-center">Fitness Together is your way to connect to other fitness fanatics across your city. Stop netflixing and get off the couch today!
-    </p>
-
-    <p class="text-center"> Sign up to view local events, and add your own to our database.</p>
-
-    <div fxLayout="row" fxLayout.xs="column"
-         fxLayoutGap.xs="2rem"
-         fxLayoutAlign="center">
-      <!-- <a mat-stroked-button
-         color="primary"
-         target="_blank"
-         src="../../assets/runners3.jpeg">
-        <mat-icon>code</mat-icon>
-        Signup now -->
-      <!-- </a> --> 
-      <a mat-stroked-button
-         color="primary"
-         target="_blank"
-         href="doc/index.html">
-        <mat-icon>launch</mat-icon>
-        Get Started
-      </a>
+<div class='jumbotron'>
+  <div class='jumbotronContent'>
+    <div class='jumboImage'>
+      <img src='../../assets/ourIcon.png'>
     </div>
-
-  </mat-jumbotron-content>
-</mat-jumbotron>
-
-<app-parallax></app-parallax>
-
-<mat-jumbotron  imgURL="../../assets/ourIcon.png">
-  <mat-jumbotron-content class="jumbotron">
-    <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">FITNESS TOGETHER</h1>
-    <p class="headline" ngClass.xs="text-center">Fitness Together is your way to connect to other fitness fanatics across your city. Stop netflixing and get off the couch today!
-    </p>
-
-    <p class="text-center"> Sign up to view local events, and add your own to our database.</p>
-
-    <div fxLayout="row" fxLayout.xs="column"
-         fxLayoutGap.xs="1rem"
-         fxLayoutAlign="center center">
-      <a mat-stroked-button
-         color="primary"
-         target="_blank"
-         src="../../assets/runners3.jpeg">
-        <mat-icon>code</mat-icon>
-        Signup now
-      </a>
-      <a mat-stroked-button
-         color="primary"
-         target="_blank"
-         href="doc/index.html">
-        <mat-icon>note</mat-icon>
-        Login Now
-      </a>
+    <div>
+      <h1>FITNESS TOGETHER</h1>
+      <p>Fitness Together is your way to connect to other fitness fanatics
+        across your city. Stop netflixing and get off the couch today!
+      </p>
+      <p> Sign up to view local events, and add then to your own calendar. Keep track of location
+        events, better your health, and meet new people.</p>
+      <div style='text-align: center'>
+        <a mat-stroked-button>
+          <mat-icon>launch</mat-icon>
+          Get Started
+        </a>
+      </div>
     </div>
+  </div>
+</div>
 
-  </mat-jumbotron-content>
-</mat-jumbotron>
+<div class="custom-container">
+  <div class="parallax-container2">
+  </div>
+</div>
 
-  <!-- <h3>Basic Buttons</h3>
-<div class="example-button-row">
-  <button mat-button>Basic</button>
-  <button mat-button color="primary">Primary</button>
-  <button mat-button color="accent">Accent</button>
-  <button mat-button color="warn">Warn</button>
-  <button mat-button disabled>Disabled</button>
-  <a mat-button routerLink=".">Link</a>
-</div> -->
+<div class='jumbotron'>
+  <div class='jumbotronContent' style='flex-direction: column; text-align: center'>
+    <h1>About</h1>
+    <p>Connect and meet up with active people nearby. Find a buddy Are you looking for a Tennis Partner, Running, Workout, Gym or Golf Buddy? Finding Fitness Pals has never been easier. With over a dozen sports activities to choose from, it is very easy to find someone to do fitness together who likes the same sport you like. Meet your Fitness Buddy based on gender, location, age and activities they do. Find Fit Friends and help build healthy communities. Make new friends, instantly Did you just move to a new town? Don't know anybody? Want to pick up a new sport? With 5F it is very simple to make new friends, be active and have fun. We do the heavy lifting for you and only match you with people who like the same activities as you, based on your Discover settings. You don’t have to scroll through an endless stack of users to find the perfect fitness buddy, we only show you your best matches. Spend less time searching and more time playing.</p>
+  </div>
+</div>
+
+<div class="custom-container">
+  <div class="parallax-container3">
+  </div>
+</div>
+
+<div class='jumbotron'>
+  <div class='jumbotronContent'>
+    <!-- <app-contact></app-contact> -->
+    <div class="container">
+      <br>
+      <br>
+      <h2 class="text-center text-uppercase">Contact</h2>
+      <div>
+        <form ngNoForm action="https://formspree.io/rebekahmantlo@gmail.com" method="POST">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Your Name" id="name" required
+            data-validation-required-message="Please enter your name" name="name">
+          <p class="help-block text-danger"></p>
+          <label>Email Address</label>
+          <input type="email" class="form-control" placeholder="Your Email" id="email" required
+            data-validation-required-message="Please enter your email" name="_replyto">
+          <p class="help-block text-danger"></p>
+          <textarea class="form-control" rows="7" placeholder="Your Message" id="message" required
+            data-validation-required-message="Please leave a message" name="message"></textarea>
+          <p class="help-block text-danger"></p>
+          <button type="submit" class="btn btn-lg btn-black">
+            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="custom-container">
+  <div class="parallax-container4">
+  </div>
+</div>
+

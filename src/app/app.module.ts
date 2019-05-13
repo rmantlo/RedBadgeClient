@@ -25,10 +25,10 @@ import { CarouselComponent} from './carousel/carousel.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.component';
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
-import { ParallaxDirective } from './parallax.directive';
-import { ParallaxComponent } from './parallax/parallax.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { EventsComponent } from './eventpage/events/events.component';
+import { FooterComponent } from './footer/footer.component';
+import { ContactComponent } from './home/contact/contact.component';
 
 
 
@@ -45,10 +45,11 @@ import { EventsComponent } from './eventpage/events/events.component';
     MainNavComponent,
     DeleteAlertComponent,
     CalendarComponent,
-    ParallaxDirective,
-    ParallaxComponent,
     EventCardComponent,
     EventsComponent,
+    CarouselComponent,
+    FooterComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
