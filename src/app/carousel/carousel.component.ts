@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import * as M from '../../assets/materialize-css/dist/js/materialize.min.js'
+import * as M from '../../assets/materialize-css/dist/js/materialize.min.js';
+
+
+
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
-  options: {}
+options = {}
 
-
+  constructor() { }
+  
 
   ngOnInit() {
 
@@ -22,4 +26,9 @@ export class CarouselComponent implements OnInit {
 
   }
 }
+
+
+  
+
+
 

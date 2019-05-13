@@ -1,3 +1,10 @@
+<div *ngIf='login'>
+  <app-login (onLoginToggle)='toggle()'></app-login>
+</div>
+<div *ngIf='signup'>
+  <app-signup (onSignupToggle)='toggle()'></app-signup>
+</div>
+
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
     [attr.role]="dialog"
@@ -16,7 +23,7 @@
   <mat-sidenav-content>
     <mat-toolbar>
 
-      <i type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+      <i aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </i>
       <a href="#" routerLink='/'><img class="ourIcon" src="../../assets/ourIcon.png" alt="logo"></a>
@@ -48,12 +55,12 @@
 
 
     </mat-toolbar>
-    <div *ngIf='login'>
+    <!-- <div *ngIf='login'>
       <app-login (onLoginToggle)='toggle()'></app-login>
     </div>
     <div *ngIf='signup'>
       <app-signup (onSignupToggle)='toggle()'></app-signup>
-    </div>
+    </div> -->
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

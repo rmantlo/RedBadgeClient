@@ -27,6 +27,8 @@ import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.co
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
 import { ParallaxDirective } from './parallax.directive';
 import { ParallaxComponent } from './parallax/parallax.component';
+import { EventCardComponent } from './event-card/event-card.component';
+import { EventsComponent } from './eventpage/events/events.component';
 
 
 
@@ -43,9 +45,10 @@ import { ParallaxComponent } from './parallax/parallax.component';
     MainNavComponent,
     DeleteAlertComponent,
     CalendarComponent,
-    CarouselComponent,
     ParallaxDirective,
     ParallaxComponent,
+    EventCardComponent,
+    EventsComponent,
   ],
   imports: [
     BrowserModule,

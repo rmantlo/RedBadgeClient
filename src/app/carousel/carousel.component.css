@@ -6,3 +6,48 @@
     margin-top: 24px;
     margin-bottom: 16px;
 }
+
+.carousel .carousel-item .card-image {
+    width: 440px !important;
+    padding: 20px;
+}
+
+.card{ 
+    border-radius: 8px; 
+    position: relative !important;
+    right: 20px !important;
+}
+
+/* .card {
+    height: 24vw;
+    width: 14vw;
+  } */
+
+.card-image {
+    cursor: pointer;
+
+}
+
+.carousel-slider {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin-top: 10%;
+    max-width: 10000px;
+    overflow: hidden;
+}
+
+.row-container {
+    width: 100vw; }
+
+
+.card-wrapper {
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+    img {
+            width: 100%;
+            height: auto;
+            max-height: 360px;
+        }
