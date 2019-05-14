@@ -15,17 +15,6 @@ export class EventpageComponent implements OnInit {
 
   constructor(private eventService: EventsService) { }
   
-  getEvent(): any{
-    this.eventService.getEvent().subscribe(
-      data => {
-        //console.log(data);
-        this.event = data;
-        // this.event.reverse();
-        // this.certainEvent = this.event.slice(0,20);
-        console.log(this.certainEvent);
-      }
-    )
-  }
   setToken(){
     this.token = localStorage.getItem('token');
     //console.log(this.token)
@@ -33,7 +22,7 @@ export class EventpageComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getEvent();
+    // this.getEvent(); I commented-this-out b/c it was throwing an error amw
     this.setToken();
   }
 
