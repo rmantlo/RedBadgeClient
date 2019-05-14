@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -38,14 +38,33 @@ export class SignupComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.signupGroup);
-    this.userService.signup(this.signupGroup).subscribe(
-      data => {
-        console.log(data);
-        let data1: any = data;
-        localStorage.setItem('token', data1.sessionToken);
-        this.token = data1.sessionToken;
-      }
-    )
+    if (this.signupGroup.password.length < 5) {
+      alert('password must be 5 or more characters long')
+    } else {
+      this.userService.signup(this.signupGroup).subscribe(
+        data => {
+          console.log(data);
+          let data1: any = data;
+          localStorage.setItem('token', data1.sessionToken);
+          this.token = data1.sessionToken;
+          if (this.token) {
+            window.location.replace('http://localhost:4200/events');
+          }
+        },
+        err => {
+          console.log(err.error.errors);
+          for (let e of err.error.errors) {
+            console.log(e);
+            if (e.message === 'username must be unique') {
+              alert('username already taken');
+            } else if (e.message === 'email must be unique') {
+              alert('email already has an account')
+            }
+          }
+          // if(err.errors)
+        }
+      )
+    }
   }
   signupToggle() {
     this.onSignupToggle.emit();
