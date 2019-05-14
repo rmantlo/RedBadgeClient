@@ -18,23 +18,23 @@ export class CarouselComponent implements OnInit {
 
   constructor(private eventService: EventsService) { }
 
+  attendInfo:any = {};
 
   ngOnInit() {
     this.fetchEvents();
 
-    let timer = setInterval(function () {
+    setTimeout(function () {
       var elems: NodeListOf<Element> = document.querySelectorAll('.carousel');
-      var instances = M.Carousel.init(elems, this.options, { fullWidth: true });
-      clearInterval(timer)
-    }, 500)
-    var elems: NodeListOf<Element> = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, this.options);
+      var instances = M.Carousel.init(elems, this.options);
+      var elems: NodeListOf<Element> = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems, this.options);
+    }, 1000)
   }
   fetchEvents() {
     this.eventService.allEvents().subscribe(
       data => {
         this.events = data;
-        console.log(data);
+        //console.log(data);
         this.separateTypes();
       }
     )
@@ -42,7 +42,7 @@ export class CarouselComponent implements OnInit {
   separateTypes() {
     for (let e of this.events) {
       if (e.keyword === 'running') {
-        console.log(e)
+        //console.log(e)
         this.exerciseEvents = this.exerciseEvents.concat(e);
       } else if (e.keyword === 'soccer') {
         this.sportEvents = this.sportEvents.concat(e);
@@ -55,10 +55,20 @@ export class CarouselComponent implements OnInit {
     console.log(this.outdoorEvents);
   }
 
+  attendButton(event){
+    console.log('click');
+    console.log(event);
+    this.attendInfo["username"] = event.id;
+    this.attendInfo["eventId"] = event.id;
+    this.attendInfo['eventTitle'] = event.title;
+    this.attendInfo['date'] = event.date;
+    console.log(this.attendInfo);
+  }
+
 }
 
 
-  
+
 
 
 
