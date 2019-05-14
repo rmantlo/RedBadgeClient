@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+}
+
+.card:hover{
+    box-shadow: 2em 2em 2em 2em rgba( 0, 0, 0, 0.4);
+}
+
+
+.card-image {
+    cursor: pointer;
+}
+
+
+.card {
+    display: inline-block;
+    width: 20vw; 
+    min-width: 300px;
+    text-align: center;
+    border: solid grey 1px;
+    margin: 3pt;
+    justify-content: center;
+    
+}
+
+.row-container {
+    width: 100%;
+    overflow: hidden !important;
+    margin: 0 auto;
+    
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+  }

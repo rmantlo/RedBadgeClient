@@ -1,3 +1,28 @@
-.mat-radio-button ~ .mat-radio-button {
-    margin-left: 16px;
-  }
+
+/***PARALAX***/
+
+.custom-container {
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+}
+
+.parallax-container1 {
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+    background: url('../../assets/cyclingpair.jpeg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 80px;
+}
+.parallax-container2 {
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+    background: url('../../assets/cyclingpair.jpeg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 200px;
+}
+

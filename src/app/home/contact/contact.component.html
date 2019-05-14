@@ -1,0 +1,24 @@
+<div class="container">
+  <br>
+  <br>
+  <h2 class="text-center text-uppercase">Contact</h2>
+  <div>
+    <form ngNoForm action="https://formspree.io/rebekahmantlo@gmail.com" method="POST">
+      <label>Name</label>
+      <input type="text" class="form-control" placeholder="Your Name" id="name" required
+        data-validation-required-message="Please enter your name" name="name">
+      <p class="help-block text-danger"></p>
+      <label>Email Address</label>
+      <input type="email" class="form-control" placeholder="Your Email" id="email" required
+        data-validation-required-message="Please enter your email" name="_replyto">
+      <p class="help-block text-danger"></p>
+      <textarea class="form-control" rows="7" placeholder="Your Message" id="message" required
+        data-validation-required-message="Please leave a message" name="message"></textarea>
+      <p class="help-block text-danger"></p>
+      <button type="submit" class="btn btn-lg btn-black">
+        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+        Send Message
+      </button>
+    </form>
+  </div>
+</div>

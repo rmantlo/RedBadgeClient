@@ -14,8 +14,6 @@
     <div class='eventLists'>
       <mat-tab-group animationDuration="0ms">
 
-        <mat-tab label="Events by Month">Content 1</mat-tab>
-
         <mat-tab label="My Events">
           <div *ngIf='myEventInfo'>
             <div *ngFor='let e of myEventInfo'>
@@ -28,7 +26,7 @@
           </div>
         </mat-tab>
 
-        <mat-tab label="All Events">
+        <mat-tab label="Events Attending">
           <div *ngFor='let e of allAttendEvents'>
             <h2>{{ e.title }}</h2>
             <p>{{ e.keyword }}</p>

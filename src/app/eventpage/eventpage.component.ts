@@ -4,6 +4,7 @@ import { EventsService } from '../services/events.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 
+
 export interface Event {
   value: string;
   viewValue: string;
@@ -21,10 +22,15 @@ export interface EventGroup {
   styleUrls: ['./eventpage.component.css']
 })
 export class EventpageComponent implements OnInit {
+  
+  event: any;
+  certainEvent: any;
+  token: any;
+  
   addEventClicked: boolean = false;
-
   addEvent: FormGroup;
-  addMap: FormGroup
+  addMap: FormGroup;
+  keywordGroup: FormGroup
  
 
   eventGroup: any = {};
@@ -63,7 +69,22 @@ export class EventpageComponent implements OnInit {
   ];
 
   constructor(private formBuilder: FormBuilder, private eventsService: EventsService) { }
-  keywordGroup: FormGroup
+  
+  getEvent(): any{
+    this.eventsService.getEvent().subscribe(
+      data => {
+        //console.log(data);
+        this.event = data;
+        // this.event.reverse();
+        // this.certainEvent = this.event.slice(0,20);
+        console.log(this.certainEvent);
+      }
+    )
+  }
+  setToken(){
+    this.token = localStorage.getItem('token');
+    //console.log(this.token)
+  }
 
   ngOnInit() {
     this.addEvent = this.formBuilder.group({
@@ -79,7 +100,9 @@ export class EventpageComponent implements OnInit {
     });
     this.keywordGroup= this.formBuilder.group({
       keyword: new FormControl()
-    })
+    });
+    this.getEvent();
+    this.setToken();
   }
 
   openEventModal() {
@@ -112,5 +135,4 @@ export class EventpageComponent implements OnInit {
     )
     this.addEventClicked= !this.addEventClicked;
   }
-
 }
