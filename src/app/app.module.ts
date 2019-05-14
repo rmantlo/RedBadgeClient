@@ -25,9 +25,8 @@ import { CarouselComponent} from './carousel/carousel.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { DeleteAlertComponent } from './profilepage/delete-alert/delete-alert.component';
 import { CalendarComponent } from './profilepage/calendar/calendar.component';
-import { ParallaxComponent } from './parallax/parallax.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 
 @NgModule({
@@ -44,8 +43,8 @@ import { FooterComponent } from './footer/footer.component';
     DeleteAlertComponent,
     CalendarComponent,
     CarouselComponent,
-    ParallaxComponent,
     FooterComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +74,9 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     MatListModule,
     MatGoogleMapsAutocompleteModule,
-    AgmCoreModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey:"AIzaSyB-LaN-WJYMPQ3WmobabEo5AtsNPo8BZOM"
+    }),
     FullCalendarModule
 
   ],

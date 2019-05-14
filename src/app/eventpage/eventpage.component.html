@@ -1,9 +1,69 @@
 <div class="example-button-row">
- <button style="position:absolute; right : 0"    mat-mini-fab>
-    <mat-icon routerLink="."  aria-label="Example icon-button with a heart icon">add</mat-icon>
+ <button (click)="openEventModal()"style="position:absolute; z-index: 5; right : 0"    mat-mini-fab>
+
+    <mat-icon  aria-label="Example icon-button with a heart icon">add</mat-icon>
   </button>
-  <!-- <a mat-mini-fab routerLink=".">Event</a> -->
 </div>
+
+<!-- Modal  -->
+<div class='login' *ngIf="addEventClicked">
+    <div class='xBtn'>
+      <h4>CREATE EVENT</h4>
+      <button (click)='closeEventModal()'>X</button>
+    </div>
+    <form [formGroup]='addEvent' (ngSubmit)='onSubmit()' class="example-container">
+      
+      <!-- Title -->
+      <mat-form-field>
+        <input matInput formControlName='title' placeholder="Title" required>
+      </mat-form-field><br>
+
+      <!-- Location -->
+      <mat-form-field>
+        <input matInput formControlName='location' placeholder="Location"  required>
+      </mat-form-field><br>
+      <form [formGroup]="addMap"></form>
+
+      <!-- Time attribute. DATEPICKER goes here -->
+      <mat-form-field>
+          <input matInput formControlName='date' [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field><br>
+
+        <!-- DROPDOWN OPTION LIST -->
+       
+        
+            <mat-form-field >
+              <mat-label>Event</mat-label>
+              <mat-select formControlName="keyword" >
+                <!-- <mat-option>-- None --</mat-option> -->
+                <mat-optgroup *ngFor="let group of eventGroups" [label]="group.name"
+                              [disabled]="group.disabled">
+                  <mat-option *ngFor="let event of group.event" [value]="event.value">
+                    {{event.viewValue}}
+                  </mat-option>
+                </mat-optgroup>
+              </mat-select>
+            </mat-form-field>
+          
+           <!-- <app-dropdown formControlName='keyword' (dropdown)="keywordFunction(i)"></app-dropdown> -->
+       
+          <br>
+
+          <!-- DESCRIPTION -->
+          <mat-form-field>
+              <textarea matInput formControlName='description' placeholder="Description">
+                </textarea>
+              </mat-form-field><br>
+      <button (click)="submitNewEvent()"style="position:absolute; z-index: 5;" mat-button>Submit</button>
+    </form>
+  </div>
+
+
+  
+  
+
 
 <div class="seperator"></div>
 
