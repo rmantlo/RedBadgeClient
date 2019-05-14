@@ -6,18 +6,15 @@
 </div>
 
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
-    [attr.role]="dialog"
-    [mode]="over"
-    [opened]="false"> 
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false" [attr.role]="dialog" [mode]="over" [opened]="false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#" routerLink='/'>Home</a>
       <a mat-list-item href="#" routerLink='/events'>Events</a>
       <a mat-list-item href="#" routerLink='/profile'>Profile</a>
-      <a mat-list-item (click)='signupToggle()'>SignUp</a>
-      <a mat-list-item (click)='loginToggle()'>Login</a>
-      <a mat-list-item (click)='logout()'>LogOut</a>
+      <a *ngIf='!loggedIn' mat-list-item (click)='signupToggle()'>SignUp</a>
+      <a *ngIf='!loggedIn' mat-list-item (click)='loginToggle()'>Login</a>
+      <a *ngIf='loggedIn' mat-list-item (click)='logout()'>LogOut</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -33,21 +30,21 @@
       <!-- This spacer class added w/ css divides & pushes everything above to the right and everything below to the left. -->
 
       <span class="spacer"></span>
- 
+
 
       <!-- Add icons here <a href="#">Another link?</a>-->
 
       <div fxHide="true" fxShow.gt-xs class='nav-links'>
 
-        <a (click)='loginToggle()'>
+        <a *ngIf='!loggedIn' (click)='loginToggle()'>
           <fa-icon class="fas fa-sign-in-alt"></fa-icon>
           <span class="label">LogIn</span>
         </a>
-        <a (click)='signupToggle()'>
+        <a *ngIf='!loggedIn' (click)='signupToggle()'>
           <fa-icon class="fas fa-user-plus"></fa-icon>
           <span class="label"> SignUp</span>
         </a>
-        <a (click)='logout()'>
+        <a *ngIf='loggedIn' (click)='logout()'>
           <fa-icon class="fas fa-sign-out-alt"></fa-icon>
           <span class="label">LogOut</span>
         </a>

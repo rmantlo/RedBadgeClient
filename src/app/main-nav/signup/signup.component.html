@@ -14,10 +14,10 @@
           <input matInput placeholder="Email" type='email' formControlName="email" required>
         </mat-form-field><br>
         <mat-form-field>
-          <input matInput placeholder="Password" formControlName="password" type='password' required>
+          <input matInput placeholder="Password" formControlName="password" type='password' pattern='.{5,}' required>
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext value='Check'>Next</button>
         </div>
       </form>
     </mat-step>

@@ -1,5 +1,7 @@
+
 .carousel {
     height: 500px;
+    box-shadow: 0em .5em .8em .1em rgba( 0, 0, 0, 0.6);
 }
 
 .input-field {
@@ -10,17 +12,21 @@
     margin-top: 24px;
     margin-bottom: 16px;
 }
-
-
+div.carousel-item.ng-star-inserted{
+    opacity: 0.6 !important;
+}
+div.carousel-item.ng-star-inserted.active{
+    opacity: 1 !important;
+}
 /***CARDS***/
 
 .card {
-    display: flex;
     width: 20vw;
     min-width: 50px;
     border: solid grey 1px;
     margin: 3pt;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -35,6 +41,12 @@
     background: rgb(255, 255, 255, 0.4);
     margin: 5px;
     color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+button{
+    justify-content: right;
 }
 
 /***PARALAX***/

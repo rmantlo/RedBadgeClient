@@ -6,31 +6,18 @@
   display: fixed;
   font-family: 'Special Elite', cursive;
   font-size: 14pt;
-  /* flex-shrink: initial; */
-  /* flex-direction: inherit; */
-  /* white-space:normal;  */
 }
 
 mat-nav-list a {
   font-family: 'Special Elite', cursive;
   font-size: 16pt;
 }
-/* 
-  .shrink-toolbar {
-    height: 22px;
-  } */
 
-/* @media (max-width: 768px){
-  .sidenav-container{
-      display: none;
-  } */
 
 
 /* "FitnessTogether" words */
 #logoFont {
-  /* font-family: 'Karla', sans-serif; */
   font-family: 'Special Elite', cursive;
-  /* font-family: 'Merienda', cursive; */
   font-size: 25pt;
   color: rgb(136, 156, 196);
   padding-top: 2pt; /*necessary b/c when the words get smaller, it gets offline w/ icons. */
@@ -61,10 +48,7 @@ mat-sidenav-content {
   flex: 1 1 auto !important;
 }
 /* 
-.mat-drawer {
-  transform: translate3d(100%, 0, 0) !important;
-  right: 0 !important;
-} */
+
 
 /* words next to icons ("home/Login/logout/signup") */
 .nav-links {
@@ -72,11 +56,7 @@ mat-sidenav-content {
   cursor: pointer;
   padding: 3pt;
 }
-/* @media screen and (min-width: 60px) and (max-width: 1279px) {
-  .nav-links {
-     place-content: flex-end;
-  }
-} */
+
 
 
 mat-toolbar a {
@@ -87,27 +67,7 @@ mat-toolbar a {
   cursor: pointer;
 }
 
-/* .sidenav .mat-toolbar {
-  background: white;
-}
 
-.sidenav {
-  background-color: blue;
-} */
-
-
-/* .mat-toolbar.mat-primary {
- position: sticky;
-  top: 0;
-  z-index: 1;
-} */
-
- /* @media screen and (min-width: 768px) {
-  mat-sidenav {
-    display: none;
-  visibility: hidden;
-  }
-} */
 
 /* our icon top left */
 .ourIcon {
@@ -115,12 +75,6 @@ mat-toolbar a {
   width: 4em;
   padding-top:10px;
 }
-/* @media only screen and (max-width: 400px){
-  .ourIcon {
-    height: 4em;
-    width: 4em;
-  }
-} */
 
 
 /* icons on Navbar. icon sizes are controlled by "font-size"*/
@@ -140,6 +94,7 @@ fa-icon {
 mat-icon {
   font-size:30pt;
   cursor: pointer;
-  padding-right: 15pt;
+  padding-right: 0;
+  width:auto;
 }
 

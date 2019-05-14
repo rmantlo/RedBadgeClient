@@ -1,127 +1,125 @@
-
 <!-- Here is our excercise carousel -->
-<div class="excercise-carousel">
+<div *ngIf='events'>
+  <div class="exercise-carousel">
 
-  <div class="carousel">
-    <h3>EXCERCISE</h3>
-    <div class="input-field col s12">
-      <select multiple>
-        <option value="" disabled selected>Choose your option</option>
-        <option value="1">Running</option>
-        <option value="2">Yoga</option>
-        <option value="3">Weight Lifting</option>
-        <option value="4">Group Workout</option>
-        <option value="5">Bootcamp</option>
-      </select>
-      <label>Choose an Exercise</label>
-    </div>
+    <div class="carousel">
+      <h3>EXCERCISE</h3>
+      <div class="input-field col s12">
+        <select multiple>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Running</option>
+          <option value="2">Yoga</option>
+          <option value="3">Weight Lifting</option>
+          <option value="4">Group Workout</option>
+          <option value="5">Bootcamp</option>
+        </select>
+        <label>Choose an Exercise</label>
+      </div>
 
-    <div class='carousel-item' *ngFor="let e of events">
-      <section class="card" style='background-image: url("../../assets/hiking.jpeg")'>
-        <div class='contents'>
-          <div class="card-content">
-            <span class="card-title">{{ e.title }}</span>
-            <p><a href="#">{{ e.date }}</a></p>
-            <p>{{ e.location }}</p>
-            <p>{{ e.description }}</p>
-          </div>
-        </div>
-        <div class="card-map">
-          <!-- <img class="activator" src="../../assets/hiking.jpeg"> -->
-          <p>map here?</p>
-        </div>
-      </section>
-    </div>
-
-  </div>
-</div>
-
-<!--paralax-->
-<div class="custom-container">
-  <div class="parallax-container1"></div>
-</div>
-
-<!-- Here is our Sports carousel -->
-<div class="sports-carousel">
-  <div class="carousel">
-    <h3>Sports</h3>
-    <div class="input-field col s12">
-      <select multiple>
-        <option value="" disabled selected>Choose your option</option>
-        <option value="1">Running</option>
-        <option value="2">Yoga</option>
-        <option value="3">Weight Lifting</option>
-        <option value="4">Group Workout</option>
-        <option value="5">Bootcamp</option>
-      </select>
-      <label>Choose an Exercise</label>
-    </div>
-
-    <div *ngIf='sportEvents'>
-      <div class='carousel-item' *ngFor="let e of sportEvents">
+      <div class='carousel-item' *ngFor="let e of exerciseEvents; let i = index">
         <section class="card" style='background-image: url("../../assets/hiking.jpeg")'>
-
           <div class='contents'>
             <div class="card-content">
-              <span class="card-title activator">{{ e.title }}<i class="material-icons right">more_vert</i></span>
+              <span class="card-title">{{ e.title }}</span>
               <p><a href="#">{{ e.date }}</a></p>
               <p>{{ e.location }}</p>
               <p>{{ e.description }}</p>
             </div>
+            <div class="card-map">
+              <!-- <img class="activator" src="../../assets/hiking.jpeg"> -->
+              <p>map here?</p>
+            </div>
           </div>
-
-          <div class="card-map">
-            <!-- <img class="activator" src="../../assets/hiking.jpeg"> -->
-            <p>map here?</p>
-          </div>
+          <button (click)='attendButton(e)'>Attend</button>
         </section>
       </div>
+
     </div>
-   
   </div>
-</div>
 
-<!--paralax-->
-<div class="custom-container">
-  <div class="parallax-container1"></div>
-</div>
+  <!--paralax-->
+  <div class="custom-container">
+    <div class="parallax-container1"></div>
+  </div>
 
-<!-- Here is our Nature carousel -->
-<div class="outdoor-carousel">
-  <div class="carousel">
-    <h3>Outdoors</h3>
-    <div class="input-field col s12">
-      <select multiple>
-        <option value="" disabled selected>Choose your option</option>
-        <option value="1">Running</option>
-        <option value="2">Yoga</option>
-        <option value="3">Weight Lifting</option>
-        <option value="4">Group Workout</option>
-        <option value="5">Bootcamp</option>
-      </select>
-      <label>Choose an Exercise</label>
-    </div>
+  <!-- Here is our Sports carousel -->
+  <div class="exercise-carousel">
 
-    <div *ngIf='outdoorEvents'>
-      <div class='carousel-item' *ngFor="let e of outdoorEvents">
+    <div class="carousel">
+      <h3>SPORTS</h3>
+      <div class="input-field col s12">
+        <select multiple>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Running</option>
+          <option value="2">Yoga</option>
+          <option value="3">Weight Lifting</option>
+          <option value="4">Group Workout</option>
+          <option value="5">Bootcamp</option>
+        </select>
+        <label>Choose a Sport</label>
+      </div>
 
+      <div class='carousel-item' *ngFor="let e of events; let i = index">
         <section class="card" style='background-image: url("../../assets/hiking.jpeg")'>
-
           <div class='contents'>
             <div class="card-content">
-              <span class="card-title">{{ e.title }}<i class="material-icons right">more_vert</i></span>
+              <span class="card-title">{{ e.title }}</span>
               <p><a href="#">{{ e.date }}</a></p>
               <p>{{ e.location }}</p>
               <p>{{ e.description }}</p>
             </div>
+            <div class="card-map">
+              <!-- <img class="activator" src="../../assets/hiking.jpeg"> -->
+              <p>map here?</p>
+            </div>
           </div>
-
-          <div class="card-map">
-            <!-- <img class="activator" src="../../assets/hiking.jpeg"> -->
-            <p>map here?</p>
-          </div>
+          <button (click)='attendButton(e)'>Attend</button>
         </section>
       </div>
+
+    </div>
+  </div>
+
+  <!--paralax-->
+  <div class="custom-container">
+    <div class="parallax-container1"></div>
+  </div>
+
+  <!-- Here is our Nature carousel -->
+  <div class="exercise-carousel">
+
+    <div class="carousel">
+      <h3>OUTDOORS</h3>
+      <div class="input-field col s12">
+        <select multiple>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Running</option>
+          <option value="2">Yoga</option>
+          <option value="3">Weight Lifting</option>
+          <option value="4">Group Workout</option>
+          <option value="5">Bootcamp</option>
+        </select>
+        <label>Choose an Activity</label>
+      </div>
+
+      <div class='carousel-item' *ngFor="let e of outdoorEvents; let i = index">
+        <section class="card" style='background-image: url("../../assets/hiking.jpeg")'>
+          <div class='contents'>
+            <div class="card-content">
+              <span class="card-title">{{ e.title }}</span>
+              <p><a href="#">{{ e.date }}</a></p>
+              <p>{{ e.location }}</p>
+              <p>{{ e.description }}</p>
+            </div>
+            <div class="card-map">
+              <!-- <img class="activator" src="../../assets/hiking.jpeg"> -->
+              <p>map here?</p>
+            </div>
+          </div>
+          <button (click)='attendButton(e)'>Attend</button>
+        </section>
+      </div>
+
     </div>
   </div>
 </div>
