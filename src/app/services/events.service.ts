@@ -38,5 +38,5 @@ export class EventsService {
   allEvents() {
     return this.http.get('http://localhost:3000/event/', httpOptions);
   }
-
+  
 }
