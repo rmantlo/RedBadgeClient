@@ -25,8 +25,8 @@ export class EventsService {
     return this.http.delete(`http://localhost:3000/event/delete/${id}`, httpOptions);
   }
 
-  editEvent(id: number) {
-    return this.http.delete(`http://localhost:3000/event/update/${id}`, httpOptions);
+  editEvent(id: number, body) {
+    return this.http.put(`http://localhost:3000/event/update/${id}`, body, httpOptions);
   }
 
   myEvents() {

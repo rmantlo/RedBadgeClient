@@ -21,8 +21,10 @@
               <p>{{ e.time }}</p>
               <p>{{ e.location }}</p>
               <p>{{ e.description }}</p>
-              <button class="btn btn-default btn-sm" (click)="editEvent(e.id)">Edit
+              <button class="btn btn-default btn-sm" (click)="openEditEventModal(e)">Edit
               </button>
+
+
               <i class="material-icons" (click)='deleteEvent(e.id)'>
                 delete_forever
               </i>
@@ -92,3 +94,55 @@
 </div>
 
 <!-- Google Map and ability to drop pin -->
+
+
+
+              <!-- Modal  -->
+              <div class='editEvent' style='position: absolute; z-index:5' *ngIf="addEditEventClicked">
+                <div class='xBtn'>
+                  <button (click)='closeEventModal()' mat-mini-fab>X</button>
+                </div>
+                <h4>EDIT EVENT</h4>
+                <form [formGroup]='editForm' (ngSubmit)='onSubmit()' class="example-container">
+
+                  <!-- Title -->
+                  <mat-form-field>
+                    <input matInput [(ngModel)]='updateInfo.title' value='{{currentUpdateEvent.title}}' placeholder="Title">
+                  </mat-form-field><br>
+
+                  <!-- Location -->
+                  <mat-form-field>
+                    <input matInput [(ngModel)]='updateInfo.location' value='{{currentUpdateEvent.location}}' placeholder="City Location">
+                  </mat-form-field><br>
+                  <form [formGroup]="addMap"></form>
+
+                  <!-- Time attribute. DATEPICKER goes here -->
+                  <mat-form-field>
+                    <input matInput [(ngModel)]='updateInfo.date' value='{{currentUpdateEvent.date}}' [matDatepicker]="picker" placeholder="Date: year-month-date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field><br>
+
+                  <!-- DROPDOWN OPTION LIST -->
+
+
+                  <mat-form-field>
+                    <mat-label>Event</mat-label>
+                    <mat-select [(ngModel)]='updateInfo.keyword'>
+                      <!-- <mat-option>-- None --</mat-option> -->
+                      <mat-optgroup *ngFor="let group of eventGroups" [label]="group.name" [disabled]="group.disabled">
+                        <mat-option *ngFor="let event of group.event" [value]="event.value">
+                          {{event.viewValue}}
+                        </mat-option>
+                      </mat-optgroup>
+                    </mat-select>
+                  </mat-form-field>
+                  <br>
+                  <!-- DESCRIPTION -->
+                  <mat-form-field>
+                    <textarea matInput [(ngModel)]='updateInfo.description' value='{{currentUpdateEvent.description}}' placeholder="Description">
+                </textarea>
+                  </mat-form-field><br>
+                  <button (click)="submitEditedEvent(currentUpdateEvent.id)" mat-button>Submit</button>
+                </form>
+              </div>

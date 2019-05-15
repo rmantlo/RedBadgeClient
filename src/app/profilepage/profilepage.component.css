@@ -86,3 +86,15 @@
   cursor: pointer;
   font-size: 26pt;
 }
+
+.editEvent {
+  position: absolute;
+  z-index: 5;
+  border-radius: 5px;
+  box-shadow: 0 .5em .5em rgba(0, 0, 0, 0.4);
+  width: 400px;
+  top: 64px;
+  right: 0;
+  background: white;
+  text-align: center;
+}
