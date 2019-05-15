@@ -81,3 +81,8 @@
   width: 300px;
   border: 1px solid black;
 }
+
+.material-icons {
+  cursor: pointer;
+  font-size: 26pt;
+}

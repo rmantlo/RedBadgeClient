@@ -8,6 +8,7 @@
         <h3>{{userInfo.username | uppercase}}</h3>
         <button (click)='toggleSettingPopup()'>Settings</button><br>
         <button (click)='toggleCreate()'>Create Event</button>
+
       </div>
     </div>
     <hr />
@@ -22,6 +23,11 @@
               <p>{{ e.time }}</p>
               <p>{{ e.location }}</p>
               <p>{{ e.description }}</p>
+              <button class="btn btn-default btn-sm" (click)="editEvent(e.id)">Edit
+              </button>
+              <i class="material-icons" (click)='deleteEvent(e.id)'>
+                delete_forever
+              </i>
             </div>
           </div>
         </mat-tab>
@@ -36,11 +42,16 @@
           </div>
         </mat-tab>
 
+        
+
       </mat-tab-group>
     </div>
+
   </div>
 
-  <div class='calendar' >
+
+
+  <div class='calendar'>
     <app-calendar [attendingEventData]='myAttendEvents'></app-calendar>
   </div>
 </div>
@@ -71,7 +82,7 @@
 
 <div class='settings' *ngIf='createToggle'>
 
-    <!-- <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+  <!-- <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
         <agm-marker 
         [latitude]="latitude" 
         [longitude]="longitude"
@@ -82,4 +93,3 @@
 </div>
 
 <!-- Google Map and ability to drop pin -->
-
