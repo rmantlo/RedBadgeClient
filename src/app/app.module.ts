@@ -49,7 +49,7 @@ import { ContactComponent } from './home/contact/contact.component';
     EventsComponent,
     CarouselComponent,
     FooterComponent,
-    DropdownComponent
+    DropdownComponent,
     ContactComponent,
 
   ],
