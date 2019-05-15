@@ -56,12 +56,6 @@ mat-toolbar a {
   font-size: 24pt;
 }
 
-@media only screen and (max-width: 500px) {
-  a {
-    font-size: 12pt !important;
-  }
-}
-
 mat-toolbar i {
   display: inline-block;
   margin: 0 5px;

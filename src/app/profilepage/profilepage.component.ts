@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { EventsService } from '../services/events.service';
 import { AttendingService } from '../services/attending.service';
@@ -18,6 +18,7 @@ import { AttendingService } from '../services/attending.service';
   // Encapsulation goes with Google maps extension
   // encapsulation: ViewEncapsulation.None,
 })
+
 export class ProfilepageComponent implements OnInit {
   userInfo: any;
   settingPopup: boolean = false;
@@ -29,12 +30,31 @@ export class ProfilepageComponent implements OnInit {
   myAttendEvents: any = [];
   allAttendEvents: any = [];
 
-  constructor(private userService: UserService, private eventService: EventsService, private attendService: AttendingService, private formBuild: FormBuilder) { }
+  editForm: FormGroup;
+
+
+  modal: boolean = false;
+
+
+  constructor(private userService: UserService, private eventService: EventsService, private attendService: AttendingService, private formBuilder: FormBuilder) { }
+
+  toggleSettingPopup() {
+    this.settingPopup = !this.settingPopup;
+  }
+  deleteAlert() {
+    this.deletePopup = !this.deletePopup;
+  }
+  
+  OpenModal() {
+    this.modal = true
+  }
+
   getUser() {
     this.userService.getUser().subscribe(data => {
       this.userInfo = data;
     })
   }
+
   myEvents() {
     this.eventService.myEvents().subscribe(
       data => {
@@ -62,36 +82,82 @@ export class ProfilepageComponent implements OnInit {
           )
         }
 
-
       }
     )
   }
+
+  
+  
   ngOnInit() {
     this.getUser();
     this.myEvents();
     this.myAttending();
+    // let eventId = localStorage.getItem.toString("eventId");
+
+    // this.editForm = this.formBuilder.group({
+      //   'title': ['', Validators.required],
+    //   'location': ['', Validators.required],
+    //   'date': ['', Validators.required],
+    //   'description': ['', Validators.required],
+    //   'keyword': ['', Validators.required],
+    //   'lng': ['', Validators.required],
+    //   'lat': ['', Validators.required]
+
+  }
+  
+  editEvent(id: number) {
+    this.eventService.editEvent(id).subscribe(
+      data => {
+        console.log('edited');
+      }
+    )
   }
 
-  toggleSettingPopup() {
-    this.settingPopup = !this.settingPopup;
+  deleteEvent(id: number) {
+    console.log(id);
+    this.eventService.deleteEvent(id).subscribe(
+      data => {
+        console.log('deleted');
+        this.deleteAlert;
+        window.location.reload();
+        this.myEvents();
+      }
+    )
   }
-  onSubmit() {
-    //console.log(this.updateInfo);
+
+  onUserUpdateSubmit(){
+    console.log(this.updateInfo)
     this.userService.updateUser(this.updateInfo).subscribe(
       data => {
-        //console.log(data);
+        console.log(data)
         this.getUser();
       }
     )
   }
-  deleteAlert() {
-    this.deletePopup = !this.deletePopup;
-  }
-  toggleCreate(){
-    this.createToggle = !this.createToggle;
-  }
 
+  
 }
+
+
+
+  // onFormSubmit(form: NgForm) {
+    //   this.isLoadingResults = true;
+  //   this.myEventInfo.editEvent(this._id, form)
+  //     .subscribe(res => {
+  //       let id = res['_id'];
+  //       this.isLoadingResults = false;
+  //     }, (err) => {
+  //       console.log(err);
+  //       this.isLoadingResults = false;
+  //     }
+  //     );
+  // }
+
+
+  // toggleCreate(){
+  //   this.createToggle = !this.createToggle;
+  // }
+
 
 
   // public appearance = Appearance;
@@ -130,5 +196,3 @@ export class ProfilepageComponent implements OnInit {
   //   this.latitude = location.latitude;
   //   this.longitude = location.longitude;
   // }
-
-
