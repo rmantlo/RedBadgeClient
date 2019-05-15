@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../services/events.service';
 import * as M from '../../assets/materialize-css/dist/js/materialize.min.js'
 
@@ -64,7 +64,6 @@ export class CarouselComponent implements OnInit {
     this.attendInfo['date'] = event.date;
     console.log(this.attendInfo);
   }
-
 }
 
 

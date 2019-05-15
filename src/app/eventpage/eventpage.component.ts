@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DropdownComponent } from '../dropdown/dropdown.component';
 import { EventsService } from '../services/events.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
@@ -30,7 +29,6 @@ export class EventpageComponent implements OnInit {
   addEventClicked: boolean = false;
   addEvent: FormGroup;
   addMap: FormGroup;
-  keywordGroup: FormGroup
  
 
   eventGroup: any = {};
@@ -70,17 +68,6 @@ export class EventpageComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private eventsService: EventsService) { }
   
-  getEvent(): any{
-    this.eventsService.getEvent().subscribe(
-      data => {
-        //console.log(data);
-        this.event = data;
-        // this.event.reverse();
-        // this.certainEvent = this.event.slice(0,20);
-        console.log(this.certainEvent);
-      }
-    )
-  }
   setToken(){
     this.token = localStorage.getItem('token');
     //console.log(this.token)
@@ -98,23 +85,15 @@ export class EventpageComponent implements OnInit {
       lat: "30.45555",
       lng: "42.35999"
     });
-    this.keywordGroup= this.formBuilder.group({
-      keyword: new FormControl()
-    });
-    this.getEvent();
+    
     this.setToken();
   }
 
   openEventModal() {
-    console.log("Yeah")
     this.addEventClicked = !this.addEventClicked;
   }
   closeEventModal() {
     this.addEventClicked = false;
-  }
-
-  keywordFunction(i) {
-    console.log(i)
   }
 
 
@@ -125,9 +104,9 @@ export class EventpageComponent implements OnInit {
 
   submitNewEvent() {
     this.eventGroup = {...this.addEvent.value, ...this.addMap.value};
-    console.log(this.addEvent)
-    console.log(this.addMap)
-    console.log(this.eventGroup)
+    // console.log(this.addEvent)
+    // console.log(this.addMap)
+    // console.log(this.eventGroup)
     this.eventsService.createEvent(this.eventGroup).subscribe(
       data => {
         console.log(data);

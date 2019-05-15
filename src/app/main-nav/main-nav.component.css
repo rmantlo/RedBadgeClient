@@ -1,6 +1,6 @@
-
 /* font color & hamburger icon color are controlled by "color" here */
- mat-toolbar {
+
+mat-toolbar {
   background-color: rgb(43, 77, 116);
   color: rgb(136, 156, 196);
   display: fixed;
@@ -13,22 +13,24 @@ mat-nav-list a {
   font-size: 16pt;
 }
 
-
-
 /* "FitnessTogether" words */
+
 #logoFont {
   font-family: 'Special Elite', cursive;
   font-size: 25pt;
   color: rgb(136, 156, 196);
-  padding-top: 2pt; /*necessary b/c when the words get smaller, it gets offline w/ icons. */
+  padding-top: 2pt;
+  /*necessary b/c when the words get smaller, it gets offline w/ icons. */
 }
- @media only screen and (max-width: 400px){
+
+@media only screen and (max-width: 400px) {
   #logoFont {
     font-size: 15pt;
-  } }
-
+  }
+}
 
 /* the following (7) came from video: */
+
 .sidenav-container {
   height: 100%;
 }
@@ -44,20 +46,18 @@ mat-sidenav-content {
 }
 
 /* spacer basically divides the 2 containers & pushes them left & right */
+
 .spacer {
   flex: 1 1 auto !important;
 }
-/* 
-
 
 /* words next to icons ("home/Login/logout/signup") */
+
 .nav-links {
   font-size: 2vw;
   cursor: pointer;
   padding: 3pt;
 }
-
-
 
 mat-toolbar a {
   display: inline-block;
@@ -67,17 +67,16 @@ mat-toolbar a {
   cursor: pointer;
 }
 
-
-
 /* our icon top left */
+
 .ourIcon {
   height: 4em;
   width: 4em;
-  padding-top:10px;
+  padding-top: 10px;
 }
 
-
 /* icons on Navbar. icon sizes are controlled by "font-size"*/
+
 fa-icon {
   max-height: 1em;
   max-width: 1em;
@@ -87,14 +86,11 @@ fa-icon {
   color: rgb(136, 156, 196);
 }
 
-
-
-
 /* hamburger-icon. icon sizes are controlled by "font-size" */
+
 mat-icon {
-  font-size:30pt;
+  font-size: 30pt;
   cursor: pointer;
   padding-right: 0;
-  width:auto;
+  width: auto;
 }
-

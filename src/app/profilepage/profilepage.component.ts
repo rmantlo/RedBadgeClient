@@ -37,7 +37,12 @@ export class ProfilepageComponent implements OnInit {
 
 
   constructor(private userService: UserService, private eventService: EventsService, private attendService: AttendingService, private formBuilder: FormBuilder) { }
-
+  toggleSettingPopup() {
+    this.settingPopup = !this.settingPopup;
+  }
+  deleteAlert() {
+    this.deletePopup = !this.deletePopup;
+  }
   OpenModal() {
     this.modal = true
   }
@@ -79,11 +84,25 @@ export class ProfilepageComponent implements OnInit {
     )
   }
 
+  
+  
+  ngOnInit() {
+    this.getUser();
+    this.myEvents();
+    this.myAttending();
+    // let eventId = localStorage.getItem.toString("eventId");
 
-  toggleSettingPopup() {
-    this.settingPopup = !this.settingPopup;
+    // this.editForm = this.formBuilder.group({
+      //   'title': ['', Validators.required],
+    //   'location': ['', Validators.required],
+    //   'date': ['', Validators.required],
+    //   'description': ['', Validators.required],
+    //   'keyword': ['', Validators.required],
+    //   'lng': ['', Validators.required],
+    //   'lat': ['', Validators.required]
+
   }
-
+  
   editEvent(id: number) {
     this.eventService.editEvent(id).subscribe(
       data => {
@@ -102,26 +121,21 @@ export class ProfilepageComponent implements OnInit {
     )
   }
 
-
-  ngOnInit() {
-    this.getUser();
-    this.myEvents();
-    this.myAttending();
-    // let eventId = localStorage.getItem.toString("eventId");
-
-    // this.editForm = this.formBuilder.group({
-    //   'title': ['', Validators.required],
-    //   'location': ['', Validators.required],
-    //   'date': ['', Validators.required],
-    //   'description': ['', Validators.required],
-    //   'keyword': ['', Validators.required],
-    //   'lng': ['', Validators.required],
-    //   'lat': ['', Validators.required]
-
+  onUserUpdateSubmit(){
+    console.log(this.updateInfo)
+    this.userService.updateUser(this.updateInfo).subscribe(
+      data => {
+        console.log(data)
+        this.getUser();
+      }
+    )
   }
 
+  
+}
+
   // onFormSubmit(form: NgForm) {
-  //   this.isLoadingResults = true;
+    //   this.isLoadingResults = true;
   //   this.myEventInfo.editEvent(this._id, form)
   //     .subscribe(res => {
   //       let id = res['_id'];
@@ -132,8 +146,6 @@ export class ProfilepageComponent implements OnInit {
   //     }
   //     );
   // }
-
-}
 
 
   // deleteAlert() {

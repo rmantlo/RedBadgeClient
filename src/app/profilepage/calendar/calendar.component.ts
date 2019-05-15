@@ -13,6 +13,7 @@ export class CalendarComponent implements OnInit {
   @Input() attendingEventData: any;
   attendingArray: any = [];
   calendarPlugins = [dayGridPlugin];
+  
   example: any = [
     {title:"hello", date: "2019-05-11"},
     {title:"super", date:"2019-05-20"}
