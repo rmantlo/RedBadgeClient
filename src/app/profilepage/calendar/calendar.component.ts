@@ -16,7 +16,7 @@ export class CalendarComponent implements OnInit {
   
   example: any = [
     {title:"hello", date: "2019-05-11"},
-    {title:"super", date:"2019-05-20"}
+    {title:"super", date:"2019-05-22T04:00:00.000Z"}
   ]
 
   constructor() { }
