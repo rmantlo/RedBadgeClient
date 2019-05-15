@@ -26,11 +26,10 @@ export class EventpageComponent implements OnInit {
   certainEvent: any;
   token: any;
 
-  addEventClicked: boolean = true;
+  addEventClicked: boolean = false;
   addEvent: FormGroup;
   addMap: any;
 
-  title = 'redBadgeClient';
   latitude: number = 39.96514511660002;
   longitude: number = -86.00871011355463;
   locationChosen: boolean = false;
