@@ -21,8 +21,8 @@ div.carousel-item.ng-star-inserted.active{
 /***CARDS***/
 
 .card {
-    width: 20vw;
-    min-width: 50px;
+    width: 25vw;
+    min-width: 250px;
     border: solid grey 1px;
     margin: 3pt;
     display: flex;

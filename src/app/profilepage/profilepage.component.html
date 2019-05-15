@@ -8,7 +8,6 @@
         <h3>{{userInfo.username | uppercase}}</h3>
         <button (click)='toggleSettingPopup()'>Settings</button><br>
         <button (click)='toggleCreate()'>Create Event</button>
-
       </div>
     </div>
     <hr />
@@ -42,26 +41,25 @@
           </div>
         </mat-tab>
 
-        
+
 
       </mat-tab-group>
     </div>
 
   </div>
-
-
-
+  <!--Calendar-->
   <div class='calendar'>
     <app-calendar [attendingEventData]='myAttendEvents'></app-calendar>
   </div>
 </div>
 
+<!--settings model-->
 <div class='settings' *ngIf='settingPopup'>
   <div class='xBtn'>
     <h4>Settings</h4>
     <button (click)='toggleSettingPopup()'>X</button>
   </div>
-  <form name='standalone' (ngSubmit)='onSubmit()' class="example-container">
+  <form name='standalone' (ngSubmit)='onUserUpdateSubmit()' class="example-container">
     <mat-form-field>
       <input matInput [(ngModel)]='updateInfo.username' placeholder="New Username" name='username'>
     </mat-form-field><br>
@@ -78,7 +76,9 @@
   </form>
   <button mat-button (click)='deleteAlert()'>Delete Profile</button>
 </div>
+<!--userDelete alert-->
 <app-delete-alert *ngIf='deletePopup' (deleteToggle)='deleteAlert()'></app-delete-alert>
+
 
 <div class='settings' *ngIf='createToggle'>
 
