@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angula
 import { UserService } from '../services/user.service';
 import { EventsService } from '../services/events.service';
 import { AttendingService } from '../services/attending.service';
+import { DeleteAlertComponent } from './delete-alert/delete-alert.component';
 
 // goes with Google maps extension
 // import {Title} from '@angular/platform-browser';
@@ -24,16 +25,23 @@ export class ProfilepageComponent implements OnInit {
   settingPopup: boolean = false;
   deletePopup: boolean = false;
   createToggle: boolean = true;
+  addEditEventClicked: boolean = false;
 
   updateInfo: any = {};
   myEventInfo: any;
   myAttendEvents: any = [];
   allAttendEvents: any = [];
+  token: any;
 
   editForm: FormGroup;
+  updateEvent: FormGroup;
+  addMap: FormGroup;
 
+  currentUpdateEvent: any = {};
+  eventGroup: any = {};
 
-  modal: boolean = false;
+  eventControl = new FormControl();
+
 
 
   constructor(private userService: UserService, private eventService: EventsService, private attendService: AttendingService, private formBuilder: FormBuilder) { }
@@ -43,10 +51,6 @@ export class ProfilepageComponent implements OnInit {
   }
   deleteAlert() {
     this.deletePopup = !this.deletePopup;
-  }
-  
-  OpenModal() {
-    this.modal = true
   }
 
   getUser() {
@@ -85,40 +89,69 @@ export class ProfilepageComponent implements OnInit {
       }
     )
   }
-
+  setToken(){
+    this.token = localStorage.getItem('token');
+    //console.log(this.token)
+  }
   
   
   ngOnInit() {
     this.getUser();
     this.myEvents();
     this.myAttending();
-    // let eventId = localStorage.getItem.toString("eventId");
+    this.editForm = this.formBuilder.group({
+      title: new FormControl(),
+      location: new FormControl(),
+      date: new FormControl(),
+      keyword:  [ this.currentUpdateEvent.keyword],
+      description: new FormControl()
+    });
+    this.addMap = this.formBuilder.group({
+      lat: "30.45555",
+      lng: "42.35999"
 
-    // this.editForm = this.formBuilder.group({
-      //   'title': ['', Validators.required],
-    //   'location': ['', Validators.required],
-    //   'date': ['', Validators.required],
-    //   'description': ['', Validators.required],
-    //   'keyword': ['', Validators.required],
-    //   'lng': ['', Validators.required],
-    //   'lat': ['', Validators.required]
-
-  }
+  });
+  this.setToken();
+}
   
-  editEvent(id: number) {
-    this.eventService.editEvent(id).subscribe(
+  // editEvent(id: number) {
+  //   this.eventService.editEvent(id).subscribe(
+  //     data => {
+  //       console.log('edited');
+  //     }
+  //   )
+  // }
+
+  openEditEventModal(e) {
+    this.addEditEventClicked = !this.addEditEventClicked;
+    this.currentUpdateEvent = e;
+  }
+  closeEditEventModal() {
+    this.addEditEventClicked = false;
+  }
+
+  submitEditedEvent(id) {
+    this.eventGroup = {...this.editForm.value, ...this.addMap.value};
+    // console.log(this.addEvent)
+    // console.log(this.addMap)
+    console.log(this.eventGroup)
+    this.eventService.editEvent(id, this.eventGroup).subscribe(
       data => {
-        console.log('edited');
+        console.log(data);
       }
     )
+    this.addEditEventClicked= !this.addEditEventClicked;
   }
 
-  deleteEvent(id: number) {
+
+
+
+  // Need delete confimation pop-up
+  deleteEvent(id: number) { 
     console.log(id);
     this.eventService.deleteEvent(id).subscribe(
       data => {
         console.log('deleted');
-        this.deleteAlert;
         window.location.reload();
         this.myEvents();
       }
