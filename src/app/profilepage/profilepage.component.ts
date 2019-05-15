@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { EventsService } from '../services/events.service';
@@ -37,12 +37,14 @@ export class ProfilepageComponent implements OnInit {
 
 
   constructor(private userService: UserService, private eventService: EventsService, private attendService: AttendingService, private formBuilder: FormBuilder) { }
+
   toggleSettingPopup() {
     this.settingPopup = !this.settingPopup;
   }
   deleteAlert() {
     this.deletePopup = !this.deletePopup;
   }
+  
   OpenModal() {
     this.modal = true
   }
@@ -116,6 +118,8 @@ export class ProfilepageComponent implements OnInit {
     this.eventService.deleteEvent(id).subscribe(
       data => {
         console.log('deleted');
+        this.deleteAlert;
+        window.location.reload();
         this.myEvents();
       }
     )
@@ -134,6 +138,8 @@ export class ProfilepageComponent implements OnInit {
   
 }
 
+
+
   // onFormSubmit(form: NgForm) {
     //   this.isLoadingResults = true;
   //   this.myEventInfo.editEvent(this._id, form)
@@ -148,9 +154,6 @@ export class ProfilepageComponent implements OnInit {
   // }
 
 
-  // deleteAlert() {
-  //   this.deletePopup = !this.deletePopup;
-  // }
   // toggleCreate(){
   //   this.createToggle = !this.createToggle;
   // }
@@ -193,5 +196,3 @@ export class ProfilepageComponent implements OnInit {
   //   this.latitude = location.latitude;
   //   this.longitude = location.longitude;
   // }
-
-
