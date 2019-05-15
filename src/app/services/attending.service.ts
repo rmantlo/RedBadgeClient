@@ -18,8 +18,12 @@ export class AttendingService {
   getMyAttending() {
     return this.http.get('http://localhost:3000/attending/myattending', httpOptions)
   }
-  // getEventAttending() {
-
-  // }
+  createAttendEvent(body){
+    return this.http.post('http://localhost:3000/attending/create', body, httpOptions)
+  }
+  deleteAttend(eventId){
+    return this.http.delete(`http://localhost:3000/attending/delete/${eventId}`)
+  }
 
 }
+ 
