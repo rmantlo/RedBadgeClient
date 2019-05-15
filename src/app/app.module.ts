@@ -70,7 +70,6 @@ import { ContactComponent } from './home/contact/contact.component';
     }),
     MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot(),
-    // MatJumbotronModule.forRoot()
     LayoutModule,
     MatButtonModule,
     MatSidenavModule,

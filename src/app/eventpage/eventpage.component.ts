@@ -21,15 +21,19 @@ export interface EventGroup {
   styleUrls: ['./eventpage.component.css']
 })
 export class EventpageComponent implements OnInit {
-  
+
   event: any;
   certainEvent: any;
   token: any;
-  
-  addEventClicked: boolean = false;
+
+  addEventClicked: boolean = true;
   addEvent: FormGroup;
-  addMap: FormGroup;
- 
+  addMap: any;
+
+  title = 'redBadgeClient';
+  latitude: number = 39.96514511660002;
+  longitude: number = -86.00871011355463;
+  locationChosen: boolean = false;
 
   eventGroup: any = {};
 
@@ -38,37 +42,39 @@ export class EventpageComponent implements OnInit {
     {
       name: 'Exercise',
       event: [
-        {value: 'running', viewValue: 'Running'},
-        {value: 'gym', viewValue: 'Gym'},
-        {value: 'crossfit', viewValue: 'Crossfit'},
-        {value: 'zumba', viewValue: 'Zumba'},
-        {value: 'yoga', viewValue: 'Yoga'}
+        { value: 'running', viewValue: 'Running' },
+        { value: 'gym', viewValue: 'Gym' },
+        { value: 'crossfit', viewValue: 'Crossfit' },
+        { value: 'kick boxing', viewValue: 'Kick Boxing' },
+        { value: 'yoga', viewValue: 'Yoga' }
       ]
     },
     {
       name: 'Sports',
       event: [
-        {value: 'basketball', viewValue: 'Basketball'},
-        {value: 'tennis', viewValue: 'Tennis'},
-        {value: 'soccer', viewValue: 'Soccer'},
-        {value: 'golf', viewValue: 'Golf'}
+        { value: 'basketball', viewValue: 'Basketball' },
+        { value: 'football', viewValue: 'Football' },
+        { value: 'tennis', viewValue: 'Tennis' },
+        { value: 'soccer', viewValue: 'Soccer' },
+        { value: 'golf', viewValue: 'Golf' }
       ]
     },
     {
       name: 'Outdoor',
       event: [
-        {value: 'hiking', viewValue: 'Hiking'},
-        {value: 'cycling', viewValue: 'Cycling'},
-        {value: 'rock-climbing', viewValue: 'Rock-Climbing'},
-        {value: 'kayaking', viewValue: 'Kayaking'},
-        
+        { value: 'hiking', viewValue: 'Hiking' },
+        { value: 'cycling', viewValue: 'Cycling' },
+        { value: 'mountain biking', viewValue: 'Mountain Biking' },
+        { value: 'rock climbing', viewValue: 'Rock Climbing' },
+        { value: 'kayaking', viewValue: 'Kayaking' },
+
       ]
     }
   ];
 
   constructor(private formBuilder: FormBuilder, private eventsService: EventsService) { }
-  
-  setToken(){
+
+  setToken() {
     this.token = localStorage.getItem('token');
     //console.log(this.token)
   }
@@ -81,12 +87,16 @@ export class EventpageComponent implements OnInit {
       keyword: new FormControl(),
       description: new FormControl()
     });
-    this.addMap = this.formBuilder.group({
-      lat: "30.45555",
-      lng: "42.35999"
-    });
     
     this.setToken();
+  }
+  onChoseLocation(event) {
+    console.log(event);
+    this.addMap = event.coords;
+    console.log(this.addMap);
+    this.latitude = event.coords.lat;
+    this.longitude = event.coords.lng;
+    this.locationChosen = true;
   }
 
   openEventModal() {
@@ -103,15 +113,16 @@ export class EventpageComponent implements OnInit {
   }
 
   submitNewEvent() {
-    this.eventGroup = {...this.addEvent.value, ...this.addMap.value};
-    // console.log(this.addEvent)
-    // console.log(this.addMap)
-    // console.log(this.eventGroup)
+    this.eventGroup = { ...this.addEvent.value, ...this.addMap };
+    console.log(this.addEvent)
+    console.log(this.addMap)
+    console.log(this.eventGroup)
     this.eventsService.createEvent(this.eventGroup).subscribe(
       data => {
         console.log(data);
       }
     )
-    this.addEventClicked= !this.addEventClicked;
+    this.addEventClicked = !this.addEventClicked;
   }
+
 }

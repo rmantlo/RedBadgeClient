@@ -41,12 +41,12 @@ export class CarouselComponent implements OnInit {
   }
   separateTypes() {
     for (let e of this.events) {
-      if (e.keyword === 'running') {
+      if (e.keyword === 'running' || e.keyword === 'gym' ||e.keyword === 'crossfit' ||e.keyword === 'kick boxing'||e.keyword === 'yoga') {
         //console.log(e)
         this.exerciseEvents = this.exerciseEvents.concat(e);
-      } else if (e.keyword === 'soccer') {
+      } else if (e.keyword === 'soccer' || e.keyword === 'basketball'||e.keyword === 'football'||e.keyword === 'golf'||e.keyword === 'tennis') {
         this.sportEvents = this.sportEvents.concat(e);
-      } else if (e.keyword === 'hiking') {
+      } else if (e.keyword === 'hiking' || e.keyword === 'cycling' || e.keyword === 'rock climbing' || e.keyword === 'mountain biking' || e.keyword === 'kayaking') {
         this.outdoorEvents = this.outdoorEvents.concat(e);
       }
     }

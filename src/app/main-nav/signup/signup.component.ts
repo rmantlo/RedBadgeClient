@@ -29,10 +29,17 @@ export class SignupComponent implements OnInit {
     });
   }
   signupClick() {
-    this.signupGroup = { ...this.firstFormGroup.value, ...this.secondFormGroup.value };
+    if (this.secondFormGroup.value.image === null || this.secondFormGroup.value.image === undefined || this.secondFormGroup.value.image === '') {
+      this.secondFormGroup.value.image = '../../../assets/profiledefault.jpg';
+      this.signupGroup = { ...this.firstFormGroup.value, ...this.secondFormGroup.value };
+      this.onSubmit();
+      this.signupToggle();
+    } else {
+      this.signupGroup = { ...this.firstFormGroup.value, ...this.secondFormGroup.value };
+      this.onSubmit();
+      this.signupToggle();
+    }
     console.log(this.signupGroup);
-    this.onSubmit();
-    this.signupToggle();
   }
   @Output() onSignupToggle = new EventEmitter<any>();
 

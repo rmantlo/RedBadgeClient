@@ -154,12 +154,6 @@ export class ProfilepageComponent implements OnInit {
   // }
 
 
-  // toggleCreate(){
-  //   this.createToggle = !this.createToggle;
-  // }
-
-
-
   // public appearance = Appearance;
   // public zoom: number;
   // public latitude: number;
