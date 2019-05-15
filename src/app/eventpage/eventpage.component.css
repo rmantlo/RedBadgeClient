@@ -1,3 +1,23 @@
+/****create event modal *****/
+
+.createEvent {
+    position: absolute;
+    z-index: 5;
+    border-radius: 5px;
+    box-shadow: 0 .5em .5em rgba(0, 0, 0, 0.4);
+    width: 400px;
+    top: 64px;
+    right: 0;
+    background: white;
+    text-align: center;
+}
+.createEvent h4{
+    margin: 0;
+}
+.xBtn {
+    display: flex;
+    justify-content: flex-end;
+}
 
 /***PARALAX***/
 
@@ -16,6 +36,7 @@
     background-attachment: fixed;
     height: 80px;
 }
+
 .parallax-container2 {
     margin: 0 auto;
     background: #f9f9f9;
@@ -25,4 +46,3 @@
     background-attachment: fixed;
     height: 200px;
 }
-
