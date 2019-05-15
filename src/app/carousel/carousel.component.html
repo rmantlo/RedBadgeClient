@@ -26,7 +26,10 @@
               <p>{{ e.description }}</p>
             </div>
             <div class="card-map">
-              <p>map here?</p>
+              <agm-map [zoomControl]='zoomControl' [streetViewControl]='streetViewControl' [mapDraggable]='draggable'
+                [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+              </agm-map>
             </div>
           </div>
           <button (click)='attendButton(e)'>Attend</button>
@@ -68,8 +71,10 @@
               <p>{{ e.description }}</p>
             </div>
             <div class="card-map">
-              <!-- <img class="activator" src="../../assets/hiking.jpeg"> -->
-              <p>map here?</p>
+              <agm-map [zoomControl]='zoomControl' [streetViewControl]='streetViewControl' [mapDraggable]='draggable'
+                [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+              </agm-map>
             </div>
           </div>
           <button (click)='attendButton(e)'>Attend</button>
@@ -111,8 +116,10 @@
               <p>{{ e.description }}</p>
             </div>
             <div class="card-map">
-              <!-- <img class="activator" src="../../assets/hiking.jpeg"> -->
-              <p>map here?</p>
+              <agm-map [zoomControl]='zoomControl' [streetViewControl]='streetViewControl' [mapDraggable]='draggable'
+                [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+              </agm-map>
             </div>
           </div>
           <button (click)='attendButton(e)'>Attend</button>

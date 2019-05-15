@@ -1,3 +1,11 @@
+/****maps*****/
+
+agm-map {
+    height: 200px;
+    width: 200px;
+}
+
+/***carousel**/
 
 .carousel {
     height: 500px;
@@ -12,12 +20,15 @@
     margin-top: 24px;
     margin-bottom: 16px;
 }
-div.carousel-item.ng-star-inserted{
+
+div.carousel-item.ng-star-inserted {
     opacity: 0.6 !important;
 }
-div.carousel-item.ng-star-inserted.active{
+
+div.carousel-item.ng-star-inserted.active {
     opacity: 1 !important;
 }
+
 /***CARDS***/
 
 .card {
@@ -45,7 +56,8 @@ div.carousel-item.ng-star-inserted.active{
     flex-direction: row;
     justify-content: center;
 }
-button{
+
+button {
     justify-content: right;
 }
 
@@ -66,4 +78,3 @@ button{
     background-attachment: fixed;
     height: 280px;
 }
-
