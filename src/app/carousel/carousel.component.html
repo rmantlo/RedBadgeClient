@@ -16,7 +16,7 @@
         <label>Choose an Exercise</label>
       </div>
 
-      <div class='carousel-item' *ngFor="let e of exerciseEvents; let i = index">
+      <div class='carousel-item' *ngFor="let e of events; let i = index">
         <section class="card" style='background-image: url("../../assets/hiking.jpeg")'>
           <div class='contents'>
             <div class="card-content">
@@ -28,12 +28,16 @@
             <div class="card-map">
               <agm-map [zoomControl]='zoomControl' [streetViewControl]='streetViewControl' [mapDraggable]='draggable'
                 [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
-                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+                <agm-marker [latitude]="latitude" [longitude]="longitude" ></agm-marker>
               </agm-map>
             </div>
           </div>
-          <button *ngIf='!attending' (click)='attendButton(e)'>Attend</button>
-          <button *ngIf='!attending' (click)='unattendButton(e.id)'>Unattend</button>
+          <div>
+            <button *ngIf='attendingArray.includes(e.id); else noShow1' (click)='unattendButton(e.id)'>Unattend</button>
+          </div>
+          <ng-template #noShow1>
+            <button (click)='attendButton(e)'>Attend</button>
+          </ng-template>
         </section>
       </div>
 
@@ -78,8 +82,12 @@
               </agm-map>
             </div>
           </div>
-          <button *ngIf='attendInfo' (click)='attendButton(e)'>Attend</button>
-          <button *ngIf='attendInfo' (click)='unattendButton(e.id)'>Unattend</button>
+          <div>
+            <button *ngIf='attendingArray.includes(e.id); else noShow1' (click)='unattendButton(e.id)'>Unattend</button>
+          </div>
+          <ng-template #noShow1>
+            <button (click)='attendButton(e)'>Attend</button>
+          </ng-template>
         </section>
       </div>
 
@@ -124,8 +132,12 @@
               </agm-map>
             </div>
           </div>
-          <button *ngIf='attendInfo' (click)='attendButton(e)'>Attend</button>
-          <button *ngIf='attendInfo' (click)='unattendButton(e.id)'>Unattend</button>
+          <div>
+            <button *ngIf='attendingArray.includes(e.id); else noShow1' (click)='unattendButton(e.id)'>Unattend</button>
+          </div>
+          <ng-template #noShow1>
+            <button (click)='attendButton(e)'>Attend</button>
+          </ng-template>
         </section>
       </div>
 
