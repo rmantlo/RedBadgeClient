@@ -15,24 +15,7 @@ export class EventsComponent implements OnInit {
   cardImage: any;
 
   constructor(private eventService: EventsService) { }
-
-
-  // create a for-loop & assign a pic to each keyword.
-  // separateTypes() {
-  //   for (let e of this.events) {
-  //     if (e.keyword === 'running' || e.keyword === 'gym' || e.keyword === 'crossfit' || e.keyword === 'kick boxing' || e.keyword === 'yoga') {
-  //       this.exerciseEvents = this.exerciseEvents.concat(e);
-  //     } else if (e.keyword === 'soccer' || e.keyword === 'basketball' || e.keyword === 'football' || e.keyword === 'golf' || e.keyword === 'tennis') {
-  //       this.sportEvents = this.sportEvents.concat(e);
-  //     } else if (e.keyword === 'hiking' || e.keyword === 'cycling' || e.keyword === 'rock climbing' || e.keyword === 'mountain biking' || e.keyword === 'kayaking') {
-  //       this.outdoorEvents = this.outdoorEvents.concat(e);
-  //     }
-  //   }
-  //   console.log(this.exerciseEvents)
-  //   console.log(this.sportEvents);
-  //   console.log(this.outdoorEvents);
-  // }
-
+  
   addMap: any = {
     lat: "30.45555",
     lng: "42.35999"
