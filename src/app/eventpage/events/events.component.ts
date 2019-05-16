@@ -11,10 +11,11 @@ export class EventsComponent implements OnInit {
   // certainEvent: any;
   token: any;
   role: any;
+  trueValue: boolean = true;
+  cardImage: any;
 
   constructor(private eventService: EventsService) { }
-
-
+  
   addMap: any = {
     lat: "30.45555",
     lng: "42.35999"
@@ -43,6 +44,12 @@ export class EventsComponent implements OnInit {
         // this.certainEvent = this.event.slice(0,20);
       }
     )
+  }
+
+  setCardImage(keyword) {
+    if(keyword === 'running') {
+      this.cardImage = '../../../assets/runners.jpeg'
+    }
   }
 
   ngOnInit() {

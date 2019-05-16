@@ -17,9 +17,9 @@ export class CarouselComponent implements OnInit {
   sportEvents: any = [];
   outdoorEvents: any = [];
 
-  attendInfo: any = {};
+  attendInfo: any = [];
   attendCreate: any = {};
-  attending: boolean;
+  attendingArray: string[] = [];
 
   latitude: number = 39.96514511660002;
   longitude: number = -86.00871011355463;
@@ -28,13 +28,17 @@ export class CarouselComponent implements OnInit {
   zoomControl: boolean = false;
   streetViewControl: boolean = false;
 
+
+
   constructor(private eventService: EventsService, private attendService: AttendingService) { }
   onChoseLocation(event) {
-    console.log(event);
+    //console.log(event);
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
     this.locationChosen = true;
   }
+
+
 
   ngOnInit() {
     this.fetchEvents();
@@ -45,7 +49,7 @@ export class CarouselComponent implements OnInit {
       var elems: NodeListOf<Element> = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems, this.options);
 
-    }, 1000)
+    }, 1000);
   }
 
   fetchEvents() {
@@ -62,14 +66,11 @@ export class CarouselComponent implements OnInit {
     this.attendService.getMyAttending().subscribe(
       data => {
         this.attendInfo = data;
-        console.log(this.attendInfo);
-        for(let e of this.events){
-          if(this.attendInfo.eventId === e.id){
-            this.attending = true;
-          } else {
-            this.attending = false;
-          }
+        //console.log(this.attendInfo);
+        for (let a of this.attendInfo) {
+          this.attendingArray.push(a.eventId);
         }
+        //console.log(this.attendingArray);
       }
     )
   }
@@ -84,32 +85,34 @@ export class CarouselComponent implements OnInit {
         this.outdoorEvents = this.outdoorEvents.concat(e);
       }
     }
-    console.log(this.exerciseEvents)
-    console.log(this.sportEvents);
-    console.log(this.outdoorEvents);
+    // console.log(this.exerciseEvents)
+    // console.log(this.sportEvents);
+    // console.log(this.outdoorEvents);
   }
 
   attendButton(event) {
-    console.log('click');
-    console.log(event);
+    // console.log(event);
     this.attendCreate["username"] = event.id;
     this.attendCreate["eventId"] = event.id;
     this.attendCreate['eventTitle'] = event.title;
     this.attendCreate['date'] = event.date;
-    console.log(this.attendCreate);
-    this.attendInfo.push(this.attendCreate)
-    console.log(this.attendInfo);
+    // console.log(this.attendCreate);
+    this.attendInfo.push(this.attendCreate);
+    // console.log(this.attendInfo);
     this.attendService.createAttendEvent(this.attendCreate).subscribe(
-      data=> {
-        console.log(data);
+      data => {
+        // console.log(data);
+        this.fetchmyAttending();
       }
     )
   }
-  unattendButton(eventId){
-    console.log(eventId)
+  unattendButton(eventId) {
+    // console.log(eventId)
     this.attendService.deleteAttend(eventId).subscribe(
       data => {
-        console.log('deleted', data)
+        this.fetchmyAttending();
+        let indexArray = this.attendingArray.indexOf(eventId);
+        this.attendingArray.splice(indexArray);
       }
     )
   }
