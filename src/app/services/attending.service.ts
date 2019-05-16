@@ -22,7 +22,7 @@ export class AttendingService {
     return this.http.post('http://localhost:3000/attending/create', body, httpOptions)
   }
   deleteAttend(eventId){
-    return this.http.delete(`http://localhost:3000/attending/delete/${eventId}`)
+    return this.http.delete(`http://localhost:3000/attending/delete/${eventId}`, httpOptions)
   }
 
 }
