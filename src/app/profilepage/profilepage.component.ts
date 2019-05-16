@@ -36,6 +36,7 @@ export class ProfilepageComponent implements OnInit {
     lat: "30.45555",
     lng: "42.35999"
   }
+  streetViewControl:boolean = false;
   updateEventInfo: any = {};
 
   currentUpdateEvent: any = {};
