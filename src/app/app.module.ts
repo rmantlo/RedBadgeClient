@@ -29,7 +29,9 @@ import { EventsComponent } from './eventpage/events/events.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './home/contact/contact.component';
 
-
+export function jwtTokenGetter(){
+  return localStorage.getItem('token')
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,9 +63,7 @@ import { ContactComponent } from './home/contact/contact.component';
     FlexLayoutModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: function tokenGetter() {
-          return localStorage.getItem('token')
-        },
+        tokenGetter: jwtTokenGetter,
         whitelistedDomains: [`${APIURL}/allevents`, `${APIURL}/events`, `${APIURL}/profile`],
         blacklistedRoutes: []
       }
