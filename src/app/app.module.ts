@@ -12,7 +12,7 @@ import { AgmCoreModule } from '@agm/core';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { APIURL } from '../environments/environment.prod';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SignupComponent } from './main-nav/signup/signup.component';
@@ -64,7 +64,7 @@ import { ContactComponent } from './home/contact/contact.component';
         tokenGetter: function tokenGetter() {
           return localStorage.getItem('token')
         },
-        whitelistedDomains: ['http://localhost:3000/allevents', 'http://localhost:3000/events', 'http://localhost:3000/profile'],
+        whitelistedDomains: [`${APIURL}/allevents`, `${APIURL}/events`, `${APIURL}/profile`],
         blacklistedRoutes: []
       }
     }),
