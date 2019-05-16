@@ -18,7 +18,7 @@ export class CarouselComponent implements OnInit {
   outdoorEvents: any = [];
 
   attendInfo: any = [];
-  attendCreate: any = {};
+  attendCreate: any = {}; 
   attendingArray: string[] = [];
 
   latitude: number = 39.96514511660002;
@@ -101,6 +101,7 @@ export class CarouselComponent implements OnInit {
     // console.log(this.attendInfo);
     this.attendService.createAttendEvent(this.attendCreate).subscribe(
       data => {
+        console.log(data);
         // console.log(data);
         this.fetchmyAttending();
       }
