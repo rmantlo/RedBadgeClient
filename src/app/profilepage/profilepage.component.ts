@@ -161,5 +161,12 @@ export class ProfilepageComponent implements OnInit {
     this.locationChosen = true;
   }
 
+    latConvert(lat) {
+      return Number(lat) 
+    }
+
+    lngConvert(lng) {
+      return Number(lng) 
+    }
 }
 

@@ -5,6 +5,9 @@
         <h3>{{ e.title }}</h3>
         <p>{{ e.date }}</p>
         <p>{{ e.location }}</p>
+        <agm-map [streetViewControl]="streetViewControl" [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" (mapClick)="onChoseLocation($event)">
+            <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" ></agm-marker>
+          </agm-map>
         <p>{{ e.description }}</p>
         <div *ngIf='token'>
           <!-- <button #button value='{{ p.id }}' (click)='deletePlant(button.value)' >Delete</button> -->
