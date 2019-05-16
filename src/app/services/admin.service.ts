@@ -11,11 +11,15 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AdminService {
-  url: any = {}
+  url: any = {};
+  data: Object = {};
 
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
+    console.log(this.data)
     return this.http.post(this.url, { username, password }, httpOptions)
   }
+
+
 }

@@ -9,8 +9,8 @@
             <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" ></agm-marker>
           </agm-map>
         <p>{{ e.description }}</p>
-        <div *ngIf='token'>
-          <!-- <button #button value='{{ p.id }}' (click)='deletePlant(button.value)' >Delete</button> -->
+            <div *ngIf="role == 'admin'">
+          <button #button value='{{ e.id }}' (click)='deleteEvent(button.value)' >Admin Delete</button>
         </div>
       </div>
     </div>
