@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../services/events.service';
 import * as M from '../../assets/materialize-css/dist/js/materialize.min.js';
+import { AttendingService } from '../services/attending.service';
 
 @Component({
   selector: 'app-carousel',
@@ -10,40 +11,43 @@ import * as M from '../../assets/materialize-css/dist/js/materialize.min.js';
 export class CarouselComponent implements OnInit {
 
   options: {}
-  events: any;
 
+  events: any;
   exerciseEvents: any = [];
   sportEvents: any = [];
   outdoorEvents: any = [];
+
+  attendInfo: any = {};
+  attendCreate: any = {};
+  attending: boolean;
 
   latitude: number = 39.96514511660002;
   longitude: number = -86.00871011355463;
   draggable: boolean = false;
   locationChosen: boolean = false;
   zoomControl: boolean = false;
-  streetViewControl:boolean = false;
+  streetViewControl: boolean = false;
 
-  constructor(private eventService: EventsService) { }
+  constructor(private eventService: EventsService, private attendService: AttendingService) { }
   onChoseLocation(event) {
     console.log(event);
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
     this.locationChosen = true;
   }
-  attendInfo: any = {};
 
   ngOnInit() {
     this.fetchEvents();
-
+    this.fetchmyAttending();
     setTimeout(function () {
       var elems: NodeListOf<Element> = document.querySelectorAll('.carousel');
       var instances = M.Carousel.init(elems, this.options);
       var elems: NodeListOf<Element> = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems, this.options);
-      
+
     }, 1000)
   }
-  
+
   fetchEvents() {
     this.eventService.allEvents().subscribe(
       data => {
@@ -53,10 +57,26 @@ export class CarouselComponent implements OnInit {
       }
     )
   }
+
+  fetchmyAttending() {
+    this.attendService.getMyAttending().subscribe(
+      data => {
+        this.attendInfo = data;
+        console.log(this.attendInfo);
+        for(let e of this.events){
+          if(this.attendInfo.eventId === e.id){
+            this.attending = true;
+          } else {
+            this.attending = false;
+          }
+        }
+      }
+    )
+  }
+
   separateTypes() {
     for (let e of this.events) {
       if (e.keyword === 'running' || e.keyword === 'gym' || e.keyword === 'crossfit' || e.keyword === 'kick boxing' || e.keyword === 'yoga') {
-        //console.log(e)
         this.exerciseEvents = this.exerciseEvents.concat(e);
       } else if (e.keyword === 'soccer' || e.keyword === 'basketball' || e.keyword === 'football' || e.keyword === 'golf' || e.keyword === 'tennis') {
         this.sportEvents = this.sportEvents.concat(e);
@@ -72,11 +92,26 @@ export class CarouselComponent implements OnInit {
   attendButton(event) {
     console.log('click');
     console.log(event);
-    this.attendInfo["username"] = event.id;
-    this.attendInfo["eventId"] = event.id;
-    this.attendInfo['eventTitle'] = event.title;
-    this.attendInfo['date'] = event.date;
+    this.attendCreate["username"] = event.id;
+    this.attendCreate["eventId"] = event.id;
+    this.attendCreate['eventTitle'] = event.title;
+    this.attendCreate['date'] = event.date;
+    console.log(this.attendCreate);
+    this.attendInfo.push(this.attendCreate)
     console.log(this.attendInfo);
+    this.attendService.createAttendEvent(this.attendCreate).subscribe(
+      data=> {
+        console.log(data);
+      }
+    )
+  }
+  unattendButton(eventId){
+    console.log(eventId)
+    this.attendService.deleteAttend(eventId).subscribe(
+      data => {
+        console.log('deleted', data)
+      }
+    )
   }
 }
 

@@ -1,9 +1,8 @@
-import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { EventsService } from '../services/events.service';
 import { AttendingService } from '../services/attending.service';
-import { DeleteAlertComponent } from './delete-alert/delete-alert.component';
+// import { DeleteAlertComponent } from './delete-alert/delete-alert.component';
 
 // goes with Google maps extension
 // import {Title} from '@angular/platform-browser';
@@ -21,10 +20,10 @@ import { DeleteAlertComponent } from './delete-alert/delete-alert.component';
 })
 
 export class ProfilepageComponent implements OnInit {
+  option: any = {};
   userInfo: any;
   settingPopup: boolean = false;
   deletePopup: boolean = false;
-  createToggle: boolean = true;
   addEditEventClicked: boolean = false;
 
   updateInfo: any = {};
@@ -33,18 +32,18 @@ export class ProfilepageComponent implements OnInit {
   allAttendEvents: any = [];
   token: any;
 
-  editForm: FormGroup;
-  updateEvent: FormGroup;
-  addMap: FormGroup;
+  addMap: any = {
+    lat: "30.45555",
+    lng: "42.35999"
+  }
+  updateEventInfo: any = {};
 
   currentUpdateEvent: any = {};
   eventGroup: any = {};
 
-  eventControl = new FormControl();
 
 
-
-  constructor(private userService: UserService, private eventService: EventsService, private attendService: AttendingService, private formBuilder: FormBuilder) { }
+  constructor(private userService: UserService, private eventService: EventsService, private attendService: AttendingService) { }
 
   toggleSettingPopup() {
     this.settingPopup = !this.settingPopup;
@@ -89,49 +88,32 @@ export class ProfilepageComponent implements OnInit {
       }
     )
   }
-  setToken(){
+  setToken() {
     this.token = localStorage.getItem('token');
     //console.log(this.token)
   }
-  
-  
+
+
   ngOnInit() {
     this.getUser();
     this.myEvents();
     this.myAttending();
-    this.editForm = this.formBuilder.group({
-      title: new FormControl(),
-      location: new FormControl(),
-      date: new FormControl(),
-      keyword:  [ this.currentUpdateEvent.keyword],
-      description: new FormControl()
-    });
-    this.addMap = this.formBuilder.group({
-      lat: "30.45555",
-      lng: "42.35999"
 
-  });
-  this.setToken();
-}
-  
-  // editEvent(id: number) {
-  //   this.eventService.editEvent(id).subscribe(
-  //     data => {
-  //       console.log('edited');
-  //     }
-  //   )
-  // }
+    this.setToken();
+  }
+
 
   openEditEventModal(e) {
     this.addEditEventClicked = !this.addEditEventClicked;
     this.currentUpdateEvent = e;
+    console.log(this.updateEventInfo);
   }
   closeEditEventModal() {
     this.addEditEventClicked = false;
   }
 
   submitEditedEvent(id) {
-    this.eventGroup = {...this.editForm.value, ...this.addMap.value};
+    this.eventGroup = { ...this.updateEventInfo, ...this.addMap };
     // console.log(this.addEvent)
     // console.log(this.addMap)
     console.log(this.eventGroup)
@@ -140,14 +122,12 @@ export class ProfilepageComponent implements OnInit {
         console.log(data);
       }
     )
-    this.addEditEventClicked= !this.addEditEventClicked;
+    this.addEditEventClicked = !this.addEditEventClicked;
   }
 
 
-
-
   // Need delete confimation pop-up
-  deleteEvent(id: number) { 
+  deleteEvent(id: number) {
     console.log(id);
     this.eventService.deleteEvent(id).subscribe(
       data => {
@@ -158,7 +138,7 @@ export class ProfilepageComponent implements OnInit {
     )
   }
 
-  onUserUpdateSubmit(){
+  onUserUpdateSubmit() {
     console.log(this.updateInfo)
     this.userService.updateUser(this.updateInfo).subscribe(
       data => {
@@ -168,58 +148,18 @@ export class ProfilepageComponent implements OnInit {
     )
   }
 
-  
+
+  latitude: number = 39.96514511660002;
+  longitude: number = -86.00871011355463;
+  locationChosen: boolean = false;
+
+  onChoseLocation(event) {
+    console.log(event);
+    this.addMap = event.coords;
+    this.latitude = event.coords.lat;
+    this.longitude = event.coords.lng;
+    this.locationChosen = true;
+  }
+
 }
 
-
-
-  // onFormSubmit(form: NgForm) {
-    //   this.isLoadingResults = true;
-  //   this.myEventInfo.editEvent(this._id, form)
-  //     .subscribe(res => {
-  //       let id = res['_id'];
-  //       this.isLoadingResults = false;
-  //     }, (err) => {
-  //       console.log(err);
-  //       this.isLoadingResults = false;
-  //     }
-  //     );
-  // }
-
-
-  // public appearance = Appearance;
-  // public zoom: number;
-  // public latitude: number;
-  // public longitude: number;
-  // public selectedAddress: PlaceResult;
-
-  //constructor() { }
-  // private titleService:Title
-  //ngOnInit() {
-    //   this.titleService.setTitle('Home | @angular-material-extensions/google-maps-autocomplete');
-
-    //   this.zoom = 10;
-    //   this.latitude = 52.520008;
-    //   this.longitude = 13.404954;
-
-  //   this.setCurrentPosition();
-  // }
-  // private setCurrentPosition() {
-  //   if ('geolocation' in navigator) {
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       this.latitude = position.coords.latitude;
-  //       this.longitude = position.coords.longitude;
-  //       this.zoom = 12;
-  //     });
-  //   }
-  // }
-
-  // onAutocompleteSelected(result: PlaceResult) {
-  //   console.log('onAutocompleteSelected: ', result);
-  // }
-
-  // onLocationSelected(location: Location) {
-  //   console.log('onLocationSelected: ', location);
-  //   this.latitude = location.latitude;
-  //   this.longitude = location.longitude;
-  // }

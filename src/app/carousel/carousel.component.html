@@ -32,7 +32,8 @@
               </agm-map>
             </div>
           </div>
-          <button (click)='attendButton(e)'>Attend</button>
+          <button *ngIf='!attending' (click)='attendButton(e)'>Attend</button>
+          <button *ngIf='!attending' (click)='unattendButton(e.id)'>Unattend</button>
         </section>
       </div>
 
@@ -77,7 +78,8 @@
               </agm-map>
             </div>
           </div>
-          <button (click)='attendButton(e)'>Attend</button>
+          <button *ngIf='attendInfo' (click)='attendButton(e)'>Attend</button>
+          <button *ngIf='attendInfo' (click)='unattendButton(e.id)'>Unattend</button>
         </section>
       </div>
 
@@ -122,7 +124,8 @@
               </agm-map>
             </div>
           </div>
-          <button (click)='attendButton(e)'>Attend</button>
+          <button *ngIf='attendInfo' (click)='attendButton(e)'>Attend</button>
+          <button *ngIf='attendInfo' (click)='unattendButton(e.id)'>Unattend</button>
         </section>
       </div>
 
