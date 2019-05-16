@@ -33,6 +33,25 @@ export class EventsComponent implements OnInit {
   //   console.log(this.outdoorEvents);
   // }
 
+  addMap: any = {
+    lat: "30.45555",
+    lng: "42.35999"
+  }
+
+  latitude: number = 39.96514511660002;
+  longitude: number = -86.00871011355463;
+  locationChosen: boolean = false;
+  streetViewControl: boolean= false;
+
+  onChoseLocation(event) {
+    console.log(event);
+    this.addMap = event.coords;
+    this.latitude = event.coords.lat;
+    this.longitude = event.coords.lng;
+    this.locationChosen = true;
+  }
+
+
   getEvent(): any{
     this.eventService.allEvents().subscribe(
       data => {
@@ -65,4 +84,11 @@ export class EventsComponent implements OnInit {
     )
   }
 
+  latConvert(lat) {
+    return Number(lat) 
+  }
+
+  lngConvert(lng) {
+    return Number(lng) 
+  }
 }
