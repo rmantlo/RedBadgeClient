@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../services/admin.service';
 
 
 @Component({
@@ -10,10 +11,11 @@ export class MainNavComponent implements OnInit {
   login: boolean = false;
   signup: boolean = false;
   loggedIn: boolean;
+  token: any;
 
   
 
-  constructor() {
+  constructor(private adminService: AdminService) {
   }
   ngOnInit(){
     this.isLoggedIn();
