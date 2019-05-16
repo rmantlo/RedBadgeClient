@@ -1,7 +1,8 @@
-<div *ngIf='event'>
-  <div *ngFor='let e of event' class='deck'>
+<!-- <div *ngIf='event'>
+  <div *ngFor='let e of event' class='deck' >
     <div class='card'>
       <div class='cardContainer'>
+          <div class="photo">
         <h3>{{ e.title }}</h3>
         <p>{{ e.date }}</p>
         <p>{{ e.location }}</p>
@@ -9,10 +10,34 @@
             <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" ></agm-marker>
           </agm-map>
         <p>{{ e.description }}</p>
-        <div *ngIf='token'>
-          <!-- <button #button value='{{ p.id }}' (click)='deletePlant(button.value)' >Delete</button> -->
+            <div *ngIf="role == 'admin'">
+          <button #button value='{{ e.id }}' (click)='deleteEvent(button.value)' >Admin Delete</button>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div>  -->
+
+<div *ngIf='event'>
+    <div *ngFor='let e of event' class='deck' >
+<div class="wrap">
+    <div class="tile"> 
+      <img *ngIf ="trueValue? setCardImage(e.keyword): null" src=cardImage >
+      <div class="text">
+      <h1>{{ e.title }}</h1>
+      <h2 class="animate-text">{{ e.location }}</h2>
+
+      <p class="animate-text">{{ e.date }} </p>
+    <!-- <div class="dots"> -->
+        <div *ngIf="role == 'admin'">
+            <button #button value='{{ e.id }}' (click)='deleteEvent(button.value)' >Admin Delete</button>
+          </div>
+        <span></span>
+        <span></span>
+        <span></span>
+      <!-- </div> -->
+      </div>
+     </div>
+    
+    
+      </div>

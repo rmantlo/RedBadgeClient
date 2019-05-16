@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../services/events.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { AttendingService } from '../services/attending.service';
 
 
 
@@ -25,6 +26,7 @@ export class EventpageComponent implements OnInit {
   event: any;
   certainEvent: any;
   token: any;
+  createAttend:any = {};
 
   addEventClicked: boolean = false;
   addEvent: FormGroup;
@@ -71,7 +73,7 @@ export class EventpageComponent implements OnInit {
     }
   ];
 
-  constructor(private formBuilder: FormBuilder, private eventsService: EventsService) { }
+  constructor(private formBuilder: FormBuilder, private eventsService: EventsService, private attendService: AttendingService) { }
 
   setToken() {
     this.token = localStorage.getItem('token');
@@ -119,9 +121,21 @@ export class EventpageComponent implements OnInit {
     this.eventsService.createEvent(this.eventGroup).subscribe(
       data => {
         console.log(data);
+        this.createAttendOnEvent(this.eventGroup);
       }
     )
     this.addEventClicked = !this.addEventClicked;
   }
-
+  createAttendOnEvent(eventInfo){
+    this.createAttend["username"] = eventInfo.id;
+    this.createAttend["eventId"] = eventInfo.id;
+    this.createAttend['eventTitle'] = eventInfo.title;
+    this.createAttend['date'] = eventInfo.date;
+    console.log(this.createAttend);
+    this.attendService.createAttendEvent(this.createAttend).subscribe(
+      data => {
+        console.log(data);
+      }
+    )
+  }
 }
