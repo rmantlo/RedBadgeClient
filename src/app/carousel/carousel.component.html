@@ -1,76 +1,134 @@
-<!-------------------- This file pulls into the eventpage.html ---------------------->
-
-
-
 <!-- Here is our excercise carousel -->
-<div class="excercise-carousel">
-  
-  <div class="carousel">
-    
+<div *ngIf='events'>
+  <div class="exercise-carousel">
+
+    <div class="carousel">
       <h3>EXCERCISE</h3>
       <div class="input-field col s12">
-          <select multiple>
-            <option value="" disabled selected>Choose your option</option>
-            <option value="1">Running</option>
-            <option value="2">Yoga</option>
-            <option value="3">Weight Lifting</option>
-            <option value="4">Group Workout</option>
-            <option value="5">Bootcamp</option>
-          </select>
-          <label>Choose an Exercise</label>
-        </div>
-    <a class="carousel-item" href="#one!"><img src="../../assets/runners.jpeg"></a>
-    <a class="carousel-item" href="#two!"><img src="../../assets/yogagirls.jpeg"></a>
-    <a class="carousel-item" href="#three!"><img src="../../assets/john-arano-1136867-unsplash.jpg"></a>
-    <a class="carousel-item" href="#four!"><img src="../../assets/fitnessgroup.jpeg"></a>
-    <a class="carousel-item" href="#five!"><img src="../../assets/boxjumps.jpeg"></a>
-  </div>
-</div>
+        <select multiple>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Running</option>
+          <option value="2">Gym</option>
+          <option value="3">Kick Boxing</option>
+          <option value="4">Crossfit</option>
+          <option value="5">Yoga</option>
+        </select>
+        <label>Choose an Exercise</label>
+      </div>
 
-<!-- Here is our Sports carousel -->
-<div class="sports-carousel">
-  
-    <div class="carousel">
-        <h3>SPORTS</h3>
-        <div class="input-field col s12">
-            <select multiple>
-              <option value="" disabled selected>Choose your option</option>
-              <option value="1">Tennis</option>
-              <option value="2">Volleyball</option>
-              <option value="3">Golf</option>
-              <option value="4">Basketball</option>
-              <option value="5">Softball</option>
-            </select>
-            <label>Choose a sport</label>
+      <div class='carousel-item' *ngFor="let e of exerciseEvents; let i = index">
+        <section class="card" style='background-image: url("../../assets/hiking.jpeg")'>
+          <div class='contents'>
+            <div class="card-content">
+              <span class="card-title">{{ e.title }}</span>
+              <p><a href="#">{{ e.date }}</a></p>
+              <p>{{ e.location }}</p>
+              <p>{{ e.description }}</p>
+            </div>
+            <div class="card-map">
+              <agm-map [zoomControl]='zoomControl' [streetViewControl]='streetViewControl' [mapDraggable]='draggable'
+                [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+              </agm-map>
+            </div>
           </div>
-      <a class="carousel-item" href="#one!"><img src="../../assets/tennispairs.jpeg"></a>
-      <a class="carousel-item" href="#two!"><img src="../../assets/vince-fleming-1292506-unsplash.jpg"></a>
-      <a class="carousel-item" href="#three!"><img src="../../assets/court-prather-663692-unsplash.jpg"></a>
-      <a class="carousel-item" href="#four!"><img src="../../assets/malcolm-lightbody-629847-unsplash.jpg"></a>
-      <a class="carousel-item" href="#five!"><img src="../../assets/josh-calabrese-179700-unsplash.jpg"></a>
+          <button *ngIf='!attending' (click)='attendButton(e)'>Attend</button>
+          <button *ngIf='!attending' (click)='unattendButton(e.id)'>Unattend</button>
+        </section>
+      </div>
+
     </div>
+  </div>
+
+  <!--paralax-->
+  <div class="custom-container">
+    <div class="parallax-container1"></div>
+  </div>
+
+  <!-- Here is our Sports carousel -->
+  <div class="exercise-carousel">
+
+    <div class="carousel">
+      <h3>SPORTS</h3>
+      <div class="input-field col s12">
+        <select multiple>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Basketball</option>
+          <option value="2">Football</option>
+          <option value="3">Soccer</option>
+          <option value="4">Golf</option>
+          <option value="5">Tennis</option>
+        </select>
+        <label>Choose a Sport</label>
+      </div>
+
+      <div class='carousel-item' *ngFor="let e of sportEvents; let i = index">
+        <section class="card" style='background-image: url("../../assets/hiking.jpeg")'>
+          <div class='contents'>
+            <div class="card-content">
+              <span class="card-title">{{ e.title }}</span>
+              <p><a href="#">{{ e.date }}</a></p>
+              <p>{{ e.location }}</p>
+              <p>{{ e.description }}</p>
+            </div>
+            <div class="card-map">
+              <agm-map [zoomControl]='zoomControl' [streetViewControl]='streetViewControl' [mapDraggable]='draggable'
+                [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+              </agm-map>
+            </div>
+          </div>
+          <button *ngIf='attendInfo' (click)='attendButton(e)'>Attend</button>
+          <button *ngIf='attendInfo' (click)='unattendButton(e.id)'>Unattend</button>
+        </section>
+      </div>
+
+    </div>
+  </div>
+
+  <!--paralax-->
+  <div class="custom-container">
+    <div class="parallax-container1"></div>
   </div>
 
   <!-- Here is our Nature carousel -->
-  <div class="nature-carousel">
-  
-      <div class="carousel">
-          <h3>NATURE</h3>
-          <div class="input-field col s12">
-              <select multiple>
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1">Hiking</option>
-                <option value="2">Cycling</option>
-                <option value="3">Mountain/Rock Climbing</option>
-                <option value="4">Cookout</option>
-                <option value="5">Surfing</option>
-              </select>
-              <label>Choose an outdoor activity</label>
-            </div>
-        <a class="carousel-item" href="#one!"><img src="../../assets/hikinggroup2.jpeg"></a>
-        <a class="carousel-item" href="#two!"><img src="../../assets/cyclingpair.jpeg"></a>
-        <a class="carousel-item" href="#three!"><img src="../../assets/rockclimbingpairs.jpeg"></a>
-        <a class="carousel-item" href="#four!"><img src="../../assets/evan-wise-787902-unsplash.jpg"></a>
-        <a class="carousel-item" href="#five!"><img src="../../assets/joseph-greve-343334-unsplash.jpg"></a>
+  <div class="exercise-carousel">
+
+    <div class="carousel">
+      <h3>OUTDOORS</h3>
+      <div class="input-field col s12">
+        <select multiple>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Hiking</option>
+          <option value="2">Cycling</option>
+          <option value="3">Mountain Biking</option>
+          <option value="4">Rock Climbing</option>
+          <option value="5">Kayaking</option>
+        </select>
+        <label>Choose an Activity</label>
       </div>
+
+      <div class='carousel-item' *ngFor="let e of outdoorEvents; let i = index">
+        <section class="card" style='background-image: url("../../assets/hiking.jpeg")'>
+          <div class='contents'>
+            <div class="card-content">
+              <span class="card-title">{{ e.title }}</span>
+              <p><a href="#">{{ e.date }}</a></p>
+              <p>{{ e.location }}</p>
+              <p>{{ e.description }}</p>
+            </div>
+            <div class="card-map">
+              <agm-map [zoomControl]='zoomControl' [streetViewControl]='streetViewControl' [mapDraggable]='draggable'
+                [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+              </agm-map>
+            </div>
+          </div>
+          <button *ngIf='attendInfo' (click)='attendButton(e)'>Attend</button>
+          <button *ngIf='attendInfo' (click)='unattendButton(e.id)'>Unattend</button>
+        </section>
+      </div>
+
     </div>
+  </div>
+</div>

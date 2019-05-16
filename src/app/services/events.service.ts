@@ -12,18 +12,36 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class EventsService {
+  // url: any = 'https://efa-gardenapp-backend.herokuapp.com/api/product';
 
   constructor(private http: HttpClient) { }
 
-  myEvents(){
-    return this.http.get('http://localhost:3000/event/getmine', httpOptions)
-  }
-  eventById(id){
-    return this.http.get(`http://localhost:3000/event/get/${id}`, httpOptions)
+
+  getEvent() {
+    return this.http.get('http://localhost:3000/event/getmine', httpOptions);
   }
 
-  // createEvent(body){
-  //   return this.http.post('http://localhost:3000/event/create', body, httpOptions)
-  // }
+  deleteEvent(id: number) {
+    return this.http.delete(`http://localhost:3000/event/delete/${id}`, httpOptions);
+  }
+
+  editEvent(id: number, body) {
+    return this.http.put(`http://localhost:3000/event/update/${id}`, body, httpOptions);
+  }
+
+  myEvents() {
+    return this.http.get('http://localhost:3000/event/getmine', httpOptions);
+  }
+  eventById(id) {
+    return this.http.get(`http://localhost:3000/event/get/${id}`, httpOptions);
+  }
+
+  createEvent(body) {
+    return this.http.post('http://localhost:3000/event/create', body, httpOptions);
+  }
+
+  allEvents() {
+    return this.http.get('http://localhost:3000/event/', httpOptions);
+  }
   
 }

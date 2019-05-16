@@ -12,7 +12,7 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     let token = localStorage.getItem('token');
-    //console.log(token);
+    console.log(token);
     if (token == null) {
       return false;
     } else {

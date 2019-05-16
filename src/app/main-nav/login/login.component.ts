@@ -28,12 +28,20 @@ export class LoginComponent implements OnInit {
         console.log(data);
         let data1: any = data;
         localStorage.setItem('token', data1.sessionToken);
+        localStorage.setItem('role', data1.user.role)
         this.token = data1.sessionToken;
+        if (this.token) {
+          window.location.replace('http://localhost:4200/events');
+        }
+      },
+      err => {
+        alert('username or password is incorrect!')
       }
     )
     this.loginToggle();
   }
-  loginToggle(){
+
+  loginToggle() {
     this.onLoginToggle.emit()
   }
 
