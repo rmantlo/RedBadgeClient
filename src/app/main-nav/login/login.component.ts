@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('role', data1.user.role);
         this.token = data1.sessionToken;
         if (this.token) {
-          window.location.replace('http://localhost:4200/events');
+          window.location.href='/events';
         }
       },
       err => {

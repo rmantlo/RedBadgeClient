@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { APIURL } from '../../environments/environment.prod';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,11 +20,11 @@ export class UserService {
 
   login(loginInfo) {
     console.log(loginInfo);
-    return this.http.post('http://localhost:3000/user/login', loginInfo, httpOptions)
+    return this.http.post(`${APIURL}/user/login`, loginInfo, httpOptions)
   }
   signup(userInfo) {
     console.log(userInfo)
-    return this.http.post('http://localhost:3000/user/signup', userInfo, httpOptions)
+    return this.http.post(`${APIURL}/user/signup`, userInfo, httpOptions)
   }
   getUser() {
     const httpOptionA = {
@@ -32,7 +33,7 @@ export class UserService {
         'Authorization': localStorage.getItem('token')
       })
     }
-    return this.http.get('http://localhost:3000/userinfo/get', httpOptionA)
+    return this.http.get(`${APIURL}/userinfo/get`, httpOptionA)
   }
 
   updateUser(updates) {
@@ -42,7 +43,7 @@ export class UserService {
         'Authorization': localStorage.getItem('token')
       })
     }
-    return this.http.put('http://localhost:3000/userinfo/update', updates, httpOptionA)
+    return this.http.put(`${APIURL}/userinfo/update`, updates, httpOptionA)
   }
 
   deleteUser() {
@@ -52,6 +53,6 @@ export class UserService {
         'Authorization': localStorage.getItem('token')
       })
     }
-    return this.http.delete('http://localhost:3000/userinfo/delete', httpOptionA)
+    return this.http.delete(`${APIURL}/userinfo/delete`, httpOptionA)
   }
 }
