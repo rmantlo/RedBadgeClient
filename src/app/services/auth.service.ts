@@ -8,6 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
 
+
   constructor(public helper: JwtHelperService) { }
 
   public isAuthenticated(): boolean {
@@ -17,8 +18,10 @@ export class AuthService {
       return false;
     } else {
       const isExpired = !this.helper.isTokenExpired(token);
-      console.log('expired: '+ !isExpired);
+      console.log('expired: ' + !isExpired);
       return isExpired;
     }
+
   }
 }
+

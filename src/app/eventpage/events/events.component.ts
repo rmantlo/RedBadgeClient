@@ -7,10 +7,13 @@ import { EventsService } from '../../services/events.service';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
+  event: any;
+  // certainEvent: any;
+  token: any;
+  role: any;
 
   constructor(private eventService: EventsService) { }
 
-  event: any;
 
   getEvent(): any{
     this.eventService.allEvents().subscribe(
@@ -24,7 +27,18 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getEvent()
+    this.getEvent();
+    this.role = localStorage.getItem("role");
+  }
+
+  deleteEvent(id: number){
+    //console.log(id);
+    this.eventService.deleteEvent(id).subscribe(
+      data => {
+        console.log('deleted');
+        this.getEvent();
+      }
+    )
   }
 
 }
