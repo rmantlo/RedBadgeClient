@@ -10,7 +10,7 @@ import { AdminService } from '../services/admin.service';
 export class MainNavComponent implements OnInit {
   login: boolean = false;
   signup: boolean = false;
-  loggedIn: boolean;
+  loggedIn: boolean = false;
   token: any;
 
   
@@ -19,6 +19,7 @@ export class MainNavComponent implements OnInit {
   }
   ngOnInit(){
     this.isLoggedIn();
+    this.token = localStorage.getItem('token');
   }
   isLoggedIn(){
     if(localStorage.getItem('token') == null){
@@ -31,6 +32,7 @@ export class MainNavComponent implements OnInit {
   loginToggle() {
     this.login = true;
     this.signup = false;
+    this.loggedIn = !this.loggedIn;
   }
   signupToggle() {
     this.signup = true;
@@ -38,6 +40,7 @@ export class MainNavComponent implements OnInit {
   }
   logout() {
     localStorage.clear();
+    // this.token = ''; needed?
     window.location.reload();
   }
   toggle() {

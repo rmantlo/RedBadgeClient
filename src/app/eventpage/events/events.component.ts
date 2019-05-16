@@ -7,10 +7,31 @@ import { EventsService } from '../../services/events.service';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
+  event: any;
+  // certainEvent: any;
+  token: any;
+  role: any;
+  trueValue: boolean = true;
+  cardImage: any;
 
   constructor(private eventService: EventsService) { }
 
-  event: any;
+
+  // create a for-loop & assign a pic to each keyword.
+  // separateTypes() {
+  //   for (let e of this.events) {
+  //     if (e.keyword === 'running' || e.keyword === 'gym' || e.keyword === 'crossfit' || e.keyword === 'kick boxing' || e.keyword === 'yoga') {
+  //       this.exerciseEvents = this.exerciseEvents.concat(e);
+  //     } else if (e.keyword === 'soccer' || e.keyword === 'basketball' || e.keyword === 'football' || e.keyword === 'golf' || e.keyword === 'tennis') {
+  //       this.sportEvents = this.sportEvents.concat(e);
+  //     } else if (e.keyword === 'hiking' || e.keyword === 'cycling' || e.keyword === 'rock climbing' || e.keyword === 'mountain biking' || e.keyword === 'kayaking') {
+  //       this.outdoorEvents = this.outdoorEvents.concat(e);
+  //     }
+  //   }
+  //   console.log(this.exerciseEvents)
+  //   console.log(this.sportEvents);
+  //   console.log(this.outdoorEvents);
+  // }
 
   getEvent(): any{
     this.eventService.allEvents().subscribe(
@@ -23,8 +44,25 @@ export class EventsComponent implements OnInit {
     )
   }
 
+  setCardImage(keyword) {
+    if(keyword === 'running') {
+      this.cardImage = '../../../assets/runners.jpeg'
+    }
+  }
+
   ngOnInit() {
-    this.getEvent()
+    this.getEvent();
+    this.role = localStorage.getItem("role");
+  }
+
+  deleteEvent(id: number){
+    //console.log(id);
+    this.eventService.deleteEvent(id).subscribe(
+      data => {
+        console.log('deleted');
+        this.getEvent();
+      }
+    )
   }
 
 }

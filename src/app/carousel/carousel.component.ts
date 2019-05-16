@@ -28,6 +28,8 @@ export class CarouselComponent implements OnInit {
   zoomControl: boolean = false;
   streetViewControl: boolean = false;
 
+
+
   constructor(private eventService: EventsService, private attendService: AttendingService) { }
   onChoseLocation(event) {
     //console.log(event);
@@ -35,6 +37,8 @@ export class CarouselComponent implements OnInit {
     this.longitude = event.coords.lng;
     this.locationChosen = true;
   }
+
+
 
   ngOnInit() {
     this.fetchEvents();
