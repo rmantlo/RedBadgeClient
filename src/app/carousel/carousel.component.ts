@@ -28,13 +28,17 @@ export class CarouselComponent implements OnInit {
   zoomControl: boolean = false;
   streetViewControl: boolean = false;
 
+
+
   constructor(private eventService: EventsService, private attendService: AttendingService) { }
   onChoseLocation(event) {
-    console.log(event);
+    //console.log(event);
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
     this.locationChosen = true;
   }
+
+
 
   ngOnInit() {
     this.fetchEvents();
@@ -62,11 +66,11 @@ export class CarouselComponent implements OnInit {
     this.attendService.getMyAttending().subscribe(
       data => {
         this.attendInfo = data;
-        console.log(this.attendInfo);
+        //console.log(this.attendInfo);
         for (let a of this.attendInfo) {
           this.attendingArray.push(a.eventId);
         }
-        console.log(this.attendingArray);
+        //console.log(this.attendingArray);
       }
     )
   }
@@ -81,30 +85,30 @@ export class CarouselComponent implements OnInit {
         this.outdoorEvents = this.outdoorEvents.concat(e);
       }
     }
-    console.log(this.exerciseEvents)
-    console.log(this.sportEvents);
-    console.log(this.outdoorEvents);
+    // console.log(this.exerciseEvents)
+    // console.log(this.sportEvents);
+    // console.log(this.outdoorEvents);
   }
 
   attendButton(event) {
-    console.log('click');
-    console.log(event);
+    // console.log(event);
     this.attendCreate["username"] = event.id;
     this.attendCreate["eventId"] = event.id;
     this.attendCreate['eventTitle'] = event.title;
     this.attendCreate['date'] = event.date;
-    console.log(this.attendCreate);
+    // console.log(this.attendCreate);
     this.attendInfo.push(this.attendCreate);
-    console.log(this.attendInfo);
+    // console.log(this.attendInfo);
     this.attendService.createAttendEvent(this.attendCreate).subscribe(
       data => {
         console.log(data);
+        // console.log(data);
         this.fetchmyAttending();
       }
     )
   }
   unattendButton(eventId) {
-    console.log(eventId)
+    // console.log(eventId)
     this.attendService.deleteAttend(eventId).subscribe(
       data => {
         this.fetchmyAttending();
