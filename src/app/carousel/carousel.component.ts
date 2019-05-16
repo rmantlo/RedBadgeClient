@@ -17,9 +17,9 @@ export class CarouselComponent implements OnInit {
   sportEvents: any = [];
   outdoorEvents: any = [];
 
-  attendInfo: any = {};
+  attendInfo: any = [];
   attendCreate: any = {};
-  attending: boolean;
+  attendingArray: string[] = [];
 
   latitude: number = 39.96514511660002;
   longitude: number = -86.00871011355463;
@@ -28,6 +28,8 @@ export class CarouselComponent implements OnInit {
   zoomControl: boolean = false;
   streetViewControl: boolean = false;
 
+
+
   constructor(private eventService: EventsService, private attendService: AttendingService) { }
   onChoseLocation(event) {
     console.log(event);
@@ -35,6 +37,8 @@ export class CarouselComponent implements OnInit {
     this.longitude = event.coords.lng;
     this.locationChosen = true;
   }
+
+
 
   ngOnInit() {
     this.fetchEvents();
@@ -45,7 +49,7 @@ export class CarouselComponent implements OnInit {
       var elems: NodeListOf<Element> = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems, this.options);
 
-    }, 1000)
+    }, 1000);
   }
 
   fetchEvents() {
@@ -63,13 +67,10 @@ export class CarouselComponent implements OnInit {
       data => {
         this.attendInfo = data;
         console.log(this.attendInfo);
-        for(let e of this.events){
-          if(this.attendInfo.eventId === e.id){
-            this.attending = true;
-          } else {
-            this.attending = false;
-          }
+        for (let a of this.attendInfo) {
+          this.attendingArray.push(a.eventId);
         }
+        console.log(this.attendingArray);
       }
     )
   }
@@ -97,19 +98,22 @@ export class CarouselComponent implements OnInit {
     this.attendCreate['eventTitle'] = event.title;
     this.attendCreate['date'] = event.date;
     console.log(this.attendCreate);
-    this.attendInfo.push(this.attendCreate)
+    this.attendInfo.push(this.attendCreate);
     console.log(this.attendInfo);
     this.attendService.createAttendEvent(this.attendCreate).subscribe(
-      data=> {
+      data => {
         console.log(data);
+        this.fetchmyAttending();
       }
     )
   }
-  unattendButton(eventId){
+  unattendButton(eventId) {
     console.log(eventId)
     this.attendService.deleteAttend(eventId).subscribe(
       data => {
-        console.log('deleted', data)
+        this.fetchmyAttending();
+        let indexArray = this.attendingArray.indexOf(eventId);
+        this.attendingArray.splice(indexArray);
       }
     )
   }
