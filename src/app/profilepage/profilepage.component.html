@@ -49,6 +49,7 @@
                 <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
               </agm-map></p>
             <p>{{ e.description }}</p>
+            <button (click)='unattendDelete(e.id)'>Unattend</button>
           </div>
         </mat-tab>
 

@@ -56,7 +56,7 @@ export class SignupComponent implements OnInit {
           localStorage.setItem('role', data1.user.role)
           this.token = data1.sessionToken;
           if (this.token) {
-            window.location.href='/events';
+            window.location.href = '/events';
           }
         },
         err => {
