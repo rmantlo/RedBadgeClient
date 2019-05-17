@@ -16,11 +16,6 @@ export class EventsService {
 
   constructor(private http: HttpClient) { }
 
-
-  getEvent() {
-    return this.http.get('http://localhost:3000/event/getmine', httpOptions);
-  }
-
   deleteEvent(id: number) {
     return this.http.delete(`http://localhost:3000/event/delete/${id}`, httpOptions);
   }
