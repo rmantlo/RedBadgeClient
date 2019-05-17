@@ -49,7 +49,7 @@ export class CarouselComponent implements OnInit {
       var elems: NodeListOf<Element> = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems, this.options);
 
-    }, 1000);
+    }, 500);
   }
 
   fetchEvents() {

@@ -1,3 +1,6 @@
 ::ng-deep full-calendar td.fc-today{
     background: rgb(136, 156, 196) !important;
 }
+::ng-deep full-calendar .fc-scroller{
+    height: auto !important;
+}
