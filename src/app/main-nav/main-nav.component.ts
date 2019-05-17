@@ -14,7 +14,7 @@ export class MainNavComponent implements OnInit {
 
   
 
-  constructor(private adminService: AdminService) {
+  constructor() {
   }
   ngOnInit(){
     this.isLoggedIn();
@@ -38,7 +38,6 @@ export class MainNavComponent implements OnInit {
   }
   logout() {
     localStorage.clear();
-    // this.token = ''; needed?
     window.location.reload();
   }
   toggle() {
