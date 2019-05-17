@@ -32,7 +32,6 @@ export class MainNavComponent implements OnInit {
   loginToggle() {
     this.login = true;
     this.signup = false;
-    this.loggedIn = !this.loggedIn;
   }
   signupToggle() {
     this.signup = true;
