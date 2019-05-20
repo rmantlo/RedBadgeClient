@@ -17,8 +17,9 @@ agm-map{
     height: 900px;
     top: 65px;
     right: 0;
-    background: rgb(198, 221, 228);
+    background: whitesmoke;
     text-align: center;
+    color: black;
     
 }
 

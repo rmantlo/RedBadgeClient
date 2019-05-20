@@ -1,3 +1,78 @@
+<!-- ---THis is for the CREATE MODAL -->
+
+<div class="example-button-row">
+  <button (click)="openEventModal()" 
+  style="position:relative; padding:0; margin-bottom: 0; z-index: 3; border-radius: 50% ; float: right; margin-top: 1em" 
+  mat-mini-fab>
+    <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+  </button>
+  
+</div>
+
+<!-- Modal  -->
+<div class='createEvent' *ngIf="addEventClicked">
+  <div class='xBtn'>
+    <button id="xBtn" (click)='closeEventModal()' mat-mini-fab>X</button>
+  </div>
+  <h4>CREATE EVENT</h4>
+  <form [formGroup]='addEvent' (ngSubmit)='submitClick()' class="example-container">
+    <br>
+    <hr>
+    <!-- Title -->
+    <mat-form-field>
+      <input matInput disableUnderline=true formControlName='title' placeholder="Title" required>
+    </mat-form-field>
+    <!--GoogleMaps-->
+
+    <!-- <mat-form-field> -->
+    <agm-map class="map" [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+      <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+    </agm-map>
+    <!-- </mat-form-field> -->
+    <br>
+
+
+    <!-- Location -->
+    <mat-form-field>
+      <input matInput formControlName='location' placeholder="City Name" required>
+    </mat-form-field><br>
+
+    <!-- Time attribute. DATEPICKER goes here -->
+    <mat-form-field>
+      <input matInput formControlName='date' [matDatepicker]="picker" placeholder="Date: year-month-date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field><br>
+
+    <!-- DROPDOWN OPTION LIST -->
+
+
+    <mat-form-field>
+      <mat-label>Event</mat-label>
+      <mat-select formControlName="keyword">
+        <!-- <mat-option>-- None --</mat-option> -->
+        <mat-optgroup *ngFor="let group of eventGroups" [label]="group.name" [disabled]="group.disabled">
+          <mat-option *ngFor="let event of group.event" [value]="event.value">
+            {{event.viewValue}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <!-- DESCRIPTION -->
+    <mat-form-field>
+      <textarea matInput formControlName='description' placeholder="Description">
+                </textarea>
+    </mat-form-field><br>
+    <button class="submit-button" (click)="submitNewEvent()" mat-button>Submit</button>
+  </form>
+</div>
+
+
+
+<!-- END CREATE MODAL -->
+
+
 <!-- <div *ngIf='event'>
   <div *ngFor='let e of event' class='deck' >
     <div class='card'>
@@ -46,4 +121,6 @@
       </div>
 
 
+    </div>
+    </div>
     </div>
