@@ -2,7 +2,7 @@
   <button (click)="openEventModal()" style="position:absolute; z-index: 0; right : 0" mat-mini-fab>
     <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
   </button>
-  <a style='position:absolute; left:0; z-index: 5;' href='/allevents'>View All Events</a>
+  <a style='position:absolute; z-index: 5;' href='/allevents'>View All Events</a>
 </div>
 
 <!-- Modal  -->
@@ -12,15 +12,16 @@
   </div>
   <h4>CREATE EVENT</h4>
   <form [formGroup]='addEvent' (ngSubmit)='submitClick()' class="example-container">
-
+    <br>
+    <hr>
     <!-- Title -->
     <mat-form-field>
-      <input matInput formControlName='title' placeholder="Title" required>
-    </mat-form-field><br>
+      <input matInput disableUnderline=true formControlName='title' placeholder="Title" required>
+    </mat-form-field>
     <!--GoogleMaps-->
 
     <!-- <mat-form-field> -->
-    <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+    <agm-map class="map" [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
       <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
     </agm-map>
     <!-- </mat-form-field> -->
@@ -59,7 +60,7 @@
       <textarea matInput formControlName='description' placeholder="Description">
                 </textarea>
     </mat-form-field><br>
-    <button (click)="submitNewEvent()" mat-button>Submit</button>
+    <button class="submit-button" (click)="submitNewEvent()" mat-button>Submit</button>
   </form>
 </div>
 

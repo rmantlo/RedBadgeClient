@@ -19,25 +19,26 @@
 </div>  -->
 
 <div *ngIf='event'>
-    <div *ngFor='let e of event' class='deck' >
-<div class="wrap">
-    <div class="tile"> 
-      <img *ngIf ="trueValue? setCardImage(e.keyword): null" src=cardImage >
-      <div class="text">
-      <h1>{{ e.title }}</h1>
-      <h2 class="animate-text">{{ e.location }}</h2>
+  <div *ngFor='let e of event' class='deck'>
+    <div class="wrap">
+      <div class="tile">
+        <div class="text">
+          <!-- <img *ngIf="trueValue? setCardImage(e.keyword): null" src='../../../assets/yogagirls.jpeg'> -->
+          <h1>{{ e.title }}</h1>
+          <img src="../../../assets/situpgirls.jpeg" alt="">
 
-      <p class="animate-text">{{ e.date }} </p>
-    <!-- <div class="dots"> -->
-        <div *ngIf="role == 'admin'">
-            <button #button value='{{ e.id }}' (click)='deleteEvent(button.value)' >Admin Delete</button>
+
+          <h2 class="animate-text">{{ e.location }}</h2>
+          <p class="animate-text">{{ e.date }} </p>
+          <p class="animate-text">{{ e.description }} </p>
+
+          <div *ngIf="role == 'admin'">
+            <div class="button-container">
+              <button #button value='{{ e.id }}' (click)='deleteEvent(button.value)'>Admin Delete</button>
+            </div>
           </div>
-        <span></span>
-        <span></span>
-        <span></span>
-      <!-- </div> -->
+        </div>
       </div>
-     </div>
-    
-    
-      </div>
+
+
+    </div>
