@@ -12,4 +12,5 @@ html, body {
 /* margin must be 0 for collapsable sidebar to work correctly */
 body {
     margin: 0;
+    height: 100vh;
 }
