@@ -44,7 +44,7 @@ h1 {
     height:380px;
     margin:3pt 3pt 3pt 3pt;
     border-radius: 40pt;
-    background-color: rgb(198, 205, 226);
+    background-color: whitesmoke;
     display:inline-block;
     background-size:cover;
     position:relative;
@@ -103,6 +103,7 @@ img {
    
     font-weight:300;
     margin:0;
+    color: black;
   }
   .tile h2
   {
@@ -110,15 +111,16 @@ img {
     margin:20px 0 0 0;
     font-style:italic;
     transform: translateX(200px);
+    color: black;
   }
   .tile p
   {
     font-weight:300;
     margin:20px 0 0 0;
     line-height: 25px;
-  /*   opacity:0; */
     transform: translateX(-200px);
     transition-delay: 0.2s;
+    color: black;
   }
   .animate-text
   {

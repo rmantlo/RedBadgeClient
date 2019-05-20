@@ -8,8 +8,9 @@
     top:100px;
     box-shadow: 1px 3px 3px rgb(39, 39, 39);
     width: 35vw;
+    height: 400px;
     min-width: 300px;
-    background: white;
+    background:whitesmoke;
     border-radius: 2px;
     padding: 5px;
     text-align: center;
@@ -18,25 +19,64 @@
     display: flex;
     justify-content: space-between;
     margin: 5px;
+    background-color: whitesmoke;
 }
 h4 {
-    margin: 0;
+    margin: 3pt;
     font-size: 8pt;
+    float: left;
 }
-.xBtn button{
+.x-Btn{
     border: none;
     background: transparent;
     cursor: pointer;
+    color: black;
+    position: fixed;
+    left: 64%;
+    /* padding-top: 0; */
+    margin-top: 3pt;
+
 }
-.xBtn button:hover{
-    background: whitesmoke;
+.xBtn {
+    background-color: whitesmoke;
 }
+
 .mat-horizontal-stepper{
     padding: 0 !important;
+    background-color: whitesmoke;
 }
-.mat-horizontal-content-container{
-    padding: 10px !important;
+.mat-horizontal-stepper-header{
+    height: 100px!important;
 }
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+::ng-deep .mat-form-field-appearance-legacy {
     height: 0px !important;
+}
+
+.mat-form-field-infix {
+    padding: none;
+}
+
+input {
+	border-bottom: none!important;
+    box-shadow: none!important;	
+    border:none!important; 
+    outline: none!important; 
+    background: none!important;	
+    font-size: 10pt;
+} 
+
+button {
+    background-color: rgb(39, 64, 133);
+    color: white;
+    border-color:  rgb(39, 64, 133);
+    overflow: auto;
+    z-index: 10;
+    position: absolute;
+    right: 41%;
+    z-index: 100;
+    margin-top: 15pt;
+}
+
+.signup {
+    background-color: white;
 }
