@@ -26,7 +26,7 @@ export class EventpageComponent implements OnInit {
   event: any;
   certainEvent: any;
   token: any;
-  createAttend:any = {};
+  createAttend: any = {};
 
   addEventClicked: boolean = false;
   addEvent: FormGroup;
@@ -36,7 +36,8 @@ export class EventpageComponent implements OnInit {
   longitude: number = -86.00871011355463;
   locationChosen: boolean = false;
 
-  eventGroup: any = {};
+  eventGroup: any;
+  newEventInfo: any;
 
   eventControl = new FormControl();
   eventGroups: EventGroup[] = [
@@ -88,7 +89,7 @@ export class EventpageComponent implements OnInit {
       keyword: new FormControl(),
       description: new FormControl()
     });
-    
+    this.fetchEvents();
     this.setToken();
   }
   onChoseLocation(event) {
@@ -113,21 +114,33 @@ export class EventpageComponent implements OnInit {
     this.submitNewEvent();
   }
 
+  events: any = [];
+
+  fetchEvents() {
+    this.eventsService.allEvents().subscribe(
+      data => {
+        this.events = data;
+        this.events.reverse();
+        console.log(data);
+        //this.separateTypes(this.events);
+        //this.fetchmyAttending();
+      }
+    )
+  }
   submitNewEvent() {
     this.eventGroup = { ...this.addEvent.value, ...this.addMap };
-    console.log(this.addEvent)
-    console.log(this.addMap)
+    this.events.unshift(this.eventGroup);
     console.log(this.eventGroup)
     this.eventsService.createEvent(this.eventGroup).subscribe(
-      data => {
-        console.log(data);
-        this.createAttendOnEvent(this.eventGroup);
+      datas => {
+        this.newEventInfo = datas.data;
+        this.createAttendOnEvent(datas.data);
       }
     )
     this.addEventClicked = !this.addEventClicked;
   }
-  createAttendOnEvent(eventInfo){
-    this.createAttend["username"] = eventInfo.id;
+  createAttendOnEvent(eventInfo) {
+    this.createAttend["username"] = eventInfo.userId;
     this.createAttend["eventId"] = eventInfo.id;
     this.createAttend['eventTitle'] = eventInfo.title;
     this.createAttend['date'] = eventInfo.date;
@@ -138,4 +151,8 @@ export class EventpageComponent implements OnInit {
       }
     )
   }
+
+
+
+
 }

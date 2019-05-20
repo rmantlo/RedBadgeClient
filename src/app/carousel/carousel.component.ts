@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { EventsService } from '../services/events.service';
 import * as M from '../../assets/materialize-css/dist/js/materialize.min.js';
 import { AttendingService } from '../services/attending.service';
+
 
 @Component({
   selector: 'app-carousel',
@@ -12,13 +13,13 @@ export class CarouselComponent implements OnInit {
 
   options: {}
 
-  events: any;
+  public events: any = [];
   exerciseEvents: any = [];
   sportEvents: any = [];
   outdoorEvents: any = [];
 
   attendInfo: any = [];
-  attendCreate: any = {}; 
+  attendCreate: any = {};
   attendingArray: string[] = [];
 
   latitude: number = 39.96514511660002;
@@ -28,9 +29,9 @@ export class CarouselComponent implements OnInit {
   zoomControl: boolean = false;
   streetViewControl: boolean = false;
 
-
-
   constructor(private eventService: EventsService, private attendService: AttendingService) { }
+
+
   onChoseLocation(event) {
     //console.log(event);
     this.latitude = event.coords.lat;
@@ -38,28 +39,25 @@ export class CarouselComponent implements OnInit {
     this.locationChosen = true;
   }
 
-
-
   ngOnInit() {
-    this.fetchEvents();
+    //this.fetchEvents();
     this.fetchmyAttending();
     setTimeout(function () {
       var elems: NodeListOf<Element> = document.querySelectorAll('.carousel');
       var instances = M.Carousel.init(elems, this.options);
       var elems: NodeListOf<Element> = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems, this.options);
+    }, 200);
+  }
+  @Input() eventss: any;
 
-    }, 1000);
+  showEvents() {
+    this.events = this.eventss;
+    this.separateTypes(this.events);
   }
 
-  fetchEvents() {
-    this.eventService.allEvents().subscribe(
-      data => {
-        this.events = data;
-        //console.log(data);
-        this.separateTypes();
-      }
-    )
+  ngOnChanges() {
+    this.showEvents();
   }
 
   fetchmyAttending() {
@@ -75,8 +73,8 @@ export class CarouselComponent implements OnInit {
     )
   }
 
-  separateTypes() {
-    for (let e of this.events) {
+  separateTypes(data) {
+    for (let e of data) {
       if (e.keyword === 'running' || e.keyword === 'gym' || e.keyword === 'crossfit' || e.keyword === 'kick boxing' || e.keyword === 'yoga') {
         this.exerciseEvents = this.exerciseEvents.concat(e);
       } else if (e.keyword === 'soccer' || e.keyword === 'basketball' || e.keyword === 'football' || e.keyword === 'golf' || e.keyword === 'tennis') {
@@ -85,13 +83,9 @@ export class CarouselComponent implements OnInit {
         this.outdoorEvents = this.outdoorEvents.concat(e);
       }
     }
-    // console.log(this.exerciseEvents)
-    // console.log(this.sportEvents);
-    // console.log(this.outdoorEvents);
   }
 
   attendButton(event) {
-    // console.log(event);
     this.attendCreate["username"] = event.id;
     this.attendCreate["eventId"] = event.id;
     this.attendCreate['eventTitle'] = event.title;

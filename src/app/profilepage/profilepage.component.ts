@@ -36,7 +36,7 @@ export class ProfilepageComponent implements OnInit {
     lat: "30.45555",
     lng: "42.35999"
   }
-  streetViewControl:boolean = false;
+  streetViewControl: boolean = false;
   updateEventInfo: any = {};
 
   currentUpdateEvent: any = {};
@@ -162,12 +162,23 @@ export class ProfilepageComponent implements OnInit {
     this.locationChosen = true;
   }
 
-    latConvert(lat) {
-      return Number(lat) 
-    }
+  latConvert(lat) {
+    return Number(lat)
+  }
 
-    lngConvert(lng) {
-      return Number(lng) 
-    }
+  lngConvert(lng) {
+    return Number(lng)
+  }
+
+  unattendDelete(event) {
+    let indexValue = this.allAttendEvents.indexOf(event);
+    this.allAttendEvents.splice(indexValue, 1)
+    //console.log(this.allAttendEvents);
+    this.attendService.deleteAttend(event.id).subscribe(
+      data => {
+        console.log(data);
+      }
+    )
+  }
 }
 
