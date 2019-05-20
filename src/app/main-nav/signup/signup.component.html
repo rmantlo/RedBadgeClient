@@ -1,8 +1,8 @@
 <div class='signup'>
-  <div class='xBtn'>
+  <!-- <div class='xBtn'> -->
     <h4>Sign up</h4>
-    <button (click)='signupToggle()'>X</button>
-  </div>
+    <button class="x-Btn" (click)='signupToggle()'>X</button>
+  <!-- </div> -->
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
@@ -29,7 +29,7 @@
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button class="next-button" mat-button matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
