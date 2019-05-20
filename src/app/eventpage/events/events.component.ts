@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../../services/events.service';
+import { AttendingService } from 'src/app/services/attending.service';
 
 @Component({
   selector: 'app-events',
@@ -14,8 +15,8 @@ export class EventsComponent implements OnInit {
   trueValue: boolean = true;
   cardImage: any;
 
-  constructor(private eventService: EventsService) { }
-  
+  constructor(private eventService: EventsService, private attendService: AttendingService) { }
+
   addMap: any = {
     lat: "30.45555",
     lng: "42.35999"
@@ -24,7 +25,7 @@ export class EventsComponent implements OnInit {
   latitude: number = 39.96514511660002;
   longitude: number = -86.00871011355463;
   locationChosen: boolean = false;
-  streetViewControl: boolean= false;
+  streetViewControl: boolean = false;
 
   onChoseLocation(event) {
     console.log(event);
@@ -35,7 +36,7 @@ export class EventsComponent implements OnInit {
   }
 
 
-  getEvent(): any{
+  getEvent(): any {
     this.eventService.allEvents().subscribe(
       data => {
         //console.log(data);
@@ -47,7 +48,7 @@ export class EventsComponent implements OnInit {
   }
 
   setCardImage(keyword) {
-    if(keyword === 'running') {
+    if (keyword === 'running') {
       this.cardImage = '../../../assets/runners.jpeg'
     }
   }
@@ -57,7 +58,7 @@ export class EventsComponent implements OnInit {
     this.role = localStorage.getItem("role");
   }
 
-  deleteEvent(id: number){
+  deleteEvent(id: number) {
     //console.log(id);
     this.eventService.deleteEvent(id).subscribe(
       data => {
@@ -68,10 +69,56 @@ export class EventsComponent implements OnInit {
   }
 
   latConvert(lat) {
-    return Number(lat) 
+    return Number(lat)
   }
 
   lngConvert(lng) {
-    return Number(lng) 
+    return Number(lng)
   }
+
+  attendInfo: any = [];
+  attendCreate: any = {};
+  attendingArray: any = [];
+
+  fetchmyAttending() {
+    this.attendService.getMyAttending().subscribe(
+      data => {
+        this.attendInfo = data;
+        //console.log(this.attendInfo);
+        for (let a of this.attendInfo) {
+          this.attendingArray.push(a.eventId);
+        }
+        //console.log(this.attendingArray);
+      }
+    )
+  }
+  attendButton(event) {
+    this.attendCreate["username"] = event.id;
+    this.attendCreate["eventId"] = event.id;
+    this.attendCreate['eventTitle'] = event.title;
+    this.attendCreate['date'] = event.date;
+    //console.log(this.attendCreate);
+    this.attendInfo.push(this.attendCreate);
+    //console.log(this.attendInfo);
+    this.attendService.createAttendEvent(this.attendCreate).subscribe(
+      data => {
+        //console.log(data);
+        // console.log(data);
+        this.fetchmyAttending();
+      }
+    )
+  }
+  unattendButton(eventId) {
+    console.log(eventId)
+    this.attendService.deleteAttend(eventId).subscribe(
+      data => {
+        this.fetchmyAttending();
+        //console.log('deleted')
+        let indexArray = this.attendingArray.indexOf(eventId);
+        this.attendingArray.splice(indexArray);
+      }
+    )
+  }
+
+
 }

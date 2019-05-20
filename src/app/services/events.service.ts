@@ -35,7 +35,7 @@ export class EventsService {
     return this.http.get(`${APIURL}/event/get/${id}`, httpOptions);
   }
 
-  createEvent(body) {
+  createEvent(body) : any {
     return this.http.post(`${APIURL}/event/create`, body, httpOptions);
   }
 

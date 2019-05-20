@@ -170,11 +170,13 @@ export class ProfilepageComponent implements OnInit {
     return Number(lng)
   }
 
-  unattendDelete(eventId) {
-    this.attendService.deleteAttend(eventId).subscribe(
+  unattendDelete(event) {
+    let indexValue = this.allAttendEvents.indexOf(event);
+    this.allAttendEvents.splice(indexValue, 1)
+    //console.log(this.allAttendEvents);
+    this.attendService.deleteAttend(event.id).subscribe(
       data => {
         console.log(data);
-        this.myAttending();
       }
     )
   }
