@@ -31,7 +31,12 @@
           <h2 class="animate-text">{{ e.location }}</h2>
           <p class="animate-text">{{ e.date }} </p>
           <p class="animate-text">{{ e.description }} </p>
-
+          <div>
+            <button *ngIf='attendingArray.includes(e.id); else noShow1' (click)='unattendButton(e.id)'>Unattend</button>
+          </div>
+          <ng-template #noShow1>
+            <button (click)='attendButton(e)'>Attend</button>
+          </ng-template>
           <div *ngIf="role == 'admin'">
             <div class="button-container">
               <button #button value='{{ e.id }}' (click)='deleteEvent(button.value)'>Admin Delete</button>
