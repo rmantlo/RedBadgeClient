@@ -11,6 +11,17 @@ import { AttendingService } from '../services/attending.service';
 // import PlaceResult = google.maps.places.PlaceResult;
 
 
+export interface Event {
+  value: string;
+  viewValue: string;
+}
+
+export interface EventGroup {
+  disabled?: boolean;
+  name: string;
+  event: Event[];
+}
+
 @Component({
   selector: 'app-profilepage',
   templateUrl: './profilepage.component.html',
@@ -36,7 +47,7 @@ export class ProfilepageComponent implements OnInit {
     lat: "30.45555",
     lng: "42.35999"
   }
-  streetViewControl: boolean = false;
+  streetViewControl: boolean = true;
   updateEventInfo: any = {};
 
   currentUpdateEvent: any = {};

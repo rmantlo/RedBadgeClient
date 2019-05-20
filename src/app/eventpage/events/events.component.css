@@ -76,7 +76,8 @@ img {
 
   body
   {
-    background-color:#eee
+    background-color:#eee;
+    /* height: 100vh; */
   }
 
   .tile img
@@ -169,4 +170,69 @@ img {
     bottom: 2px;
     right: 82px;
     z-index: 100;
+}
+
+/* FOR THE CREATE MODAL */
+
+/****maps*****/
+agm-map{
+  height: 200px;
+  width: 200px;
+  left: 150px; 
+  position: relative;
+}
+
+/****create event modal *****/
+
+.createEvent {
+  position: absolute;
+  z-index: 5;
+  border-radius: 5px;
+  box-shadow: 0 .5em .5em rgba(0, 0, 0, 0.4);
+  width: 500px;
+  height: 900px;
+  top: 65px;
+  right: 0;
+  background: rgb(198, 221, 228);
+  text-align: center;
+  
+}
+
+input {
+border-bottom: none!important;
+  box-shadow: none!important;	
+  border:none!important; 
+  outline: none!important; 
+  background: none!important;	
+} 
+.createEvent h4{
+  margin: 0;
+  font-family: 'Special Elite', cursive;
+  font-size: 24pt;
+}
+
+.xBtn{
+display: flex;
+justify-content: flex-end; 
+}
+#xBtn {
+ 
+  /* box-sizing: content-box; */
+  padding: 0;
+  margin: 0;
+  right: 0;
+  top: 0;
+}
+
+
+.submit-button {
+  background-color: rgb(39, 64, 133);
+  color: white;
+  border-color:  rgb(39, 64, 133);
+  overflow: auto;
+  z-index: 10;
+  position: absolute;
+  right: 41%;
+  z-index: 100;
+  margin-top: 15pt;
 }
