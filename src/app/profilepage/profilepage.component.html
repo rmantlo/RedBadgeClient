@@ -1,5 +1,3 @@
-
-
 <div class='profile'>
   <div class='left'>
     <div class='userInfo' *ngIf='userInfo'>
@@ -15,7 +13,7 @@
     <div class='eventLists'>
       <mat-tab-group animationDuration="0ms">
 
-<!---------------These are the individual cards in the My Events tab -->
+        <!---------------These are the individual cards in the My Events tab -->
         <mat-tab label="My Events">
           <div *ngIf='myEventInfo'>
             <div *ngFor='let e of myEventInfo'>
@@ -23,9 +21,11 @@
               <p>{{ e.keyword }}</p>
               <p>{{ e.time }}</p>
               <p>{{ e.location }}</p>
-              <agm-map [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" name="map" (mapClick)="onChoseLocation($event)">
-                  <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" *ngIf="locationChosen"></agm-marker>
-                </agm-map>
+              <agm-map [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" name="map"
+                (mapClick)="onChoseLocation($event)">
+                <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)"
+                  *ngIf="locationChosen"></agm-marker>
+              </agm-map>
               <p>{{ e.description }}</p>
               <button class="btn btn-default btn-sm" (click)="openEditEventModal(e)">Edit
               </button>
@@ -38,18 +38,22 @@
           </div>
         </mat-tab>
 
-<!-- ----------These are the Events Attending cards for the events attending tab -->
+        <!-- ----------These are the Events Attending cards for the events attending tab -->
         <mat-tab label="Events Attending">
           <div *ngFor='let e of allAttendEvents'>
             <h2>{{ e.title }}</h2>
             <p>{{ e.keyword }}</p>
             <p>{{ e.time }}</p>
             <p>{{ e.location }}</p>
-            <p> <agm-map [latitude]="latitude" [longitude]="longitude" name="map" (mapClick)="onChoseLocation($event)">
-                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
-              </agm-map></p>
+            <p>
+              <agm-map [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" name="map"
+                (mapClick)="onChoseLocation($event)">
+                <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)"
+                  *ngIf="locationChosen"></agm-marker>
+              </agm-map>
+            </p>
             <p>{{ e.description }}</p>
-            <button (click)='unattendDelete(e.id)'>Unattend</button>
+            <button (click)='unattendDelete(e)'>Unattend</button>
           </div>
         </mat-tab>
 
@@ -124,7 +128,8 @@
         </mat-form-field><br>
 
         <!--MAP-->
-        <agm-map [streetViewControl]='streetViewControl' [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+        <agm-map [streetViewControl]='streetViewControl' [latitude]="latitude" [longitude]="longitude"
+          (mapClick)="onChoseLocation($event)">
           <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
         </agm-map>
         <!-- Location -->
