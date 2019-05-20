@@ -11,6 +11,17 @@ import { AttendingService } from '../services/attending.service';
 // import PlaceResult = google.maps.places.PlaceResult;
 
 
+export interface Event {
+  value: string;
+  viewValue: string;
+}
+
+export interface EventGroup {
+  disabled?: boolean;
+  name: string;
+  event: Event[];
+}
+
 @Component({
   selector: 'app-profilepage',
   templateUrl: './profilepage.component.html',
@@ -36,7 +47,7 @@ export class ProfilepageComponent implements OnInit {
     lat: "30.45555",
     lng: "42.35999"
   }
-  streetViewControl:boolean = false;
+  streetViewControl: boolean = true;
   updateEventInfo: any = {};
 
   currentUpdateEvent: any = {};
@@ -162,12 +173,23 @@ export class ProfilepageComponent implements OnInit {
     this.locationChosen = true;
   }
 
-    latConvert(lat) {
-      return Number(lat) 
-    }
+  latConvert(lat) {
+    return Number(lat)
+  }
 
-    lngConvert(lng) {
-      return Number(lng) 
-    }
+  lngConvert(lng) {
+    return Number(lng)
+  }
+
+  unattendDelete(event) {
+    let indexValue = this.allAttendEvents.indexOf(event);
+    this.allAttendEvents.splice(indexValue, 1)
+    //console.log(this.allAttendEvents);
+    this.attendService.deleteAttend(event.id).subscribe(
+      data => {
+        console.log(data);
+      }
+    )
+  }
 }
 
