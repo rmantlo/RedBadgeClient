@@ -97,7 +97,7 @@ export class EventsComponent implements OnInit {
   }
 
 
-  getEvent(): any{
+  getEvent(): any {
     this.eventService.allEvents().subscribe(
       data => {
         //console.log(data);
@@ -109,7 +109,7 @@ export class EventsComponent implements OnInit {
   }
 
   setCardImage(keyword) {
-    if(keyword === 'running') {
+    if (keyword === 'running') {
       this.cardImage = '../../../assets/runners.jpeg'
     }
   }
@@ -195,11 +195,56 @@ export class EventsComponent implements OnInit {
   }
 
   latConvert(lat) {
-    return Number(lat) 
+    return Number(lat)
   }
 
   lngConvert(lng) {
-    return Number(lng) 
+    return Number(lng)
   }
+
+  attendInfo: any = [];
+  attendCreate: any = {};
+  attendingArray: any = [];
+
+  fetchmyAttending() {
+    this.attendService.getMyAttending().subscribe(
+      data => {
+        this.attendInfo = data;
+        //console.log(this.attendInfo);
+        for (let a of this.attendInfo) {
+          this.attendingArray.push(a.eventId);
+        }
+        //console.log(this.attendingArray);
+      }
+    )
+  }
+  attendButton(event) {
+    this.attendCreate["username"] = event.id;
+    this.attendCreate["eventId"] = event.id;
+    this.attendCreate['eventTitle'] = event.title;
+    this.attendCreate['date'] = event.date;
+    //console.log(this.attendCreate);
+    this.attendInfo.push(this.attendCreate);
+    //console.log(this.attendInfo);
+    this.attendService.createAttendEvent(this.attendCreate).subscribe(
+      data => {
+        //console.log(data);
+        // console.log(data);
+        this.fetchmyAttending();
+      }
+    )
+  }
+  unattendButton(eventId) {
+    console.log(eventId)
+    this.attendService.deleteAttend(eventId).subscribe(
+      data => {
+        this.fetchmyAttending();
+        //console.log('deleted')
+        let indexArray = this.attendingArray.indexOf(eventId);
+        this.attendingArray.splice(indexArray);
+      }
+    )
+  }
+
 
 }
