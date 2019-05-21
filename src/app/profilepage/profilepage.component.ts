@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { EventsService } from '../services/events.service';
 import { AttendingService } from '../services/attending.service';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 // import { DeleteAlertComponent } from './delete-alert/delete-alert.component';
 
 // goes with Google maps extension
@@ -31,6 +32,10 @@ export interface EventGroup {
 })
 
 export class ProfilepageComponent implements OnInit {
+  event: any;
+  certainEvent: any;
+  addEvent: FormGroup;
+
   option: any = {};
   userInfo: any;
   settingPopup: boolean = false;
@@ -53,9 +58,42 @@ export class ProfilepageComponent implements OnInit {
   currentUpdateEvent: any = {};
   eventGroup: any = {};
 
+  eventControl = new FormControl();
+  eventGroups: EventGroup[] = [
+    {
+      name: 'Exercise',
+      event: [
+        { value: 'running', viewValue: 'Running' },
+        { value: 'gym', viewValue: 'Gym' },
+        { value: 'crossfit', viewValue: 'Crossfit' },
+        { value: 'kick boxing', viewValue: 'Kick Boxing' },
+        { value: 'yoga', viewValue: 'Yoga' }
+      ]
+    },
+    {
+      name: 'Sports',
+      event: [
+        { value: 'basketball', viewValue: 'Basketball' },
+        { value: 'football', viewValue: 'Football' },
+        { value: 'tennis', viewValue: 'Tennis' },
+        { value: 'soccer', viewValue: 'Soccer' },
+        { value: 'golf', viewValue: 'Golf' }
+      ]
+    },
+    {
+      name: 'Outdoor',
+      event: [
+        { value: 'hiking', viewValue: 'Hiking' },
+        { value: 'cycling', viewValue: 'Cycling' },
+        { value: 'mountain biking', viewValue: 'Mountain Biking' },
+        { value: 'rock climbing', viewValue: 'Rock Climbing' },
+        { value: 'kayaking', viewValue: 'Kayaking' },
 
+      ]
+    }
+  ];
 
-  constructor(private userService: UserService, private eventService: EventsService, private attendService: AttendingService) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private eventService: EventsService, private attendService: AttendingService) { }
 
   toggleSettingPopup() {
     this.settingPopup = !this.settingPopup;
