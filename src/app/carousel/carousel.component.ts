@@ -13,7 +13,7 @@ export class CarouselComponent implements OnInit {
 
   options: {}
 
-  public events: any = [];
+  public events: any;
   exerciseEvents: any = [];
   sportEvents: any = [];
   outdoorEvents: any = [];
@@ -41,26 +41,26 @@ export class CarouselComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.fetchEvents();
     this.fetchmyAttending();
     setTimeout(function () {
       var elems: NodeListOf<Element> = document.querySelectorAll('.carousel');
       var instances = M.Carousel.init(elems, this.options);
       var elems: NodeListOf<Element> = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems, this.options);
-    }, 200);
+    }, 500);
     //this.showEvents();
   }
 
   showEvents() {
     this.events = this.eventss;
-    // console.log(this.eventss)
-    // console.log(this.events)
-    this.separateTypes(this.eventss);
+    console.log(this.events)
+    this.separateTypes(this.events);
   }
 
   ngOnChanges() {
+
     this.showEvents();
+
     // this.separateTypes(this.events);
   }
 
