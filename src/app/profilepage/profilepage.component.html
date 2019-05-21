@@ -27,17 +27,18 @@
                   <p>{{ e.description }}</p>
                 </div>
                 <div class='card-map'>
-                  <agm-map [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" name="map"
-                    (mapClick)="onChoseLocation($event)">
-                    <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)"
-                      *ngIf="locationChosen"></agm-marker>
+                  <agm-map [streetViewControl]='streetViewControl' [latitude]="latConvert(e.latitude)"
+                    [longitude]="lngConvert(e.longitude)" name="map" (mapClick)="onChoseLocation($event)">
+                    <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)"></agm-marker>
                   </agm-map>
                 </div>
-                <button class="btn btn-default btn-sm" (click)="openEditEventModal(e)">Edit
-                </button>
-                <i class="material-icons" (click)='deleteEvent(e.id)'>
-                  delete_forever
-                </i>
+                <div style='display:flex; justify-content: center;align-items: center; margin:5px;'>
+                  <button style='padding-top:0; margin-bottom: 0;' class="btn btn-default btn-sm" (click)="openEditEventModal(e)">Edit
+                  </button>
+                  <i class="material-icons" (click)='deleteEvent(e.id)'>
+                    delete_forever
+                  </i>
+                </div>
               </div>
             </div>
           </div>
@@ -52,7 +53,7 @@
             <div *ngFor='let e of allAttendEvents' class='card'>
               <div class='contents'>
                 <div class='card-content'>
-                  <p style='font-size: 8pt;padding-bottom:3px'>{{ e.keyword }}</p>
+                  <p style='font-size: 8pt;padding-bottom:3px'>{{ e.keyword | uppercase}}</p>
                   <span class='card-title'>{{ e.title }}</span>
                   <p>{{ e.keyword }}</p>
                   <p>{{ e.date.substr(0,10) }}</p>
@@ -60,10 +61,9 @@
                   <p>{{ e.description }}</p>
                 </div>
                 <div class='card-map'>
-                  <agm-map [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" name="map"
-                    (mapClick)="onChoseLocation($event)">
-                    <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)"
-                      *ngIf="locationChosen"></agm-marker>
+                  <agm-map [streetViewControl]='streetViewControl' [latitude]="latConvert(e.latitude)"
+                    [longitude]="lngConvert(e.longitude)" name="map" (mapClick)="onChoseLocation($event)">
+                    <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)"></agm-marker>
                   </agm-map>
                 </div>
                 <button (click)='unattendDelete(e)'>Unattend</button>
