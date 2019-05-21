@@ -51,6 +51,7 @@ div.carousel-item.ng-star-inserted.active {
     border-radius: 15pt;
     margin: 3pt;
     display:flex;
+    background-color: rgb(43, 77, 116);
 }
 
 .card:hover {
@@ -74,6 +75,7 @@ div.carousel-item.ng-star-inserted.active {
     margin: 5px;
     color: black;
     justify-content: stretch;
+    border-radius: 15pt;
     /* z-index: 0 !important;
     opacity: .6; */
 
