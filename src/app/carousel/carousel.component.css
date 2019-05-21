@@ -36,8 +36,8 @@ div.carousel-item.ng-star-inserted.active {
 .card {
     width: 35vw;
     min-width: 250px;
-    border: solid grey 1px;
-    margin: 3pt;
+    border: solid rgb(43, 77, 116) 1px;
+    /* margin: 3pt; */
     display: flex;
     flex-direction: column;
     display: flex;
@@ -47,12 +47,13 @@ div.carousel-item.ng-star-inserted.active {
     text-align: center;
     /* border: solid grey 1px; */
     border-radius: 15pt;
-    margin: 3pt;
+    margin: 13pt;
 	/* outline: none; */
     /* margin:50px auto 0 auto; */
     width:100%;
     display:flex;
     max-width:1200px;
+    background-color: rgb(43, 77, 116);
 }
 
 .card:hover {
@@ -70,6 +71,7 @@ div.carousel-item.ng-star-inserted.active {
     margin: 5px;
     color: black;
     justify-content: stretch;
+    border-radius: 15pt;
     /* z-index: 0 !important;
     opacity: .6; */
 
