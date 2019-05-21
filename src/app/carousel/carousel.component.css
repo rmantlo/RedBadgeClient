@@ -8,7 +8,6 @@ agm-map {
     position: relative;
     padding-bottom: 5pt;
 }
-
 /***carousel**/
 
 .carousel {
@@ -30,7 +29,7 @@ agm-map {
 }
 
 div.carousel-item {
-    top: -120px;
+    top: -140px;
     left: -10%;
 }
 

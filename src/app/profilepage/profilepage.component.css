@@ -6,11 +6,7 @@ agm-map {
 }
 
 /***CARDS***/
-::ng-deep .ng-star-inserted{
-  display:flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+
 .card {
   width: 15vw;
   min-width: 250px;
