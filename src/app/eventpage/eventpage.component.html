@@ -8,12 +8,11 @@
 <!-- Modal  -->
 <div class='createEvent' *ngIf="addEventClicked">
   <div class='xBtn'>
-    <button (click)='closeEventModal()' mat-mini-fab>X</button>
+    <button id='xBtn' (click)='closeEventModal()' mat-mini-fab>X</button>
   </div>
   <h4>CREATE EVENT</h4>
+  <hr>
   <form [formGroup]='addEvent' (ngSubmit)='submitClick()' class="example-container">
-    <br>
-    <hr>
     <!-- Title -->
     <mat-form-field>
       <input matInput disableUnderline=true formControlName='title' placeholder="Title" required>
@@ -21,9 +20,11 @@
     <!--GoogleMaps-->
 
     <!-- <mat-form-field> -->
-    <agm-map class="map" [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
-      <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
-    </agm-map>
+    <div class='map'>
+      <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+        <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+      </agm-map>
+    </div>
     <!-- </mat-form-field> -->
     <br>
 
