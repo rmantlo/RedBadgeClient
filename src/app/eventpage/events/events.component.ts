@@ -27,7 +27,7 @@ export class EventsComponent implements OnInit {
   role: any;
   trueValue: boolean = true;
   cardImage: any;
-
+  streetViewControl: any = false;
 
   certainEvent: any;
   createAttend: any = {};
@@ -79,14 +79,13 @@ export class EventsComponent implements OnInit {
   ];
 
   constructor(private formBuilder: FormBuilder, private eventService: EventsService, private attendService: AttendingService) { }
-  
+
   addMap: any = {
     lat: "30.45555",
     lng: "42.35999"
   }
 
 
-  streetViewControl: boolean= false;
 
   onChoseLocation(event) {
     console.log(event);
@@ -184,7 +183,7 @@ export class EventsComponent implements OnInit {
   }
 
 
-  deleteEvent(id: number){
+  deleteEvent(id: number) {
     //console.log(id);
     this.eventService.deleteEvent(id).subscribe(
       data => {
