@@ -10,19 +10,24 @@ agm-map {
 /***carousel**/
 
 .carousel {
-    height: 700px;
     box-shadow: 0em .5em .8em .1em rgba( 0, 0, 0, 0.6);
+    height: 600px;
 }
-
+.carousel h3{
+    margin-top: 5px;
+}
 .input-field {
     max-width: 25%;
-}
+} 
 
 .seperator {
     margin-top: 24px;
     margin-bottom: 16px;
 }
-
+div.carousel-item{
+    top:-120px;
+    left: -50px;
+}
 div.carousel-item.ng-star-inserted {
     opacity: 0.6 !important;
 }
@@ -35,20 +40,17 @@ div.carousel-item.ng-star-inserted.active {
 
 .card {
     width: 35vw;
-    min-width: 250px;
+    min-width: 280px;
     border: solid grey 1px;
     margin: 3pt;
     display: flex;
     flex-direction: column;
     display: flex;
     position: relative;
-    width: 480px; 
-    min-width: 400px;
     text-align: center;
     border-radius: 15pt;
     margin: 3pt;
     display:flex;
-    max-width:1200px;
 }
 
 .card:hover {
@@ -57,12 +59,18 @@ div.carousel-item.ng-star-inserted.active {
 
 .card-map {
     cursor: pointer;
+    display:flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+.card-map agm-map{
+    left:unset;
 }
 
 
-
 .contents {
-    background: rgba(255, 255, 255, 0.803);
+    background: rgb(136, 156, 196);
+    border-radius: 20pt;
     margin: 5px;
     color: black;
     justify-content: stretch;
@@ -90,6 +98,10 @@ p {
 
 button {
     justify-content: right;
+    background: rgb(236, 197, 23);
+    border-color:rgb(255, 208, 0);
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 
 /***PARALAX***/
@@ -104,7 +116,16 @@ button {
     margin: 0 auto;
     background: #f9f9f9;
     font-size: 24px;
-    background: url('../../assets/cyclingpair.jpeg') no-repeat center;
+    background: url('../../assets/john-arano-1136867-unsplash.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 280px;
+}
+.parallax-container2 {
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+    background: url('../../assets/cyclingpair2.jpeg') no-repeat center;
     background-size: cover;
     background-attachment: fixed;
     height: 280px;
