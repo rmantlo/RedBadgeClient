@@ -6,7 +6,7 @@
       </div>
       <div class='userStuff'>
         <h3>{{userInfo.username | uppercase}}</h3>
-        <button (click)='toggleSettingPopup()'>Settings</button><br>
+        <button class="settings-button" (click)='toggleSettingPopup()'>Settings</button><br>
       </div>
     </div>
     <hr />
@@ -16,44 +16,62 @@
         <!---------------These are the individual cards in the My Events tab -->
         <mat-tab label="My Events">
           <div *ngIf='myEventInfo'>
-            <div *ngFor='let e of myEventInfo'>
-              <h2>{{ e.title }}</h2>
-              <p>{{ e.keyword }}</p>
-              <p>{{ e.time }}</p>
-              <p>{{ e.location }}</p>
-              <agm-map [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" name="map"
-                (mapClick)="onChoseLocation($event)">
-                <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)"
-                  *ngIf="locationChosen"></agm-marker>
-              </agm-map>
-              <p>{{ e.description }}</p>
-              <button class="btn btn-default btn-sm" (click)="openEditEventModal(e)">Edit
-              </button>
-
-
-              <i class="material-icons" (click)='deleteEvent(e.id)'>
-                delete_forever
-              </i>
+            <div *ngFor='let e of myEventInfo' class='card'>
+              <div class='contents'>
+                <div class='card-content'>
+                  <p style='font-size: 8pt;padding-bottom:3px'>{{ e.keyword }}</p>
+                  <span class='card-title'>{{ e.title }}</span>
+                  <p>{{ e.keyword }}</p>
+                  <p><a>{{ e.date.substr(0,10) }}</a></p>
+                  <p>{{ e.location }}</p>
+                  <p>{{ e.description }}</p>
+                </div>
+                <div class='card-map'>
+                  <agm-map [streetViewControl]='streetViewControl' [latitude]="latConvert(e.latitude)"
+                    [longitude]="lngConvert(e.longitude)" name="map" (mapClick)="onChoseLocation($event)">
+                    <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)"></agm-marker>
+                  </agm-map>
+                </div>
+                <div style='display:flex; justify-content: center;align-items: center; margin:5px;'>
+                  <button class="edit-button" (click)="openEditEventModal(e)">Edit
+                  </button>
+                  <i class="material-icons" (click)='deleteEvent(e.id)'>
+                    delete_forever
+                  </i>
+                </div>
+              </div>
             </div>
+          </div>
+          <div *ngIf='!myEventInfo'>
+            <h1>You haven't created your own Event yet!</h1>
           </div>
         </mat-tab>
 
         <!-- ----------These are the Events Attending cards for the events attending tab -->
         <mat-tab label="Events Attending">
-          <div *ngFor='let e of allAttendEvents'>
-            <h2>{{ e.title }}</h2>
-            <p>{{ e.keyword }}</p>
-            <p>{{ e.time }}</p>
-            <p>{{ e.location }}</p>
-            <p>
-              <agm-map [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)" name="map"
-                (mapClick)="onChoseLocation($event)">
-                <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)"
-                  *ngIf="locationChosen"></agm-marker>
-              </agm-map>
-            </p>
-            <p>{{ e.description }}</p>
-            <button (click)='unattendDelete(e)'>Unattend</button>
+          <div *ngIf='allAttendEvents'>
+            <div *ngFor='let e of allAttendEvents' class='card'>
+              <div class='contents'>
+                <div class='card-content'>
+                  <p style='font-size: 8pt;padding-bottom:3px'>{{ e.keyword | uppercase}}</p>
+                  <span class='card-title'>{{ e.title }}</span>
+                  <p>{{ e.keyword }}</p>
+                  <p>{{ e.date.substr(0,10) }}</p>
+                  <p>{{ e.location }}</p>
+                  <p>{{ e.description }}</p>
+                </div>
+                <div class='card-map'>
+                  <agm-map [streetViewControl]='streetViewControl' [latitude]="latConvert(e.latitude)"
+                    [longitude]="lngConvert(e.longitude)" name="map" (mapClick)="onChoseLocation($event)">
+                    <agm-marker [latitude]="latConvert(e.latitude)" [longitude]="lngConvert(e.longitude)"></agm-marker>
+                  </agm-map>
+                </div>
+                <button (click)='unattendDelete(e)'>Unattend</button>
+              </div>
+            </div>
+          </div>
+          <div *ngIf='!allAttendEvents'>
+            <h1>You aren't attending any events yet!</h1>
           </div>
         </mat-tab>
 
@@ -72,8 +90,9 @@
 <!--settings model-->
 <div class='settings' *ngIf='settingPopup'>
   <div class='xBtn'>
+      <button class="X-button" (click)='toggleSettingPopup()'>X</button>
     <h4>Settings</h4>
-    <button (click)='toggleSettingPopup()'>X</button>
+   
   </div>
   <form name='standalone' (ngSubmit)='onUserUpdateSubmit()' class="example-container">
     <mat-form-field>
@@ -88,9 +107,10 @@
     <mat-form-field>
       <input matInput [(ngModel)]='updateInfo.password' placeholder="New Password" type='password' name='password'>
     </mat-form-field><br>
-    <button mat-button type='submit'>Update</button>
+    <button class="update-button" mat-button type='submit'>Update</button>
+    <button class="delete-button" mat-button (click)='deleteAlert()'>Delete Profile</button>
   </form>
-  <button mat-button (click)='deleteAlert()'>Delete Profile</button>
+  
 </div>
 <!--userDelete alert-->
 <app-delete-alert *ngIf='deletePopup' (deleteToggle)='deleteAlert()'></app-delete-alert>
@@ -115,7 +135,7 @@
 <!-- Modal EDIT EVENT  -->
 <div class='editEvent' *ngIf="addEditEventClicked">
   <div class='xBtn' style='display:flex; justify-content: flex-end'>
-    <button (click)='closeEditEventModal()' mat-mini-fab>X</button>
+    <button class="X-button" (click)='closeEditEventModal()'>X</button>
   </div>
   <h4>EDIT EVENT</h4>
   <form name='standalone' (ngSubmit)='onSubmit()' class="example-container">
@@ -152,7 +172,7 @@
 
         <mat-form-field>
           <mat-label>Event</mat-label>
-          <mat-select [(ngModel)]='updateEventInfo.keyword' name='keyword'>
+          <mat-select style="display: inline-block" [(ngModel)]='updateEventInfo.keyword' name='keyword'>
             <!-- <mat-option>-- None --</mat-option> -->
             <mat-optgroup *ngFor="let group of eventGroups" [label]="group.name" [disabled]="group.disabled">
               <mat-option *ngFor="let event of group.event" [value]="event.value">
@@ -170,6 +190,6 @@
         </mat-form-field><br>
       </div>
     </div>
-    <button (click)="submitEditedEvent(currentUpdateEvent.id)" mat-button>Submit</button>
+    <button class="submit-button" (click)="submitEditedEvent(currentUpdateEvent.id)" mat-button>Submit</button>
   </form>
 </div>

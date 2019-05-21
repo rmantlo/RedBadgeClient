@@ -23,6 +23,9 @@ export class EventsService {
   deleteEvent(id: number) {
     return this.http.delete(`${APIURL}/event/delete/${id}`, httpOptions);
   }
+  deleteAllEvents(){
+    return this.http.delete(`${APIURL}/event/deleteall`, httpOptions)
+  }
 
   editEvent(id: number, body) {
     return this.http.put(`${APIURL}/event/update/${id}`, body, httpOptions);

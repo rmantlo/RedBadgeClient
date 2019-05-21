@@ -31,6 +31,7 @@ export class CarouselComponent implements OnInit {
 
   constructor(private eventService: EventsService, private attendService: AttendingService) { }
 
+  @Input() eventss: any;
 
   onChoseLocation(event) {
     //console.log(event);
@@ -48,16 +49,19 @@ export class CarouselComponent implements OnInit {
       var elems: NodeListOf<Element> = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems, this.options);
     }, 200);
+    //this.showEvents();
   }
-  @Input() eventss: any;
 
   showEvents() {
     this.events = this.eventss;
-    this.separateTypes(this.events);
+    // console.log(this.eventss)
+    // console.log(this.events)
+    this.separateTypes(this.eventss);
   }
 
   ngOnChanges() {
     this.showEvents();
+    // this.separateTypes(this.events);
   }
 
   fetchmyAttending() {
@@ -83,6 +87,9 @@ export class CarouselComponent implements OnInit {
         this.outdoorEvents = this.outdoorEvents.concat(e);
       }
     }
+    // console.log(this.exerciseEvents);
+    // console.log(this.sportEvents);
+    // console.log(this.outdoorEvents);
   }
 
   attendButton(event) {
@@ -95,7 +102,7 @@ export class CarouselComponent implements OnInit {
     // console.log(this.attendInfo);
     this.attendService.createAttendEvent(this.attendCreate).subscribe(
       data => {
-        console.log(data);
+        //console.log(data);
         // console.log(data);
         this.fetchmyAttending();
       }

@@ -3,13 +3,21 @@
 agm-map {
     height: 200px;
     width: 200px;
+    left: 140px;
+    /* this is what is "centering" the map on the modal */
+    position: relative;
+    padding-bottom: 5pt;
 }
 
 /***carousel**/
 
 .carousel {
-    height: 700px;
     box-shadow: 0em .5em .8em .1em rgba( 0, 0, 0, 0.6);
+    height: 600px;
+}
+
+.carousel h3 {
+    margin-top: 5px;
 }
 
 .input-field {
@@ -19,6 +27,11 @@ agm-map {
 .seperator {
     margin-top: 24px;
     margin-bottom: 16px;
+}
+
+div.carousel-item {
+    top: -120px;
+    left: -10%;
 }
 
 div.carousel-item.ng-star-inserted {
@@ -33,11 +46,18 @@ div.carousel-item.ng-star-inserted.active {
 
 .card {
     width: 35vw;
-    min-width: 250px;
+    min-width: 280px;
     border: solid grey 1px;
     margin: 3pt;
     display: flex;
     flex-direction: column;
+    display: flex;
+    position: relative;
+    text-align: center;
+    border-radius: 15pt;
+    margin: 3pt;
+    display: flex;
+    background-color: rgb(43, 77, 116);
 }
 
 .card:hover {
@@ -46,19 +66,49 @@ div.carousel-item.ng-star-inserted.active {
 
 .card-map {
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.card-map agm-map {
+    left: unset;
 }
 
 .contents {
-    background: rgb(255, 255, 255, 0.4);
+    background: rgb(136, 156, 196);
+    border-radius: 20pt;
     margin: 5px;
     color: black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    justify-content: stretch;
+    border-radius: 15pt;
+    /* z-index: 0 !important;
+    opacity: .6; */
+}
+
+.card-title {
+    word-wrap: break-word;
+    font-weight: 300;
+    margin: 0;
+    color: black;
+    font-size: 30pt;
+    font-family: 'Special Elite', cursive;
+}
+
+p {
+    font-weight: 300;
+    margin: 0;
+    color: black;
+    font-size: 12pt;
+    font-family: 'Special Elite', cursive;
 }
 
 button {
     justify-content: right;
+    background: rgb(236, 197, 23);
+    border-color: rgb(255, 208, 0);
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 
 /***PARALAX***/
@@ -73,7 +123,17 @@ button {
     margin: 0 auto;
     background: #f9f9f9;
     font-size: 24px;
-    background: url('../../assets/cyclingpair.jpeg') no-repeat center;
+    background: url('../../assets/john-arano-1136867-unsplash.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 280px;
+}
+
+.parallax-container2 {
+    margin: 0 auto;
+    background: #f9f9f9;
+    font-size: 24px;
+    background: url('../../assets/cyclingpair2.jpeg') no-repeat center;
     background-size: cover;
     background-attachment: fixed;
     height: 280px;
