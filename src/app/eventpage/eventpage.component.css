@@ -1,8 +1,7 @@
 /****maps*****/
-agm-map{
+agm-map {
     height: 200px;
     width: 200px;
-    left: 150px; /* this is what is "centering" the map on the modal */
     position: relative;
 }
 
@@ -13,16 +12,19 @@ agm-map{
     z-index: 5;
     border-radius: 5px;
     box-shadow: 0 .5em .5em rgba(0, 0, 0, 0.4);
-    width: 500px;
-    height: 900px;
+    width: 350px;
     top: 65px;
     right: 0;
     background: whitesmoke;
     text-align: center;
+    padding-bottom: 50px;
     color: black;
     
 }
-
+.map{
+    display: flex;
+    justify-content: center;
+}
 input {
 	border-bottom: none!important;
     box-shadow: none!important;	
@@ -32,6 +34,7 @@ input {
 } 
 .createEvent h4{
     margin: 0;
+    padding-top:5px;
     font-family: 'Special Elite', cursive;
     font-size: 24pt;
 }
@@ -39,6 +42,14 @@ input {
     display: flex;
     justify-content: flex-end;
 }
+#xBtn {
+    /* box-sizing: content-box; */
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    right: 0;
+    top: 0;
+  }
 
 
 .submit-button {
@@ -50,7 +61,6 @@ input {
     position: absolute;
     right: 41%;
     z-index: 100;
-    margin-top: 15pt;
 }
 
 /***PARALAX***/
