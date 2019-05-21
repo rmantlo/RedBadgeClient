@@ -180,6 +180,8 @@ button {
   bottom: 2px;
   right: 30%;
   z-index: 5;
+  width: 116px;
+  text-align: center
 }
 
 /* FOR THE CREATE MODAL */
@@ -235,6 +237,7 @@ input {
   margin: 0;
   right: 0;
   top: 0;
+  width: 40px
 }
 
 .submit-button {

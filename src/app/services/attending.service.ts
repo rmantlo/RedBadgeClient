@@ -19,12 +19,14 @@ export class AttendingService {
   getMyAttending() {
     return this.http.get(`${APIURL}/attending/myattending`, httpOptions)
   }
-  createAttendEvent(body){
+  createAttendEvent(body) {
     return this.http.post(`${APIURL}/attending/create`, body, httpOptions)
   }
-  deleteAttend(eventId){
+  deleteAttend(eventId) {
     return this.http.delete(`${APIURL}/attending/delete/${eventId}`, httpOptions)
+  }
+  deleteAllAttend() {
+    return this.http.delete(`${APIURL}/attending/deleteall`, httpOptions)
   }
 
 }
- 

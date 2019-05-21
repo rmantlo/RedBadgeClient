@@ -94,13 +94,20 @@ export class EventsComponent implements OnInit {
     this.longitude = event.coords.lng;
     this.locationChosen = true;
   }
+  latConvert(lat) {
+    return Number(lat)
+  }
 
+  lngConvert(lng) {
+    return Number(lng)
+  }
 
-  getEvent(): any {
+  getEvents(): any {
     this.eventService.allEvents().subscribe(
       data => {
         //console.log(data);
         this.event = data;
+        this.event.reverse();
         // this.event.reverse();
         // this.certainEvent = this.event.slice(0,20);
       }
@@ -119,7 +126,7 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getEvent();
+    this.getEvents();
     this.role = localStorage.getItem("role");
     this.addEvent = this.formBuilder.group({
       title: new FormControl(),
@@ -128,7 +135,6 @@ export class EventsComponent implements OnInit {
       keyword: new FormControl(),
       description: new FormControl()
     });
-    this.fetchEvents();
   }
 
   openEventModal() {
@@ -144,27 +150,14 @@ export class EventsComponent implements OnInit {
     this.submitNewEvent();
   }
 
-  events: any = [];
-
-  fetchEvents() {
-    this.eventService.allEvents().subscribe(
-      data => {
-        this.events = data;
-        this.events.reverse();
-        console.log(data);
-        //this.separateTypes(this.events);
-        //this.fetchmyAttending();
-      }
-    )
-  }
   submitNewEvent() {
     this.eventGroup = { ...this.addEvent.value, ...this.addMap };
-    this.events.unshift(this.eventGroup);
     console.log(this.eventGroup)
     this.eventService.createEvent(this.eventGroup).subscribe(
       datas => {
         this.newEventInfo = datas.data;
         this.createAttendOnEvent(datas.data);
+        this.getEvents();
       }
     )
     this.addEventClicked = !this.addEventClicked;
@@ -182,24 +175,6 @@ export class EventsComponent implements OnInit {
     )
   }
 
-
-  deleteEvent(id: number) {
-    //console.log(id);
-    this.eventService.deleteEvent(id).subscribe(
-      data => {
-        console.log('deleted');
-        this.getEvent();
-      }
-    )
-  }
-
-  latConvert(lat) {
-    return Number(lat)
-  }
-
-  lngConvert(lng) {
-    return Number(lng)
-  }
 
   attendInfo: any = [];
   attendCreate: any = {};
@@ -245,5 +220,13 @@ export class EventsComponent implements OnInit {
     )
   }
 
-
+  deleteEvent(id: number) {
+    //console.log(id);
+    this.eventService.deleteEvent(id).subscribe(
+      data => {
+        console.log('deleted');
+        this.getEvents();
+      }
+    )
+  }
 }

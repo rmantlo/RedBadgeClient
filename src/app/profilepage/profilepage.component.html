@@ -6,7 +6,7 @@
       </div>
       <div class='userStuff'>
         <h3>{{userInfo.username | uppercase}}</h3>
-        <button (click)='toggleSettingPopup()'>Settings</button><br>
+        <button class="settings-button" (click)='toggleSettingPopup()'>Settings</button><br>
       </div>
     </div>
     <hr />
@@ -33,7 +33,7 @@
                   </agm-map>
                 </div>
                 <div style='display:flex; justify-content: center;align-items: center; margin:5px;'>
-                  <button style='padding-top:0; margin-bottom: 0;' class="btn btn-default btn-sm" (click)="openEditEventModal(e)">Edit
+                  <button class="edit-button" (click)="openEditEventModal(e)">Edit
                   </button>
                   <i class="material-icons" (click)='deleteEvent(e.id)'>
                     delete_forever
@@ -90,8 +90,9 @@
 <!--settings model-->
 <div class='settings' *ngIf='settingPopup'>
   <div class='xBtn'>
+      <button class="X-button" (click)='toggleSettingPopup()'>X</button>
     <h4>Settings</h4>
-    <button (click)='toggleSettingPopup()'>X</button>
+   
   </div>
   <form name='standalone' (ngSubmit)='onUserUpdateSubmit()' class="example-container">
     <mat-form-field>
@@ -106,9 +107,10 @@
     <mat-form-field>
       <input matInput [(ngModel)]='updateInfo.password' placeholder="New Password" type='password' name='password'>
     </mat-form-field><br>
-    <button mat-button type='submit'>Update</button>
+    <button class="update-button" mat-button type='submit'>Update</button>
+    <button class="delete-button" mat-button (click)='deleteAlert()'>Delete Profile</button>
   </form>
-  <button mat-button (click)='deleteAlert()'>Delete Profile</button>
+  
 </div>
 <!--userDelete alert-->
 <app-delete-alert *ngIf='deletePopup' (deleteToggle)='deleteAlert()'></app-delete-alert>
@@ -133,7 +135,7 @@
 <!-- Modal EDIT EVENT  -->
 <div class='editEvent' *ngIf="addEditEventClicked">
   <div class='xBtn' style='display:flex; justify-content: flex-end'>
-    <button (click)='closeEditEventModal()' mat-mini-fab>X</button>
+    <button class="X-button" (click)='closeEditEventModal()'>X</button>
   </div>
   <h4>EDIT EVENT</h4>
   <form name='standalone' (ngSubmit)='onSubmit()' class="example-container">
@@ -170,7 +172,7 @@
 
         <mat-form-field>
           <mat-label>Event</mat-label>
-          <mat-select [(ngModel)]='updateEventInfo.keyword' name='keyword'>
+          <mat-select style="display: inline-block" [(ngModel)]='updateEventInfo.keyword' name='keyword'>
             <!-- <mat-option>-- None --</mat-option> -->
             <mat-optgroup *ngFor="let group of eventGroups" [label]="group.name" [disabled]="group.disabled">
               <mat-option *ngFor="let event of group.event" [value]="event.value">
@@ -188,6 +190,6 @@
         </mat-form-field><br>
       </div>
     </div>
-    <button (click)="submitEditedEvent(currentUpdateEvent.id)" mat-button>Submit</button>
+    <button class="submit-button" (click)="submitEditedEvent(currentUpdateEvent.id)" mat-button>Submit</button>
   </form>
 </div>
