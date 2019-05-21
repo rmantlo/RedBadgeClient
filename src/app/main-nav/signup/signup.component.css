@@ -20,6 +20,7 @@
     justify-content: space-between;
     margin: 5px;
     background-color: whitesmoke;
+    
 }
 h4 {
     margin: 3pt;
@@ -35,6 +36,7 @@ h4 {
     left: 64%;
     /* padding-top: 0; */
     margin-top: 3pt;
+    margin-bottom: 3pt;
 
 }
 .xBtn {
@@ -65,68 +67,49 @@ input {
     font-size: 10pt;
 } 
 
-.next-button {
-    background-color: rgb(39, 64, 133);
-    color: white;
-    border-color:  rgb(39, 64, 133);
-    overflow: auto;
-    z-index: 10;
-    position: absolute;
-    right: 40%;
-    z-index: 100;
-    margin-top: 15pt;
+
+#stepper {
+    /* margin-top: 3em; */
+    padding-top: 1.5rem;
 }
 
-.back-button {
-    background-color: rgb(39, 64, 133);
-    color: white;
-    border-color:  rgb(39, 64, 133);
-    /* overflow: auto; */
-    z-index: 10;
-    /* position: relative; */
-    /* right: 41%; */
-    float: left;
-    z-index: 100;
-    margin-top: 15pt;
-}
-
-
-.back-bttn {
-    background-color: rgb(39, 64, 133);
-    color: white;
-    border-color:  rgb(39, 64, 133);
-    /* overflow: auto; */
-    z-index: 10;
-    /* position: relative; */
-    right: 13%;
-    /* float: left; */
-
-    z-index: 100;
-    margin-top: 15pt;
-}
-
-.complete-button {
-    background-color: rgb(39, 64, 133);
-    color: white;
-    border-color:  rgb(39, 64, 133);
-    /* overflow: auto; */
-    z-index: 10;
-    position: absolute;
-    z-index: 100;
-    margin-top: 15pt;
-
-}
-
-.reset-button {
+#buttons  {
     background-color: rgb(39, 64, 133);
     color: white;
     border-color:  rgb(39, 64, 133);
     overflow: auto;
     z-index: 10;
     position: relative;
-    right: 33%;
+    /* right: 21%; */
     z-index: 100;
-    margin-top: 15pt;
+    margin-top: 5pt;
+}
+
+#buttonsBack{
+    background-color:rgba(255, 187, 0, 0.753);
+    color: white;
+    border-color:rgba(255, 187, 0, 0.753);
+    overflow: auto;
+    z-index: 10;
+    position: relative;
+    /* right: 21%; */
+    z-index: 100;
+    margin-top: 5pt;
+    margin-right: 3pt;
+    
+}
+
+#buttonsReset{
+    background-color:red;
+    color: white;
+    border-color: red;
+    overflow: auto;
+    z-index: 10;
+    position: relative;
+    /* right: 21%; */
+    z-index: 100;
+    margin-top: 5pt;
+    /* margin-right: 2pt; */
 }
 
 .signup {
