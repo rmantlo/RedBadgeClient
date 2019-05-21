@@ -3,7 +3,7 @@
 
   <div class="example-button-row">
     <button (click)="openEventModal()"
-      style="top: 64px; right: 0; padding:0; margin-bottom: 0; z-index: 3; border-radius: 50%" mat-mini-fab>
+      style="width: 40px ;top: 64px; right: 0; padding:0; margin-bottom: 0; z-index: 3; border-radius: 50%" mat-mini-fab>
       <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
     </button>
 
@@ -118,7 +118,7 @@
                 (click)='unattendButton(e.id)'>Unattend</button>
             </div>
             <ng-template #noShow1>
-              <button (click)='attendButton(e)'>Attend</button>
+              <button #button (click)='attendButton(e)'>Attend</button>
             </ng-template>
             <div *ngIf="role == 'admin'">
               <div class="button-container">

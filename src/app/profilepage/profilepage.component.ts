@@ -141,6 +141,7 @@ export class ProfilepageComponent implements OnInit {
   // Need delete confimation pop-up
   deleteEvent(id: number) {
     console.log(id);
+    this.attendService.deleteAttend(id).subscribe(data=>console.log('attend deleted'))
     this.eventService.deleteEvent(id).subscribe(
       data => {
         console.log('deleted');

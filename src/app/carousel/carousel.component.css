@@ -27,7 +27,7 @@ agm-map {
 }
 div.carousel-item{
     top:-120px;
-    left: -50px;
+    left:-10%;
 }
 div.carousel-item.ng-star-inserted {
     opacity: 0.6 !important;
