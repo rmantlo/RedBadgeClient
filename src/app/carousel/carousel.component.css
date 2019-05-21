@@ -3,8 +3,9 @@
 agm-map {
     height: 200px;
     width: 200px;
-    left: 100px; /* this is what is "centering" the map on the modal */
+    left: 140px; /* this is what is "centering" the map on the modal */
     position: relative;
+    padding-bottom: 5pt;
 }
 
 /***carousel**/
@@ -45,12 +46,8 @@ div.carousel-item.ng-star-inserted.active {
     width: 480px; 
     min-width: 400px;
     text-align: center;
-    /* border: solid grey 1px; */
     border-radius: 15pt;
-    margin: 13pt;
-	/* outline: none; */
-    /* margin:50px auto 0 auto; */
-    width:100%;
+    margin: 3pt;
     display:flex;
     max-width:1200px;
     background-color: rgb(43, 77, 116);

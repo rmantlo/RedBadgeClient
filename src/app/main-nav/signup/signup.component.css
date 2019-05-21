@@ -65,14 +65,66 @@ input {
     font-size: 10pt;
 } 
 
-button {
+.next-button {
     background-color: rgb(39, 64, 133);
     color: white;
     border-color:  rgb(39, 64, 133);
     overflow: auto;
     z-index: 10;
     position: absolute;
-    right: 41%;
+    right: 40%;
+    z-index: 100;
+    margin-top: 15pt;
+}
+
+.back-button {
+    background-color: rgb(39, 64, 133);
+    color: white;
+    border-color:  rgb(39, 64, 133);
+    /* overflow: auto; */
+    z-index: 10;
+    /* position: relative; */
+    /* right: 41%; */
+    float: left;
+    z-index: 100;
+    margin-top: 15pt;
+}
+
+
+.back-bttn {
+    background-color: rgb(39, 64, 133);
+    color: white;
+    border-color:  rgb(39, 64, 133);
+    /* overflow: auto; */
+    z-index: 10;
+    /* position: relative; */
+    right: 13%;
+    /* float: left; */
+
+    z-index: 100;
+    margin-top: 15pt;
+}
+
+.complete-button {
+    background-color: rgb(39, 64, 133);
+    color: white;
+    border-color:  rgb(39, 64, 133);
+    /* overflow: auto; */
+    z-index: 10;
+    position: absolute;
+    z-index: 100;
+    margin-top: 15pt;
+
+}
+
+.reset-button {
+    background-color: rgb(39, 64, 133);
+    color: white;
+    border-color:  rgb(39, 64, 133);
+    overflow: auto;
+    z-index: 10;
+    position: relative;
+    right: 33%;
     z-index: 100;
     margin-top: 15pt;
 }
