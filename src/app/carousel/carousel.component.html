@@ -58,7 +58,7 @@
             <div class="card-map">
               <agm-map [zoomControl]='zoomControl' [streetViewControl]='streetViewControl' [mapDraggable]='draggable'
                 [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
-                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
               </agm-map>
             </div>
           </div>
@@ -98,7 +98,7 @@
             <div class="card-map">
               <agm-map [zoomControl]='zoomControl' [streetViewControl]='streetViewControl' [mapDraggable]='draggable'
                 [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
-                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
               </agm-map>
             </div>
           </div>
