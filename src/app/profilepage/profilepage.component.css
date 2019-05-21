@@ -6,7 +6,11 @@ agm-map {
 }
 
 /***CARDS***/
-
+::ng-deep .ng-star-inserted{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .card {
   width: 15vw;
   min-width: 250px;
@@ -23,6 +27,7 @@ agm-map {
   margin: 3pt;
   display: flex;
   max-width: 1200px;
+  background: rgb(43, 77, 116);
 }
 
 .card:hover {
@@ -34,7 +39,8 @@ agm-map {
 }
 
 .contents {
-  background: rgba(255, 255, 255, 0.803);
+  background: rgb(136, 156, 196);
+  border-radius: 20pt;
   margin: 5px;
   color: black;
   justify-content: stretch;
