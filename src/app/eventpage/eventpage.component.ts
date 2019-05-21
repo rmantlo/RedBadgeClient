@@ -144,7 +144,7 @@ export class EventpageComponent implements OnInit {
     console.log(this.createAttend);
     this.attendService.createAttendEvent(this.createAttend).subscribe(
       data => {
-        //console.log(data);
+        console.log(data);
       }
     )
   }
