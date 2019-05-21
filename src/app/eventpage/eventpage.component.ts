@@ -22,9 +22,8 @@ export interface EventGroup {
   styleUrls: ['./eventpage.component.css']
 })
 export class EventpageComponent implements OnInit {
-
-  event: any;
-  certainEvent: any;
+  events: any = [];
+  //certainEvent: any;
   token: any;
   createAttend: any = {};
 
@@ -80,6 +79,15 @@ export class EventpageComponent implements OnInit {
     this.token = localStorage.getItem('token');
     //console.log(this.token)
   }
+  fetchEvents() {
+    this.eventsService.allEvents().subscribe(
+      data => {
+        this.events = data;
+        this.events.reverse();
+        //console.log(data);
+      }
+    )
+  }
 
   ngOnInit() {
     this.addEvent = this.formBuilder.group({
@@ -93,9 +101,9 @@ export class EventpageComponent implements OnInit {
     this.setToken();
   }
   onChoseLocation(event) {
-    console.log(event);
+    //console.log(event);
     this.addMap = event.coords;
-    console.log(this.addMap);
+    //console.log(this.addMap);
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
     this.locationChosen = true;
@@ -110,33 +118,22 @@ export class EventpageComponent implements OnInit {
 
 
   submitClick() {
-    console.log(this.eventGroup)
+    //console.log(this.eventGroup)
     this.submitNewEvent();
   }
 
-  events: any = [];
-
-  fetchEvents() {
-    this.eventsService.allEvents().subscribe(
-      data => {
-        this.events = data;
-        this.events.reverse();
-        console.log(data);
-        //this.separateTypes(this.events);
-        //this.fetchmyAttending();
-      }
-    )
-  }
   submitNewEvent() {
     this.eventGroup = { ...this.addEvent.value, ...this.addMap };
-    this.events.unshift(this.eventGroup);
-    console.log(this.eventGroup)
+    //this.events.unshift(this.eventGroup);
+    //console.log(this.eventGroup)
     this.eventsService.createEvent(this.eventGroup).subscribe(
       datas => {
         this.newEventInfo = datas.data;
         this.createAttendOnEvent(datas.data);
+        this.fetchEvents();
       }
     )
+    window.location.reload();
     this.addEventClicked = !this.addEventClicked;
   }
   createAttendOnEvent(eventInfo) {
@@ -147,7 +144,7 @@ export class EventpageComponent implements OnInit {
     console.log(this.createAttend);
     this.attendService.createAttendEvent(this.createAttend).subscribe(
       data => {
-        console.log(data);
+        //console.log(data);
       }
     )
   }
