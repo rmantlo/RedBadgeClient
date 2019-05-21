@@ -6,12 +6,12 @@
       <h3>EXCERCISE</h3>
 
       <div class='carousel-item' *ngFor="let e of exerciseEvents; let i = index">
-        <section class="card" style='background-image: url("../../assets/situpgirls.jpeg")'>
+        <section class="card" style='background:rgb(43, 77, 116)'>
           <div class='contents'>
             <div class="card-content">
-              <p style='font-size: 8pt;padding-bottom:3px'>{{ e.keyword }}</p>
+              <p style='font-size: 8pt;padding-bottom:3px'>{{ e.keyword | uppercase}}</p>
               <span class="card-title">{{ e.title }}</span>
-              <p><a>{{ e.date.substr(0,10) }}</a></p>
+              <p>{{ e.date.substr(0,10) }}</p>
               <p>{{ e.location }}</p>
               <p>{{ e.description }}</p>
             </div>
@@ -46,11 +46,12 @@
       <h3>SPORTS</h3>
 
       <div class='carousel-item' *ngFor="let e of sportEvents; let i = index">
-        <section class="card" style='background-image: url("../../assets/hiking.jpeg")'>
+        <section class="card" style='background:rgb(43, 77, 116)'>
           <div class='contents'>
             <div class="card-content">
+              <p style='font-size: 8pt;padding-bottom:3px'>{{ e.keyword | uppercase}}</p>
               <span class="card-title">{{ e.title }}</span>
-              <p><a href="#">{{ e.date.substr(0,10) }}</a></p>
+              <p>{{ e.date.substr(0,10) }}</p>
               <p>{{ e.location }}</p>
               <p>{{ e.description }}</p>
             </div>
@@ -75,7 +76,7 @@
 
   <!--paralax-->
   <div class="custom-container">
-    <div class="parallax-container1"></div>
+    <div class="parallax-container2"></div>
   </div>
 
   <!-- Here is our Nature carousel -->
@@ -85,11 +86,12 @@
       <h3>OUTDOORS</h3>
 
       <div class='carousel-item' *ngFor="let e of outdoorEvents; let i = index">
-        <section class="card" style='background-image: url("../../assets/hiking.jpeg")'>
+        <section class="card" style='background:rgb(43, 77, 116)'>
           <div class='contents'>
             <div class="card-content">
+              <p style='font-size: 8pt;padding-bottom:3px'>{{ e.keyword | uppercase}}</p>
               <span class="card-title">{{ e.title }}</span>
-              <p><a href="#">{{ e.date.substr(0,10) }}</a></p>
+              <p>{{ e.date.substr(0,10) }}</p>
               <p>{{ e.location }}</p>
               <p>{{ e.description }}</p>
             </div>
