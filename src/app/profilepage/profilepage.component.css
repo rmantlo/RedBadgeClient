@@ -66,6 +66,12 @@ p {
 
 button {
   justify-content: right;
+  background: rgb(236, 197, 23);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: black;
 }
 
 /****profile****/
