@@ -17,7 +17,7 @@
           <input matInput placeholder="Password" formControlName="password" type='password' pattern='.{5,}' required>
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext value='Check'>Next</button>
+          <button class="next-button" mat-button matStepperNext value='Check'>Next</button>
         </div>
       </form>
     </mat-step>
@@ -28,7 +28,7 @@
           <input matInput placeholder="Profile Image Url" formControlName="image">
         </mat-form-field>
         <div>
-          <button mat-button matStepperPrevious>Back</button>
+          <button class="back-bttn" mat-button matStepperPrevious>Back</button>
           <button class="next-button" mat-button matStepperNext>Next</button>
         </div>
       </form>
@@ -36,11 +36,11 @@
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       <div>
-        <button mat-button (click)='signupClick()'>Click here to complete sign up</button>
+        <button class="complete-button" mat-button (click)='signupClick()'>Click here to complete sign up</button>
       </div>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button class="back-button" mat-button matStepperPrevious>Back</button>
+        <button class="reset-button" mat-button (click)="stepper.reset()">Reset</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

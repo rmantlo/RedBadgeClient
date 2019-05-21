@@ -3,8 +3,9 @@
 agm-map {
     height: 200px;
     width: 200px;
-    left: 100px; /* this is what is "centering" the map on the modal */
+    left: 140px; /* this is what is "centering" the map on the modal */
     position: relative;
+    padding-bottom: 5pt;
 }
 
 /***carousel**/
