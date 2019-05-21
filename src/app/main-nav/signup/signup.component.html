@@ -3,7 +3,7 @@
     <h4>Sign up</h4>
     <button class="x-Btn" (click)='signupToggle()'>X</button>
   <!-- </div> -->
-  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-horizontal-stepper id="stepper" [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>User</ng-template>
@@ -17,7 +17,7 @@
           <input matInput placeholder="Password" formControlName="password" type='password' pattern='.{5,}' required>
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext value='Check'>Next</button>
+          <button id="buttons" mat-button matStepperNext value='Check'>Next</button>
         </div>
       </form>
     </mat-step>
@@ -28,19 +28,19 @@
           <input matInput placeholder="Profile Image Url" formControlName="image">
         </mat-form-field>
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button class="next-button" mat-button matStepperNext>Next</button>
+          <button id="buttonsBack" mat-button matStepperPrevious>Back</button>
+          <button id="buttons" class="next-button" mat-button matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       <div>
-        <button mat-button (click)='signupClick()'>Click here to complete sign up</button>
+        <button id="buttons" mat-button (click)='signupClick()'>Click here to complete sign up</button>
       </div>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button id="buttonsBack" mat-button matStepperPrevious>Back</button>
+        <button id="buttonsReset" mat-button color="warn" (click)="stepper.reset()">Reset</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
