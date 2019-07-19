@@ -78,6 +78,10 @@ export class EventsComponent implements OnInit {
     }
   ];
 
+  attendInfo: any = [];
+  attendingArray: any = [];
+  attendCreate: any = {};
+
   constructor(private formBuilder: FormBuilder, private eventService: EventsService, private attendService: AttendingService) { }
 
   addMap: any = {
@@ -127,6 +131,7 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.getEvents();
+    this.fetchmyAttending();
     this.role = localStorage.getItem("role");
     this.addEvent = this.formBuilder.group({
       title: new FormControl(),
@@ -162,6 +167,18 @@ export class EventsComponent implements OnInit {
     )
     this.addEventClicked = !this.addEventClicked;
   }
+  fetchmyAttending() {
+    this.attendService.getMyAttending().subscribe(
+      data => {
+        this.attendInfo = data;
+        //console.log(this.attendInfo);
+        for (let a of this.attendInfo) {
+          this.attendingArray.push(a.eventId);
+        }
+        //console.log(this.attendingArray);
+      }
+    )
+  }
   createAttendOnEvent(eventInfo) {
     this.createAttend["username"] = eventInfo.userId;
     this.createAttend["eventId"] = eventInfo.id;
@@ -176,22 +193,6 @@ export class EventsComponent implements OnInit {
   }
 
 
-  attendInfo: any = [];
-  attendCreate: any = {};
-  attendingArray: any = [];
-
-  fetchmyAttending() {
-    this.attendService.getMyAttending().subscribe(
-      data => {
-        this.attendInfo = data;
-        //console.log(this.attendInfo);
-        for (let a of this.attendInfo) {
-          this.attendingArray.push(a.eventId);
-        }
-        //console.log(this.attendingArray);
-      }
-    )
-  }
   attendButton(event) {
     this.attendCreate["username"] = event.id;
     this.attendCreate["eventId"] = event.id;
