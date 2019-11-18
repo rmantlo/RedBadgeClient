@@ -39,6 +39,7 @@ export class EventpageComponent implements OnInit {
   newEventInfo: any;
 
   eventControl = new FormControl();
+  
   eventGroups: EventGroup[] = [
     {
       name: 'Exercise',

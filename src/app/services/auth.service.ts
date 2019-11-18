@@ -21,7 +21,6 @@ export class AuthService {
       console.log('expired: ' + !isExpired);
       return isExpired;
     }
-
   }
 }
 

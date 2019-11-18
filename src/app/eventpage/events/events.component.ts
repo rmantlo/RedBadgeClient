@@ -188,6 +188,7 @@ export class EventsComponent implements OnInit {
     this.attendService.createAttendEvent(this.createAttend).subscribe(
       data => {
         console.log(data);
+        this.fetchmyAttending();
       }
     )
   }
